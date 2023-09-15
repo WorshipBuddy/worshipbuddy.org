@@ -1,3 +1,2 @@
-# http and https need separate rules if you don’t force_ssl!
 http://support.worshipbuddy.org/* https://forms.gle/VpvWgnW7QAoxjFadA/:splat 301!
 https://support.worshipbuddy.org/* https://forms.gle/VpvWgnW7QAoxjFadA/:splat 301!
