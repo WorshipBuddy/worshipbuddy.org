@@ -1,2 +1,2 @@
 # worshipbuddy.org
-frontend for worshipbuddy.org
+Website code for Worshipbuddy.org
