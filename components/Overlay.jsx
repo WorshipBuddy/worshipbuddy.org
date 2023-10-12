@@ -4,13 +4,22 @@ export default function Overlay({ children }) {
   return (
     <div className="relative z-1 h-screen">
       {/* Background Image using an img tag */}
-      <Image
+      {/* <Image
         width={1920}
         height={1080}
         src="/worship-cut-up.gif"
         alt="Worship Background"
         className="absolute inset-0 object-cover w-full h-full"
-      />
+      /> */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 object-cover w-full h-full"
+      >
+        <source src="/worship-cut-up.mp4" type="video/mp4" />
+      </video>
 
       {/* Dark Overlay + Blur */}
       <div className="absolute inset-0 backdrop-blur-md"></div>
