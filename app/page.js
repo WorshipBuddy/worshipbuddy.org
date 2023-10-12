@@ -7,7 +7,7 @@ import Overlay from "@/components/Overlay";
 
 export default function Home() {
   return (
-    <main className="relative flex flex-col">
+    <main className="relative flex flex-col bg-neutral-900 text-white">
       <Overlay>
         <Nav />
         <Hero />
