@@ -1,5 +1,7 @@
+import Nav from "@/components/Nav";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,8 +46,21 @@ export default function RootLayout({ children }) {
         />
         <meta property="og:url" content="https://worshipbuddy.org/" />
         <meta property="og:type" content="website"></meta>
+        <Script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
+        ></Script>
+        <Script id="google-analytics">
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+        gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}'); `}
+        </Script>
       </head>
+
       <body className={`${inter.className} bg-neutral-900 relative`}>
+        <Nav />
         {children}
       </body>
     </html>
