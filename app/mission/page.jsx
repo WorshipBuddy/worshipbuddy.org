@@ -13,7 +13,7 @@ function page() {
           spiritual growth.
         </div>
         <div className=" text-l text-center">
-          For further queries, please contact us at jobinmthomas7@gmail.com
+          For further queries, please contact Jobin Thomas - jobinmthomas7@gmail.com
         </div>
       </div>
     </div>
