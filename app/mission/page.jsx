@@ -24,7 +24,7 @@ Spiritual Growth: We believe that technology can be a powerful catalyst for spir
 </p>
         </div>
         <div className=" text-l text-center">
-          For further queries, please contact Jobin Thomas - jobinmthomas7@gmail.com
+          For further queries, please contact Support: support@worshipbuddy.org
         </div>
       </div>
     </div>
