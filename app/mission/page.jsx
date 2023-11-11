@@ -19,7 +19,7 @@ We recognize that in an increasingly digital world, the role of technology in wo
 Community Building: We understand that strong faith communities are built on meaningful connections. Through our tech solutions, we enable churches to connect with their congregations, fostering a sense of togetherness even in the digital age.
 <p></p><br></br>
 Spiritual Growth: We believe that technology can be a powerful catalyst for spiritual growth. By offering resources that facilitate Bible study, prayer, and reflection, we help individuals deepen their faith and understanding of Christian teachings.<br></br>
-<br>
+
         </div>
         <div className=" text-l text-center">
           For further queries, please contact Support: support@worshipbuddy.org
