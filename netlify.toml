@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/sets/:setId"
+  to = "worshipbuddy://sets?setId=:setId"
+  status = 301
