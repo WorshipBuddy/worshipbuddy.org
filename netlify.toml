@@ -1,4 +1,4 @@
 [[redirects]]
   from = "/sets/:setId"
-  to = "worshipbuddy://sets?setId=:setId"
+  to = "worshipbuddy://sets?:setId"
   status = 301
