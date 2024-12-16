@@ -4,7 +4,7 @@ const nextConfig = {
     return [
       {
         source: '/sets/:setId',
-        destination: 'worshipbuddy://sets?:setId',
+        destination: 'worshipbuddy://sets?setId=:setId',
         permanent: true,
       },
     ];
