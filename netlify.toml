@@ -4,6 +4,6 @@
   status = 301
   
 [[redirects]]
-  from = "/song?:songId"
+  from = "/song/:songId"
   to = "worshipbuddy://song?:songId"
   status = 301
