@@ -2,3 +2,8 @@
   from = "/sets/:setId"
   to = "worshipbuddy://sets?:setId"
   status = 301
+  
+[[redirects]]
+  from = "/song?:songId"
+  to = "worshipbuddy://song?:songId"
+  status = 301
