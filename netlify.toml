@@ -7,3 +7,8 @@
   from = "/song/:songId"
   to = "worshipbuddy://song?:songId"
   status = 301
+
+[[redirects]]
+  from = "/lyrics/:songNumberId"
+  to = "worshipbuddy://lyrics?:songNumberId"
+  status = 301
