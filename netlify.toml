@@ -1,14 +1,14 @@
 [[redirects]]
   from = "/sets/:setId"
-  to = "worshipbuddy://sets?:setId"
+  to = "/deeplink.html?setId=:setId"
   status = 301
-  
+
 [[redirects]]
   from = "/song/:songId"
-  to = "worshipbuddy://song?:songId"
+  to = "/deeplink.html?songId=:songId"
   status = 301
 
 [[redirects]]
   from = "/lyrics/:songNumberId"
-  to = "worshipbuddy://lyrics?:songNumberId"
+  to = "/deeplink.html?songNumberId=:songNumberId"
   status = 301
