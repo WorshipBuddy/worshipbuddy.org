@@ -8,7 +8,7 @@
     function handleDeepLink() {
       const isAndroid = /android/i.test(navigator.userAgent);
       const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-      
+
       // Parse URL parameters
       const urlParams = new URLSearchParams(window.location.search);
       const setId = urlParams.get('setId');
@@ -32,21 +32,16 @@
         storeUrl = "https://apps.apple.com/us/app/worshipbuddy/id6451153168"; 
       }
 
-      // Set a timestamp
+      // Attempt to open the app
       const start = Date.now();
+      window.location = appUrl;
 
-      // Attempt to open the app using a hidden iframe
-      const iframe = document.createElement('iframe');
-      iframe.style.display = 'none';
-      iframe.src = appUrl;
-      document.body.appendChild(iframe);
-
-      // Fallback: Redirect to the app store if the app is not installed
+      // Fallback: Redirect to the app store if the app does not open
       setTimeout(() => {
         const elapsed = Date.now() - start;
 
-        // If the user stays on this page for more than 1500ms, assume the app did not open
-        if (elapsed < 1500 && storeUrl) {
+        // If user is still on this page after 1500ms, redirect to app store
+        if (document.visibilityState === "visible" && elapsed < 2000 && storeUrl) {
           window.location = storeUrl;
         }
       }, 1500);
