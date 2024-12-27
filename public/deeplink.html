@@ -35,8 +35,11 @@
       // Set a timestamp
       const start = Date.now();
 
-      // Attempt to open the app
-      window.location = appUrl;
+      // Attempt to open the app using a hidden iframe
+      const iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = appUrl;
+      document.body.appendChild(iframe);
 
       // Fallback: Redirect to the app store if the app is not installed
       setTimeout(() => {
