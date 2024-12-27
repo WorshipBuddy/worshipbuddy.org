@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WorshipBuddy Redirect </title>
+  <title>Worship Buddy</title>
   <script>
     function handleDeepLink() {
       const isAndroid = /android/i.test(navigator.userAgent);
@@ -32,15 +32,21 @@
         storeUrl = "https://apps.apple.com/us/app/worshipbuddy/id6451153168"; 
       }
 
+      // Set a timestamp
+      const start = Date.now();
+
       // Attempt to open the app
       window.location = appUrl;
 
       // Fallback: Redirect to the app store if the app is not installed
       setTimeout(() => {
-        if (storeUrl) {
+        const elapsed = Date.now() - start;
+
+        // If the user stays on this page for more than 1500ms, assume the app did not open
+        if (elapsed < 1500 && storeUrl) {
           window.location = storeUrl;
         }
-      }, 1500);
+      }, 3000);
     }
 
     // Run the function when the page loads
