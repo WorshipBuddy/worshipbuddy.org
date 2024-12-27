@@ -3,12 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Worship Buddy</title>
+  <title>WorshipBuddy Redirect </title>
   <script>
-    function handleDeepLink(setId, songId, songNumberId) {
+    function handleDeepLink() {
       const isAndroid = /android/i.test(navigator.userAgent);
       const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
       
+      // Parse URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const setId = urlParams.get('setId');
+      const songId = urlParams.get('songId');
+      const songNumberId = urlParams.get('songNumberId');
+
       let appUrl = "worshipbuddy://";
       let storeUrl = "";
 
@@ -36,11 +42,12 @@
         }
       }, 1500);
     }
+
+    // Run the function when the page loads
+    window.onload = handleDeepLink;
   </script>
 </head>
 <body>
-  <button onclick="handleDeepLink('123', null, null)">Open Set</button>
-  <button onclick="handleDeepLink(null, '456', null)">Open Song</button>
-  <button onclick="handleDeepLink(null, null, '789')">Open Lyrics</button>
+  <p>Redirecting you to the app...</p>
 </body>
 </html>
