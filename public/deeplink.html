@@ -40,11 +40,11 @@
       setTimeout(() => {
         const elapsed = Date.now() - start;
 
-        // If user is still on this page after 1500ms, redirect to app store
-        if (document.visibilityState === "visible" && elapsed < 2000 && storeUrl) {
+        // If user is still on this page after 3000ms, redirect to app store
+        if (document.visibilityState === "visible" && elapsed < 4000 && storeUrl) {
           window.location = storeUrl;
         }
-      }, 1500);
+      }, 3000);
     }
 
     // Run the function when the page loads
