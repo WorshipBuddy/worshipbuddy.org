@@ -33,7 +33,7 @@ export default function Footer() {
           />
         </a>
       </div>
-      <div className="my-5">@2023 WorshipBuddy</div>
+      <div className="my-5">@2025 WorshipBuddy</div>
     </div>
   );
 }
