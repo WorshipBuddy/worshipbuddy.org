@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Nav() {
   return (
-    <div className="flex px-4 my-5 fixed top-0 z-20 text-white justify-between w-full font-medium">
+    <div className="flex px-4 my-5 top-0 z-20 text-white justify-between w-full font-medium sm:sticky sm:top-0">
       <Link href="/">
         <div className="font-semibold">WORSHIPBUDDY</div>
       </Link>
