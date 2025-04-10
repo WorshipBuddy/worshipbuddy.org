@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "WorshipBuddy",
   description:
-    "WorshipBuddy is a free app with over thousand christian songs included.",
+    "WorshipBuddy is a free app with over a thousand Christian songs included.",
 };
 
 export default function RootLayout({ children }) {
@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
         <meta property="og:title" content="WorshipBuddy" />
         <meta
           property="og:description"
-          content="WorshipBuddy is a free app with over thousand christian songs included"
+          content="WorshipBuddy is a free app with over a thousand Christian songs included"
         />
         <meta
           property="og:image"
