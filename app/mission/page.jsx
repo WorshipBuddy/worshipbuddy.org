@@ -6,7 +6,7 @@ function page() {
       <h1 className="font-semibold text-4xl md:text-5xl ">Mission</h1>
       <div className="h-0.5 w-full md:w-8/12 bg-neutral-50 my-4"></div>
       <div className="flex flex-col gap-20 items-center justify-center">
-        <div className="w-full md:w-10/12 font-medium text-2xl text-center mt-2 ">
+        <div className="w-full md:w-10/12 font-light text-2xl text-center mt-2 ">
       <p>At WorshipBuddy, our mission is to empower churches worldwide through the transformative potential of technology, enriching their worship experiences, fostering community engagement, and facilitating spiritual growth.</p>
 <p><br></br>
 We recognize that in an increasingly digital world, the role of technology in worship is pivotal. Our non-profit is dedicated to bridging the gap between faith and innovation, ensuring that churches of all sizes and backgrounds have access to cutting-edge tools and resources.</p>
