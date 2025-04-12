@@ -1,39 +1,38 @@
-import Image from "next/image";
-
 export default function Footer() {
   return (
-    <div className="flex flex-col justify-center items-center gap-8">
-      <div className="flex flex-col gap-2 items-center">
-        <div className="text-4xl font-bold">Get it now</div>
-        <div className="font-medium">Available for iOS and android </div>
+    <footer className="flex flex-col items-center gap-6 py-10 bg-gray-900 text-gray-300 rounded-t-3xl">
+      <div className="text-center">
+        <h2 className="text-2xl font-bold text-white">Get it now</h2>
+        <p className="text-lg">Available for iOS and Android</p>
       </div>
-      <div className="flex gap-10">
+      <div className="flex gap-6">
         <a
           href="https://apps.apple.com/us/app/worshipbuddy/id6451153168"
           target="_blank"
           className="flex justify-center items-center"
         >
-          <Image
+          <img
             src="/app-store-badge.png"
-            width={150}
-            height={60}
-            alt="app store download"
+            alt="App Store"
+            width = {150}
+            height = {60}
+            className="hover:opacity-80"
           />
         </a>
         <a
           href="https://play.google.com/store/apps/details?id=com.NewTestamentChurch.Songbook&pcampaignid=web_share"
           target="_blank"
-          className="flex justify-center items-center"
         >
-          <Image
+          <img
             src="/google-play-badge.png"
-            width={190}
-            height={60}
-            alt="google play download"
+            alt="Google Play Download"
+            width = {190}
+            height = {60}
+            className="hover:opacity-80"
           />
         </a>
       </div>
-      <div className="my-5">&copy; 2025 WorshipBuddy</div>
-    </div>
+      <div>&copy; 2025 WorshipBuddy</div>
+    </footer>
   );
 }

@@ -1,33 +1,16 @@
-import Image from "next/image";
-
 export default function Overlay({ children }) {
   return (
-    <div className="relative z-1 h-screen">
-      {/* Background Image using an img tag */}
-      {/* <Image
-        width={1920}
-        height={1080}
-        src="/worship-cut-up.gif"
-        alt="Worship Background"
-        className="absolute inset-0 object-cover w-full h-full"
-      /> */}
+    <div className="relative z-10 h-screen">
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 object-cover w-full h-full"
+        className="absolute inset-0 object-cover w-full h-full brightness-50"
       >
         <source src="/worship-cut-up.mp4" type="video/mp4" />
       </video>
-
-      {/* Dark Overlay + Blur */}
-      <div className="absolute inset-0 backdrop-blur-md"></div>
-
-      {/* Black Opacity Overlay */}
-      <div className="absolute inset-0 bg-black opacity-70"></div>
-
-      {/* Content */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/90"></div>
       <div className="relative">{children}</div>
     </div>
   );
