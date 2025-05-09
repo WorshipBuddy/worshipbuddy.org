@@ -3,49 +3,104 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 255, 255, 255; /* White text for better contrast */
-  --background-start-rgb: 10, 25, 50; /* Navy blue gradient start */
-  --background-end-rgb: 20, 40, 70; /* Darker navy blue gradient end */
+  --primary-blue: #10245c ;
+  --primary-blue-hover: #1e2875;
+  --primary-blue-light: #dbeafe;
+  --dark-bg: #ffffff;
+  --dark-card: #ffffff;
+  --nav-bg: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --border-color: #e2e8f0;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-    to bottom,
-    rgb(var(--background-start-rgb)),
-    rgb(var(--background-end-rgb))
-  );
-  font-family: 'DM Sans', sans-serif; /* Modern and unique font */
-  line-height: 1.6;
+  background-color: var(--dark-bg);
+  color: var(--text-primary);
 }
 
-a {
-  color: rgb(173, 216, 230); /* Light blue for links */
-  transition: color 0.3s ease, background-color 0.3s ease;
+.btn-primary {
+  @apply px-6 py-3 rounded-xl font-medium transition-all duration-200;
+  background-color: var(--primary-blue);
+  color: white;
 }
 
-a:hover {
-  color: rgb(135, 206, 250); /* Brighter blue on hover */
+.btn-primary:hover {
+  background-color: var(--primary-blue-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', sans-serif; /* Clean and modern font for headings */
-  font-weight: 600;
+.btn-secondary {
+  @apply px-6 py-3 rounded-xl font-medium transition-all duration-200;
+  background-color: var(--primary-blue-light);
+  color: var(--primary-blue);
 }
 
-button {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 500;
-  border-radius: 9999px; /* Fully rounded buttons */
-  transition: background-color 0.3s ease, transform 0.2s ease;
+.btn-secondary:hover {
+  background-color: #bfdbfe;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.1);
 }
 
-button:hover {
-  transform: scale(1.05); /* Slight zoom effect on hover */
+.section-card {
+  @apply p-8 rounded-2xl transition-all duration-200;
+  background-color: var(--dark-card);
+  border: 1px solid var(--border-color);
 }
 
-/* Animations */
-@keyframes fade-in {
+.section-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.page-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
+}
+
+.page-header {
+  @apply text-center mb-12;
+}
+
+.page-subtitle {
+  @apply text-lg text-gray-600 max-w-2xl mx-auto;
+}
+
+.nav-link {
+  @apply px-4 py-2 rounded-xl font-medium transition-all duration-200;
+  color: var(--text-primary);
+}
+
+.nav-link:hover {
+  background-color: var(--primary-blue-light);
+  color: var(--primary-blue);
+}
+
+.nav-link.active {
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary-blue), #1e2875);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
   from {
     opacity: 0;
   }
@@ -54,7 +109,7 @@ button:hover {
   }
 }
 
-@keyframes slide-up {
+@keyframes slideUp {
   from {
     transform: translateY(20px);
     opacity: 0;
@@ -65,10 +120,32 @@ button:hover {
   }
 }
 
-.animate-fade-in {
-  animation: fade-in 1s ease-in-out;
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
-.animate-slide-up {
-  animation: slide-up 1s ease-in-out;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-blue);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-blue-hover);
 }

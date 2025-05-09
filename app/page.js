@@ -1,22 +1,22 @@
 import Description from "@/components/Description";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
-import Mockups from "@/components/Mockups";
-import Nav from "@/components/Nav";
 
 export default function Home() {
   return (
-    <main className="relative flex flex-col bg-navy text-white min-h-screen">
-      <Nav />
-      <section className="rounded-3xl bg-gradient-to-b from-gray-800 to-gray-900 shadow-lg mx-4 mt-6 p-6 md:mx-10 md:mt-10 md:p-8">
-        <Hero />
+    <main className="min-h-screen bg-white">
+      <section className="container mx-auto px-4 py-20">
+        <div className="max-w-4xl mx-auto">
+          <Hero />
+        </div>
       </section>
-      <section className="rounded-3xl bg-gradient-to-b from-gray-800 to-gray-900 shadow-lg mx-4 mt-6 p-6 md:mx-10 md:p-8">
-        <Mockups />
+      
+      <section className="container mx-auto px-4 py-20">
+        <div className="max-w-4xl mx-auto">
+          <Description />
+        </div>
       </section>
-      <section className="rounded-3xl bg-gradient-to-b from-gray-800 to-gray-900 shadow-lg mx-4 mt-6 p-6 md:mx-10 md:p-8">
-        <Description />
-      </section>
+
       <Footer />
     </main>
   );

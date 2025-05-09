@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { FaApple, FaGooglePlay } from "react-icons/fa";
 
 export default function Hero() {
   return (
@@ -12,27 +14,31 @@ export default function Hero() {
         className="w-auto h-[150px] md:h-[300px] object-contain"
       />
       <div className="text-center md:text-left max-w-lg">
-        <h1 className="text-3xl md:text-5xl font-bold mb-4">
+        <h1 className="text-3xl md:text-5xl font-bold mb-4 text-[#10245c]">
           Worship songs for everyone
         </h1>
-        <p className="text-lg md:text-2xl mb-6">
+        <p className="text-lg md:text-2xl mb-6 text-gray-900">
           Access 1,000+ songs and curate custom worship sets.
         </p>
-        <div className="flex flex-wrap justify-center md:justify-start gap-4">
-          <a
-            href="https://apps.apple.com/us/app/worshipbuddy/id6451153168"
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link
+            href="https://apps.apple.com/app/worshipbuddy"
             target="_blank"
-            className="bg-white text-black px-4 py-2 md:px-6 md:py-3 rounded-full font-medium hover:bg-gray-200"
+            rel="noopener noreferrer"
+            className="btn-primary text-center flex items-center justify-center gap-2"
           >
+            <FaApple className="text-xl" />
             Download on iOS
-          </a>
-          <a
-            href="https://play.google.com/store/apps/details?id=com.NewTestamentChurch.Songbook&pcampaignid=web_share"
+          </Link>
+          <Link
+            href="https://play.google.com/store/apps/details?id=org.worshipbuddy"
             target="_blank"
-            className="bg-white text-black px-4 py-2 md:px-6 md:py-3 rounded-full font-medium hover:bg-gray-200"
+            rel="noopener noreferrer"
+            className="btn-primary text-center flex items-center justify-center gap-2"
           >
+            <FaGooglePlay className="text-xl" />
             Download on Android
-          </a>
+          </Link>
         </div>
       </div>
     </div>
