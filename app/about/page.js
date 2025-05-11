@@ -136,7 +136,7 @@ export default function About() {
             <div className="section-card animate-fade-in">
               <h2 className="text-2xl font-bold mb-6 text-[#10245c]">Join Our Community</h2>
               <p className="mb-6 text-gray-600">
-                WorshipBuddy is more than just an app - it's a community of worship leaders helping each other grow and improve. 
+                WorshipBuddy is more than just an app - it&apos;s a community of worship leaders helping each other grow and improve. 
                 We welcome your feedback and suggestions to make WorshipBuddy even better.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">

@@ -34,7 +34,7 @@ export default function PresenterBuddy() {
                 <div className="p-6 rounded-xl bg-white/50 backdrop-blur-sm">
                   <h3 className="text-xl font-bold mb-3 text-[#10245c]">Customizable</h3>
                   <p className="text-gray-600">
-                    Customize fonts, colors, and layouts to match your church's branding. 
+                    Customize fonts, colors, and layouts to match your church&apos;s branding. 
                     Create a consistent look across all your presentations.
                   </p>
                 </div>

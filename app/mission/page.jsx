@@ -74,7 +74,7 @@ export default function Mission() {
             <div className="section-card">
               <h2 className="text-2xl font-semibold mb-6 text-gray-900">Join Our Journey</h2>
               <p className="mb-6 text-gray-700">
-                Whether you're a worship leader, developer, or supporter, there are many
+                Whether you&apos;re a worship leader, developer, or supporter, there are many
                 ways to get involved in our mission.
               </p>
               <div className="flex flex-wrap gap-4">
