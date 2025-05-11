@@ -7,6 +7,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      fontWeight: {
+        normal: '400',
+        medium: '500',
+        semibold: '600',
+        bold: '700',
+        extrabold: '800',
+      },
       colors: {
         'primary-navy': {
           50: '#f0f4f8',
@@ -24,6 +34,8 @@ module.exports = {
         'accent-blue-light': '#d1dcff',
         'dark-bg': '#1a1f2e',
         'dark-card': '#232838',
+        'primary-blue': '#10245c',
+        'primary-blue-light': '#1a2f6e',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in',

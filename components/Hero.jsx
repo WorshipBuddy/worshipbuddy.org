@@ -22,7 +22,7 @@ export default function Hero() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href="https://apps.apple.com/app/worshipbuddy"
+            href="https://apps.apple.com/us/app/worshipbuddy/id6451153168"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary text-center flex items-center justify-center gap-2"
@@ -31,7 +31,7 @@ export default function Hero() {
             Download on iOS
           </Link>
           <Link
-            href="https://play.google.com/store/apps/details?id=org.worshipbuddy"
+            href="https://play.google.com/store/apps/details?id=com.NewTestamentChurch.Songbook&pcampaignid=web_share"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary text-center flex items-center justify-center gap-2"

@@ -24,7 +24,7 @@ export default function Nav() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <span className="text-2xl font-bold text-[#10245c ]">WorshipBuddy</span>
+              <span className="text-2xl font-bold text-[#10245c]">WorshipBuddy</span>
             </Link>
           </div>
 
@@ -45,7 +45,7 @@ export default function Nav() {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-[#10245c ] p-2 rounded-xl transition-colors duration-200"
+              className="text-gray-700 hover:text-[#10245c] p-2 rounded-xl transition-colors duration-200"
             >
               {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>

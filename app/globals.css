@@ -1,22 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --primary-blue: #10245c ;
+  --primary-blue: #10245c;
   --primary-blue-hover: #1e2875;
   --primary-blue-light: #dbeafe;
-  --dark-bg: #ffffff;
+  --dark-bg: #f8fafc;
   --dark-card: #ffffff;
   --nav-bg: #f1f5f9;
   --text-primary: #0f172a;
   --text-secondary: #334155;
   --border-color: #e2e8f0;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@layer base {
+  html {
+    font-family: 'Outfit', system-ui, sans-serif;
+  }
+
+  body {
+    font-family: 'Outfit', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6, p, li, span, a, button {
+    font-family: 'Outfit', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-[#10245c] text-white rounded-lg font-semibold hover:bg-[#1a2f6e] transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-white text-[#10245c] rounded-lg font-semibold border-2 border-[#10245c] hover:bg-[#10245c] hover:text-white transition-colors duration-200;
+  }
+
+  .section-card {
+    @apply p-8 rounded-2xl bg-white/50 backdrop-blur-sm border border-gray-200;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#10245c] to-[#1a2f6e] font-bold;
+  }
 }
 
 body {
-  background-color: var(--dark-bg);
+  background: linear-gradient(
+    -45deg,
+    #bae6fd 0%,
+    #bfdbfe 50%,
+    #ddd6fe 100%
+  );
   color: var(--text-primary);
+  min-height: 100vh;
 }
 
 .btn-primary {
@@ -78,13 +121,6 @@ body {
 .nav-link.active {
   background-color: var(--primary-blue);
   color: white;
-}
-
-.gradient-text {
-  background: linear-gradient(135deg, var(--primary-blue), #1e2875);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 /* Animation classes */
