@@ -11,8 +11,9 @@ export default function Nav() {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "PresenterBuddy", href: "/presenter-buddy" },
+    //{ name: "PresenterBuddy", href: "/presenter-buddy" },
     { name: "ScheduleBuddy", href: "/schedule-buddy" },
+    { name: "Donate", href: "/donate" },
     { name: "About", href: "/about" },
     { name: "Feedback", href: "/feedback" },
     { name: "Changelog", href: "/changelog" },

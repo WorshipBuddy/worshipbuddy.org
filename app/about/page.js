@@ -132,7 +132,7 @@ export default function About() {
                 </div>
               </div>
             </div>
-
+{/*}
             <div className="section-card animate-fade-in">
               <h2 className="text-2xl font-bold mb-6 text-[#10245c]">Join Our Community</h2>
               <p className="mb-6 text-gray-600">
@@ -159,7 +159,7 @@ export default function About() {
                   Discord
                 </a>
               </div>
-            </div>
+            </div>*/}
           </div>
         </div>
       </section>

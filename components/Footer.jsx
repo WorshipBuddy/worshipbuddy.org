@@ -31,7 +31,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div>
+          {/*<div>
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Connect</h3>
             <ul className="space-y-2">
               <li>
@@ -55,7 +55,7 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
+          </div>*/}
         </div>
         <div className="mt-8 pt-8 border-t border-gray-200">
           <p className="text-center text-gray-600">

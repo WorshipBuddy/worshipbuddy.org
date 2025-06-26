@@ -25,10 +25,6 @@ export default function ScheduleBuddy() {
                 <span className="text-[#10245c] mr-3">•</span>
                 <span className="text-gray-600">Service planning and team assignments</span>
               </li>
-              <li className="flex items-start">
-                <span className="text-[#10245c] mr-3">•</span>
-                <span className="text-gray-600">Email and notification system</span>
-              </li>
             </ul>
           </div>
 
@@ -38,7 +34,7 @@ export default function ScheduleBuddy() {
               ScheduleBuddy is available as a web application, making it accessible from any device.
             </p>
             <a
-              href="https://github.com/worshipbuddy/schedulebuddy"
+              href="https://schedule.worshipbuddy.org"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary inline-block"

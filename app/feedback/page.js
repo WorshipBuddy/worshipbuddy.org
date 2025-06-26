@@ -12,18 +12,11 @@ export default function Feedback() {
           <div className="space-y-8 text-gray-900">
             <div className="section-card">
               <h2 className="text-2xl font-bold mb-4 text-[#10245c]">Share Your Thoughts</h2>
-              <p className="mb-6 text-gray-600">
+              <p className="text-gray-600">
                 Have suggestions for new features or improvements? Found a bug? We&apos;d love to hear from you!
               </p>
-              <a
-                href="https://worshipbuddy.atlassian.net/servicedesk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary inline-block"
-              >
-                Submit Feedback
-              </a>
             </div>
+            {/*
             <div className="section-card">
               <h2 className="text-2xl font-bold mb-4 text-[#10245c]">Join Our Community</h2>
               <p className="mb-6 text-gray-600">
@@ -37,26 +30,50 @@ export default function Feedback() {
               >
                 Join Discord Community
               </a>
-            </div>
+            </div>*/}
             <div className="p-6 rounded-xl bg-gray-50">
               <h3 className="text-xl font-bold mb-3 text-[#10245c]">Feature Requests</h3>
-              <p className="text-gray-600">
+              <p className="mb-6 text-gray-600">
                 Have an idea for a new feature? Let us know! We&apos;re always looking for ways to 
                 improve WorshipBuddy.
               </p>
+              <a
+                href="https://worshipbuddy.canny.io"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary inline-block"
+              >
+                Submit Feature Request
+              </a>
             </div>
             <div className="p-6 rounded-xl bg-gray-50">
               <h3 className="text-xl font-bold mb-3 text-[#10245c]">Bug Reports</h3>
-              <p className="text-gray-600">
+              <p className="mb-6 text-gray-600">
                 Found a bug? Help us fix it by providing details about the issue you encountered.
               </p>
+              <a
+                href="https://worshipbuddy.atlassian.net/servicedesk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary inline-block"
+              >
+                Submit Support Request
+              </a>
             </div>
             <div className="p-6 rounded-xl bg-gray-50">
               <h3 className="text-xl font-bold mb-3 text-[#10245c]">General Feedback</h3>
-              <p className="text-gray-600">
+              <p className="mb-6 text-gray-600">
                 Share your thoughts about WorshipBuddy. Your feedback helps us make the app 
                 better for everyone.
               </p>
+              <a
+                href="https://worshipbuddy.atlassian.net/servicedesk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary inline-block"
+              >
+                Submit General Feedback
+              </a>
             </div>
           </div>
         </div>
