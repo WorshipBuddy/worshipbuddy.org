@@ -27,7 +27,7 @@ export default function Donate() {
               <div className="p-6 rounded-xl bg-gray-50">
                 <h3 className="text-xl font-bold mb-3 text-[#10245c]">Donate Now</h3>
                 <p className="mb-6 text-gray-600">
-                  Choose any amount—every dollar helps. Your gift supports worship teams around the world.
+                  We use Zeffy as our provider to process transactions, a completely free payment processing platform. They will ask for a tip to help support their platform but this IS OPTIONAL. Choose any amount—every dollar helps. Your gift supports worship teams around the world.
                 </p>                
                 <a
                 className="btn-primary inline-block cursor-pointer"

@@ -29,6 +29,11 @@ export default function Footer() {
                   Changelog
                 </Link>
               </li>
+              <li>
+                <Link href="https://guide.worshipbuddy.org" className="text-gray-600 hover:text-gray-900">
+                  Guide
+                </Link>
+              </li>
             </ul>
           </div>
           {/*<div>
