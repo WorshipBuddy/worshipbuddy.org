@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 export default function Donate() {
   return (
     <>
+    {/* eslint-disable-next-line @next/next/no-sync-scripts */}
       <script src="https://zeffy-scripts.s3.ca-central-1.amazonaws.com/embed-form-script.min.js"></script>
       
       <main className="min-h-screen">
