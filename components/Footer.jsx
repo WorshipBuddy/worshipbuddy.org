@@ -64,7 +64,7 @@ export default function Footer() {
         </div>
         <div className="mt-8 pt-8 border-t border-gray-200">
           <p className="text-center text-gray-600">
-            © {new Date().getFullYear()} WorshipBuddy. All rights reserved.
+            © {new Date().getFullYear()} WorshipBuddy - A 501(c)(3) organization with EIN 93-3532161 - All rights reserved
           </p>
         </div>
       </div>
