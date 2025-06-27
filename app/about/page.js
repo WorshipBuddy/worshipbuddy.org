@@ -111,7 +111,7 @@ export default function About() {
                       />
                     </div>
                     <h3 className="text-xl font-semibold mb-1 text-gray-900 text-center">Michael George</h3>
-                    <p className="text-gray-600 text-center">Head of Product</p>
+                    <p className="text-gray-600 text-center">Director of Product</p>
                   </div>
                 </div>
                 <div className="group hover:transform hover:scale-105 transition-all duration-300">
