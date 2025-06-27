@@ -1,12 +1,7 @@
 import Footer from "@/components/Footer";
-
 export default function Donate() {
   return (
-    <>
-    {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-      <script src="https://zeffy-scripts.s3.ca-central-1.amazonaws.com/embed-form-script.min.js"></script>
-      
-      <main className="min-h-screen">
+ <main className="min-h-screen">
         <section className="container mx-auto px-4 py-20">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl font-bold mb-8 gradient-text leading-tight py-1">Donate</h1>
@@ -29,19 +24,30 @@ export default function Donate() {
                 <h3 className="text-xl font-bold mb-3 text-[#10245c]">Donate Now</h3>
                 <p className="mb-6 text-gray-600">
                   We use Zeffy as our provider to process transactions, a completely free payment processing platform. They will ask for a tip to help support their platform but this IS OPTIONAL. Choose any amount—every dollar helps. Your gift supports worship teams around the world.
-                </p>                
-                <a
-                className="btn-primary inline-block cursor-pointer"
-                zeffy-form-link="https://www.zeffy.com/embed/donation-form/supports-worship-teams-around-the-world?modal=true"
-              >
-                Donate Now
-              </a>
+                </p>   
+                <div style={{ position: "relative", overflow: "hidden", height: "1200px", width: "100%" }}>
+  <iframe
+    title="Donation form powered by Zeffy"
+    style={{
+      position: "absolute",
+      border: 0,
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+      width: "100%",
+      height: "100%",
+    }}
+    src="https://www.zeffy.com/embed/donation-form/supports-worship-teams-around-the-world"
+    allowPaymentRequest
+    allowTransparency="true"
+  />
+</div>             
               </div>
             </div>
           </div>
         </section>
         <Footer />
       </main>
-    </>
   );
 }
