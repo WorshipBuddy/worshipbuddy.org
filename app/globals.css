@@ -1,27 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
+  --primary-blue: #10245c;
+  --primary-blue-hover: #1e2875;
+  --primary-blue-light: #dbeafe;
+  --dark-bg: #f8fafc;
+  --dark-card: #ffffff;
+  --nav-bg: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --border-color: #e2e8f0;
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  html {
+    font-family: 'Outfit', system-ui, sans-serif;
+  }
+
+  body {
+    font-family: 'Outfit', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6, p, li, span, a, button {
+    font-family: 'Outfit', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-[#10245c] text-white rounded-lg font-semibold hover:bg-[#1a2f6e] transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-white text-[#10245c] rounded-lg font-semibold border-2 border-[#10245c] hover:bg-[#10245c] hover:text-white transition-colors duration-200;
+  }
+
+  .section-card {
+    @apply p-8 rounded-2xl bg-white/50 backdrop-blur-sm border border-gray-200;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#10245c] to-[#1a2f6e] font-bold;
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    -45deg,
+    #bae6fd 0%,
+    #bfdbfe 50%,
+    #ddd6fe 100%
+  );
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+.btn-primary {
+  @apply px-6 py-3 rounded-xl font-medium transition-all duration-200;
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-blue-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+}
+
+.btn-secondary {
+  @apply px-6 py-3 rounded-xl font-medium transition-all duration-200;
+  background-color: var(--primary-blue-light);
+  color: var(--primary-blue);
+}
+
+.btn-secondary:hover {
+  background-color: #bfdbfe;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.1);
+}
+
+.section-card {
+  @apply p-8 rounded-2xl transition-all duration-200;
+  background-color: var(--dark-card);
+  border: 1px solid var(--border-color);
+}
+
+.section-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.page-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
+}
+
+.page-header {
+  @apply text-center mb-12;
+}
+
+.page-subtitle {
+  @apply text-lg text-gray-600 max-w-2xl mx-auto;
+}
+
+.nav-link {
+  @apply px-4 py-2 rounded-xl font-medium transition-all duration-200;
+  color: var(--text-primary);
+}
+
+.nav-link:hover {
+  background-color: var(--primary-blue-light);
+  color: var(--primary-blue);
+}
+
+.nav-link.active {
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-blue);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-blue-hover);
 }

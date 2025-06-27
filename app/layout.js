@@ -1,9 +1,12 @@
 import Nav from "@/components/Nav";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 
-const inter = Inter({ subsets: ["latin"] });
+const plusJakarta = Plus_Jakarta_Sans({ 
+  subsets: ["latin"],
+  variable: '--font-plus-jakarta',
+});
 
 export const metadata = {
   title: "WorshipBuddy",
@@ -13,7 +16,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-white">
       <head>
         <link
           rel="apple-touch-icon"
@@ -62,9 +65,11 @@ export default function RootLayout({ children }) {
         ></script>
       </head>
 
-      <body className={`${inter.className} bg-neutral-900 relative`}>
+      <body className={`${plusJakarta.variable} font-sans bg-white text-gray-900 min-h-screen`}>
         <Nav />
-        {children}
+        <div className="pt-20">
+          {children}
+        </div>
       </body>
     </html>
   );

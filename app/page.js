@@ -1,18 +1,22 @@
 import Description from "@/components/Description";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
-import Mockups from "@/components/Mockups";
-import Nav from "@/components/Nav";
-import Overlay from "@/components/Overlay";
 
 export default function Home() {
   return (
-    <main className="relative flex flex-col bg-neutral-900 text-white">
-      <Overlay>
-        <Hero />
-      </Overlay>
-      <Mockups />
-      <Description />
+    <main className="min-h-screen">
+      <section className="container mx-auto px-4 py-20">
+        <div className="max-w-4xl mx-auto">
+          <Hero />
+        </div>
+      </section>
+      
+      <section className="container mx-auto px-4 py-20">
+        <div className="max-w-4xl mx-auto">
+          <Description />
+        </div>
+      </section>
+
       <Footer />
     </main>
   );
