@@ -11,12 +11,12 @@ export default function Nav() {
 
   const navItems = [
     { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
     //{ name: "PresenterBuddy", href: "/presenter-buddy" },
     { name: "ScheduleBuddy", href: "/schedule-buddy" },
-    { name: "Donate", href: "/donate" },
-    { name: "About", href: "/about" },
     { name: "Feedback", href: "/feedback" },
     { name: "Changelog", href: "/changelog" },
+    { name: "Donate", href: "/donate" },
   ];
 
   return (

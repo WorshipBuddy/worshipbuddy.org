@@ -51,8 +51,12 @@ export default function About() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
                 <div className="group hover:transform hover:scale-105 transition-all duration-300">
                   <div className="p-6 rounded-xl bg-white/50 backdrop-blur-sm">
-                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#10245c] to-[#1a2f6e] flex items-center justify-center mb-4 mx-auto group-hover:ring-4 group-hover:ring-[#10245c]/20 transition-all duration-300">
-                      <FaUserCircle className="w-16 h-16 text-white" />
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#10245c] to-[#1a2f6e] flex items-center justify-center mb-4 mx-auto group-hover:ring-4 group-hover:ring-[#10245c]/20 transition-all duration-300 overflow-hidden">
+                      <img
+                        src="/images/jobin.jpg"
+                        alt="Jobin Thomas"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <h3 className="text-xl font-semibold mb-1 text-gray-900 text-center">Jobin Thomas</h3>
                     <p className="text-gray-600 text-center">Founder</p>
@@ -60,17 +64,25 @@ export default function About() {
                 </div>
                 <div className="group hover:transform hover:scale-105 transition-all duration-300">
                   <div className="p-6 rounded-xl bg-white/50 backdrop-blur-sm">
-                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#10245c] to-[#1a2f6e] flex items-center justify-center mb-4 mx-auto group-hover:ring-4 group-hover:ring-[#10245c]/20 transition-all duration-300">
-                      <FaUserCircle className="w-16 h-16 text-white" />
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#10245c] to-[#1a2f6e] flex items-center justify-center mb-4 mx-auto group-hover:ring-4 group-hover:ring-[#10245c]/20 transition-all duration-300 overflow-hidden">
+                      <img
+                        src="/images/ajoy.jpg"
+                        alt="Jobin Thomas"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <h3 className="text-xl font-semibold mb-1 text-gray-900 text-center">Ajoy Thomas</h3>
-                    <p className="text-gray-600 text-center">Creative Director</p>
+                    <p className="text-gray-600 text-center">General Counsel</p>
                   </div>
                 </div>
                 <div className="group hover:transform hover:scale-105 transition-all duration-300">
                   <div className="p-6 rounded-xl bg-white/50 backdrop-blur-sm">
-                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#10245c] to-[#1a2f6e] flex items-center justify-center mb-4 mx-auto group-hover:ring-4 group-hover:ring-[#10245c]/20 transition-all duration-300">
-                      <FaUserCircle className="w-16 h-16 text-white" />
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#10245c] to-[#1a2f6e] flex items-center justify-center mb-4 mx-auto group-hover:ring-4 group-hover:ring-[#10245c]/20 transition-all duration-300 overflow-hidden">
+                      <img
+                        src="/images/neha.jpeg"
+                        alt="Jobin Thomas"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <h3 className="text-xl font-semibold mb-1 text-gray-900 text-center">Neha Thomas</h3>
                     <p className="text-gray-600 text-center">Director of Marketing</p>
@@ -78,20 +90,41 @@ export default function About() {
                 </div>
                 <div className="group hover:transform hover:scale-105 transition-all duration-300">
                   <div className="p-6 rounded-xl bg-white/50 backdrop-blur-sm">
-                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#10245c] to-[#1a2f6e] flex items-center justify-center mb-4 mx-auto group-hover:ring-4 group-hover:ring-[#10245c]/20 transition-all duration-300">
-                      <FaUserCircle className="w-16 h-16 text-white" />
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#10245c] to-[#1a2f6e] flex items-center justify-center mb-4 mx-auto group-hover:ring-4 group-hover:ring-[#10245c]/20 transition-all duration-300 overflow-hidden">
+                      <img
+                        src="/images/jason.JPEG"
+                        alt="Jobin Thomas"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <h3 className="text-xl font-semibold mb-1 text-gray-900 text-center">Jason John</h3>
-                    <p className="text-gray-600 text-center">Software Engineering Lead</p>
+                    <p className="text-gray-600 text-center">Director of Engineering</p>
                   </div>
                 </div>
                 <div className="group hover:transform hover:scale-105 transition-all duration-300">
                   <div className="p-6 rounded-xl bg-white/50 backdrop-blur-sm">
-                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#10245c] to-[#1a2f6e] flex items-center justify-center mb-4 mx-auto group-hover:ring-4 group-hover:ring-[#10245c]/20 transition-all duration-300">
-                      <FaUserCircle className="w-16 h-16 text-white" />
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#10245c] to-[#1a2f6e] flex items-center justify-center mb-4 mx-auto group-hover:ring-4 group-hover:ring-[#10245c]/20 transition-all duration-300 overflow-hidden">
+                      <img
+                        src="/images/mikey.jpeg"
+                        alt="Jobin Thomas"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <h3 className="text-xl font-semibold mb-1 text-gray-900 text-center">Michael George</h3>
                     <p className="text-gray-600 text-center">Head of Product</p>
+                  </div>
+                </div>
+                <div className="group hover:transform hover:scale-105 transition-all duration-300">
+                  <div className="p-6 rounded-xl bg-white/50 backdrop-blur-sm">
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#10245c] to-[#1a2f6e] mb-4 mx-auto overflow-hidden group-hover:ring-4 group-hover:ring-[#10245c]/20 transition-all duration-300">
+                      <img
+                        src="/images/jt.png"
+                        alt="Jobin Thomas"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-1 text-gray-900 text-center">Joel Thomas</h3>
+                    <p className="text-gray-600 text-center">Software Engineer</p>
                   </div>
                 </div>
                 <div className="group hover:transform hover:scale-105 transition-all duration-300">
@@ -117,7 +150,7 @@ export default function About() {
                     <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#10245c] to-[#1a2f6e] flex items-center justify-center mb-4 mx-auto group-hover:ring-4 group-hover:ring-[#10245c]/20 transition-all duration-300">
                       <FaUserCircle className="w-16 h-16 text-white" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-1 text-gray-900 text-center">Timothy Mathew</h3>
+                    <h3 className="text-xl font-semibold mb-1 text-gray-900 text-center">Joel Roy</h3>
                     <p className="text-gray-600 text-center">Software Engineer Intern</p>
                   </div>
                 </div>
@@ -126,7 +159,7 @@ export default function About() {
                     <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#10245c] to-[#1a2f6e] flex items-center justify-center mb-4 mx-auto group-hover:ring-4 group-hover:ring-[#10245c]/20 transition-all duration-300">
                       <FaUserCircle className="w-16 h-16 text-white" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-1 text-gray-900 text-center">Joel Roy</h3>
+                    <h3 className="text-xl font-semibold mb-1 text-gray-900 text-center">Timothy Mathew</h3>
                     <p className="text-gray-600 text-center">Software Engineer Intern</p>
                   </div>
                 </div>
