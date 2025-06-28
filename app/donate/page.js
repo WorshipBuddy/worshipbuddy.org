@@ -23,14 +23,14 @@ export default function Donate() {
               <div className="p-6 rounded-xl bg-gray-50">
                 <h3 className="text-xl font-bold mb-3 text-[#10245c]">Donate Now</h3>
                 <p className="mb-6 text-gray-600">
-                  We use Zeffy as our provider to process transactions, a completely free payment processing platform. They will ask for a tip to help support their platform but this IS OPTIONAL. Choose any amount—every dollar helps. Your gift supports worship teams around the world. If you'd like to pay with Apple or Google pay
+                  We use Zeffy as our provider to process transactions, a completely free payment processing platform. They will ask for a tip to help support their platform but this IS OPTIONAL. Choose any amount—every dollar helps. Your gift supports worship teams around the world. If you&apos;d like to pay with Apple or Google Pay,{" "}
                   <a 
                     href="https://www.zeffy.com/donation-form/supports-worship-teams-around-the-world" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="text-blue-600 underline hover:text-blue-800"
                   >
-                  , please use this link
+                  please use this link
                   </a>.
                 </p>   
                 <div style={{ position: "relative", overflow: "hidden", height: "1200px", width: "100%" }}>
