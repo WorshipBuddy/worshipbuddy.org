@@ -47,9 +47,9 @@ export default function Feedback() {
               </a>
             </div>
             <div className="p-6 rounded-xl bg-gray-50">
-              <h3 className="text-xl font-bold mb-3 text-[#10245c]">Bug Reports</h3>
+              <h3 className="text-xl font-bold mb-3 text-[#10245c]">Feedback & Bug Reports</h3>
               <p className="mb-6 text-gray-600">
-                Found a bug? Help us fix it by providing details about the issue you encountered.
+                Found a bug or have general feedback? Help us improve WorshipBuddy by sharing your thoughts or reporting issues.
               </p>
               <a
                 href="https://worshipbuddy.atlassian.net/servicedesk"
@@ -57,22 +57,7 @@ export default function Feedback() {
                 rel="noopener noreferrer"
                 className="btn-primary inline-block"
               >
-                Submit Support Request
-              </a>
-            </div>
-            <div className="p-6 rounded-xl bg-gray-50">
-              <h3 className="text-xl font-bold mb-3 text-[#10245c]">General Feedback</h3>
-              <p className="mb-6 text-gray-600">
-                Share your thoughts about WorshipBuddy. Your feedback helps us make the app 
-                better for everyone.
-              </p>
-              <a
-                href="https://worshipbuddy.atlassian.net/servicedesk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary inline-block"
-              >
-                Submit General Feedback
+                Submit Feedback or Bug Report
               </a>
             </div>
           </div>

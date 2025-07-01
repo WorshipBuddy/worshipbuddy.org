@@ -48,7 +48,7 @@ export default function About() {
 
             <div className="section-card animate-fade-in">
               <h2 className="text-2xl font-bold mb-8 text-[#10245c]">Our Team</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
                 <div className="group hover:transform hover:scale-105 transition-all duration-300">
                   <div className="p-6 rounded-xl bg-white/50 backdrop-blur-sm">
                     <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#10245c] to-[#1a2f6e] flex items-center justify-center mb-4 mx-auto group-hover:ring-4 group-hover:ring-[#10245c]/20 transition-all duration-300 overflow-hidden">

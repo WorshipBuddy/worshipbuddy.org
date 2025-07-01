@@ -16,7 +16,7 @@ export default function Nav() {
     { name: "ScheduleBuddy", href: "/schedule-buddy" },
     { name: "Feedback", href: "/feedback" },
     { name: "Changelog", href: "/changelog" },
-    { name: "Guide", href: "https://guide.worshipbuddy.org" },
+    { name: "Guide", href: "https://guide.worshipbuddy.org", external: true },
     { name: "Donate", href: "/donate" },
   ];
 
@@ -37,8 +37,11 @@ export default function Nav() {
                 key={item.name}
                 href={item.href}
                 className={`nav-link ${pathname === item.href ? "active" : ""}`}
+                target={item.external ? "_blank" : "_self"}
+                rel={item.external ? "noopener noreferrer" : undefined}
               >
                 {item.name}
+                {item.external && <span className="inline ml-1 text-sm text-gray-400">↗</span>}
               </Link>
             ))}
           </div>
@@ -65,8 +68,11 @@ export default function Nav() {
                 href={item.href}
                 className={`block nav-link ${pathname === item.href ? "active" : ""}`}
                 onClick={() => setIsOpen(false)}
+                target={item.external ? "_blank" : "_self"}
+                rel={item.external ? "noopener noreferrer" : undefined}
               >
                 {item.name}
+                {item.external && <span className="inline ml-1 text-sm text-gray-400">↗</span>}
               </Link>
             ))}
           </div>
