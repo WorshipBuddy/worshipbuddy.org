@@ -1,4 +1,14 @@
 [[redirects]]
+  from   = "/share/:region/song/:songId"
+  to     = "/deeplink.html?region=:region&songId=:songId"
+  status = 302
+
+[[redirects]]
+  from   = "/share/:region/lyrics/:songNumberId"
+  to     = "/deeplink.html?region=:region&songNumberId=:songNumberId"
+  status = 302
+
+[[redirects]]
   from = "/sets/:setId"
   to = "/deeplink.html?setId=:setId"
   status = 301
