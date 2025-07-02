@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FaInstagram, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -8,12 +9,12 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold text-gray-900 mb-4">WorshipBuddy</h3>
             <p className="text-gray-600">
-              Making worship leading easier and more enjoyable.
+              Helping worship leaders stay organized, one song at a time.
             </p>
           </div>
           <div>
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+            <ul className="grid grid-cols-2 gap-4">
               <li>
                 <Link href="/about" className="text-gray-600 hover:text-gray-900">
                   About
@@ -30,37 +31,45 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="https://guide.worshipbuddy.org" className="text-gray-600 hover:text-gray-900">
-                  Guide
+                <Link href="https://guide.worshipbuddy.org" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 flex items-center gap-1">
+                  Guide <span className="inline ml-1 text-sm text-gray-400">↗</span>
                 </Link>
               </li>
             </ul>
           </div>
-          {/*<div>
+          <div>
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Connect</h3>
             <ul className="space-y-2">
               <li>
                 <a
-                  href="https://github.com/worshipbuddy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-gray-900"
+                  href="mailto:info@worshipbuddy.org"
+                  className="text-gray-600 hover:text-gray-900 flex items-center gap-2"
                 >
-                  GitHub
+                  <FaEnvelope className="text-xl" /> Contact Us
                 </a>
               </li>
               <li>
                 <a
-                  href="https://discord.gg/worshipbuddy"
+                  href="https://www.instagram.com/worshipbuddy/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-gray-900"
+                  className="text-gray-600 hover:text-gray-900 flex items-center gap-2"
                 >
-                  Discord
+                  <FaInstagram className="text-xl" /> Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/worshipbuddy/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:text-gray-900 flex items-center gap-2"
+                >
+                  <FaLinkedin className="text-xl" /> LinkedIn
                 </a>
               </li>
             </ul>
-          </div>*/}
+          </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-200">
           <p className="text-center text-gray-600">

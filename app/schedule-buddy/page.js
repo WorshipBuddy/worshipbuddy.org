@@ -1,4 +1,5 @@
 import Footer from "@/components/Footer";
+import { FaApple, FaDesktop } from "react-icons/fa";
 
 export default function ScheduleBuddy() {
   return (
@@ -31,20 +32,32 @@ export default function ScheduleBuddy() {
           <div className="section-card rounded-2xl mt-12">
             <h2 className="text-2xl font-semibold mb-4 text-gray-900">Get Started</h2>
             <p className="mb-6 text-gray-900">
-              ScheduleBuddy is available as a web application, making it accessible from any device.
+              ScheduleBuddy is available on the web and iOS, making it easy to manage your worship team schedules and service plans from anywhere. Try it online or download the app today.
             </p>
-            <a
-              href="https://schedule.worshipbuddy.org"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary inline-block"
-            >
-              Try ScheduleBuddy
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 items-center sm:items-start">
+              <a
+                href="https://schedule.worshipbuddy.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary text-center flex items-center justify-center gap-2 w-full sm:w-auto"
+              >
+                <FaDesktop className="text-xl" />
+                Try ScheduleBuddy
+              </a>
+              <a
+                href="https://apps.apple.com/ca/app/schedulebuddy/id6747605543?uo=2"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary text-center flex items-center justify-center gap-2 w-full sm:w-auto"
+              >
+                <FaApple className="text-xl" />
+                Download on iOS
+              </a>
+            </div>
           </div>
         </div>
       </section>
       <Footer />
     </main>
   );
-} 
+}
