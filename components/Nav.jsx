@@ -122,7 +122,6 @@ export default function Nav() {
                 {item.external && !item.noArrow && <span className="inline ml-1 text-sm text-gray-400">↗</span>}
               </Link>
             ))}
-            
             {/* Mobile Resources Section */}
             <div className="border-t border-gray-200 pt-3 mt-3">
               <div className="text-sm font-medium text-gray-500 mb-2 px-2">Resources</div>
@@ -139,6 +138,27 @@ export default function Nav() {
                   {item.external && <span className="inline ml-1 text-sm text-gray-400">↗</span>}
                 </Link>
               ))}
+            </div>
+            {/* Merch and Donate on Mobile */}
+            <div className="border-t border-gray-200 pt-3 mt-3">
+              <Link
+                href="https://threads.worshipbuddy.org"
+                className={`block nav-link flex items-center space-x-2 ${pathname === "https://threads.worshipbuddy.org" ? "active" : ""}`}
+                onClick={() => setIsOpen(false)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaShoppingBag className="text-sm" />
+                <span>Merch</span>
+              </Link>
+              <Link
+                href="/donate"
+                className={`block nav-link flex items-center space-x-2 ${pathname === "/donate" ? "active" : ""}`}
+                onClick={() => setIsOpen(false)}
+              >
+                <FaHeart className="text-sm" />
+                <span>Donate</span>
+              </Link>
             </div>
           </div>
         </div>
