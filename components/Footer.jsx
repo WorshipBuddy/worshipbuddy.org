@@ -36,8 +36,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="https://merch.worshipbuddy.org" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 flex items-center gap-1">
-                  Merch <span className="inline ml-1 text-sm text-gray-400">↗</span>
+                <Link href="https://threads.worshipbuddy.org" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 flex items-center gap-1">
+                  Merch
                 </Link>
               </li>
             </ul>
