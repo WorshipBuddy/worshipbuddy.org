@@ -18,7 +18,7 @@ export default function Hero() {
           Worship songs for everyone
         </h1>
         <p className="text-lg md:text-2xl mb-6 text-gray-900">
-          Access 1,000+ songs and curate custom worship sets.
+          Access 1,000+ songs and curate custom worship sets. No Ads. No Purchases.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
