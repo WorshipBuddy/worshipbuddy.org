@@ -17,6 +17,7 @@ export default function Nav() {
     { name: "Feedback", href: "/feedback" },
     { name: "Changelog", href: "/changelog" },
     { name: "Guide", href: "https://guide.worshipbuddy.org", external: true },
+    { name: "Merch", href: "https://merch.worshipbuddy.org", external: true },
     { name: "Donate", href: "/donate" },
   ];
 
