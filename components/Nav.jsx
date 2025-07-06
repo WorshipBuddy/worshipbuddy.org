@@ -16,7 +16,8 @@ export default function Nav() {
     { name: "ScheduleBuddy", href: "/schedule-buddy" },
     { name: "Feedback", href: "/feedback" },
     { name: "Changelog", href: "/changelog" },
-    { name: "Guide", href: "https://guide.worshipbuddy.org", external: true },
+    { name: "Guide", href: "https://guide.worshipbuddy.org"},
+    { name: "Merch", href: "https://threads.worshipbuddy.org"},
     { name: "Donate", href: "/donate" },
   ];
 
