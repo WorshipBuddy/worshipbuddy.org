@@ -75,8 +75,8 @@ export default function Nav() {
             </div>
             {/* Merch and Donate */}
             <Link
-              href="https://threads.worshipbuddy.org"
-              className={`nav-link flex items-center space-x-1 ${pathname === "https://threads.worshipbuddy.org" ? "active" : ""}`}
+              href="https://merch.worshipbuddy.org"
+              className={`nav-link flex items-center space-x-1 ${pathname === "https://merch.worshipbuddy.org" ? "active" : ""}`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -142,8 +142,8 @@ export default function Nav() {
             {/* Merch and Donate on Mobile */}
             <div className="border-t border-gray-200 pt-3 mt-3">
               <Link
-                href="https://threads.worshipbuddy.org"
-                className={`block nav-link flex items-center space-x-2 ${pathname === "https://threads.worshipbuddy.org" ? "active" : ""}`}
+                href="https://merch.worshipbuddy.org"
+                className={`block nav-link flex items-center space-x-2 ${pathname === "https://merch.worshipbuddy.org" ? "active" : ""}`}
                 onClick={() => setIsOpen(false)}
                 target="_blank"
                 rel="noopener noreferrer"
