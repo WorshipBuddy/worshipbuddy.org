@@ -8,7 +8,7 @@ export default function ScheduleBuddy() {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold mb-8 gradient-text leading-tight py-1">ScheduleBuddy</h1>
           <p className="text-lg mb-12 text-gray-700">
-            ScheduleBuddy helps worship teams coordinate schedules, manage team members, and ensure smooth service transitions. Keep your team organized and informed with our intuitive scheduling platform.
+            ScheduleBuddy helps your organization coordinate schedules, manage ministries and teams, and ensure smooth service transitions. Keep everyone organized and informed with our intuitive scheduling platform.
           </p>
           
           <div className="section-card rounded-2xl">
@@ -16,15 +16,23 @@ export default function ScheduleBuddy() {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <span className="text-[#10245c] mr-3">•</span>
-                <span className="text-gray-600">Easy team scheduling and rotation management</span>
+                <span className="text-gray-600">Manage multiple ministries (e.g., Musicians, Ushers, PA)</span>
               </li>
               <li className="flex items-start">
                 <span className="text-[#10245c] mr-3">•</span>
-                <span className="text-gray-600">Automated availability tracking</span>
+                <span className="text-gray-600">Create and schedule services (e.g., Sunday Service, Bible Study)</span>
               </li>
               <li className="flex items-start">
                 <span className="text-[#10245c] mr-3">•</span>
-                <span className="text-gray-600">Service planning and team assignments</span>
+                <span className="text-gray-600">Assign team members to roles and services</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-[#10245c] mr-3">•</span>
+                <span className="text-gray-600">Import people via Excel or add manually</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-[#10245c] mr-3">•</span>
+                <span className="text-gray-600">Export schedules for sharing or printing</span>
               </li>
             </ul>
           </div>
