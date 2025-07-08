@@ -151,11 +151,11 @@ export default function Changelog() {
                   <div className="mt-2">
                     <span className="block text-base font-semibold text-[#10245c] mb-1">Key Features</span>
                     <ul className="list-disc list-inside space-y-1 text-gray-700 ml-4">
-                      <li><span className="font-bold">Powerful Editing & Limitless Customization:</span> Robust editor to alter text font, size, color, add outlines, shadows, and more.</li>
+                      <li><span className="font-bold">Powerful Editing &amp; Limitless Customization:</span> Robust editor to alter text font, size, color, add outlines, shadows, and more.</li>
                       <li><span className="font-bold">On-the-Fly Text Editing:</span> Make live changes to your text during presentations with Edit mode.</li>
-                      <li><span className="font-bold">Create & Show:</span> Arrange slides and layouts for lyrics, presentations, and events. Drag images/videos as backgrounds for dynamic visuals.</li>
-                      <li><span className="font-bold">Templates & Dynamic Layouts:</span> Swiftly modify slide styles with templates and resize/organize display areas as needed.</li>
-                      <li><span className="font-bold">Scripture & Lyric Integration:</span> Instantly create slides from scripture or lyrics—just search and auto-generate slides.</li>
+                      <li><span className="font-bold">Create &amp; Show:</span> Arrange slides and layouts for lyrics, presentations, and events. Drag images/videos as backgrounds for dynamic visuals.</li>
+                      <li><span className="font-bold">Templates &amp; Dynamic Layouts:</span> Swiftly modify slide styles with templates and resize/organize display areas as needed.</li>
+                      <li><span className="font-bold">Scripture &amp; Lyric Integration:</span> Instantly create slides from scripture or lyrics—just search and auto-generate slides.</li>
                       <li><span className="font-bold">WorshipBuddy Live Set Integration:</span> Add live sets from the WorshipBuddy app directly to PresenterBuddy.</li>
                       <li><span className="font-bold">Plays Well With Others:</span> Import from other presentation platforms and export your content in multiple formats at any time.</li>
                     </ul>
@@ -297,7 +297,7 @@ export default function Changelog() {
                       <li>Worship Together integration</li>
                       <li>Remove downloaded songs easily</li>
                       <li>Resend OTP during sign-up</li>
-                      <li>"Shazam"-like song recognition</li>
+                      <li>&quot;Shazam&quot;-like song recognition</li>
                     </ul>
                   </div>
                   {/* PresenterBuddy Features */}
