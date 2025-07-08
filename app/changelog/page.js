@@ -297,7 +297,7 @@ export default function Changelog() {
                       <li>Worship Together integration</li>
                       <li>Remove downloaded songs easily</li>
                       <li>Resend OTP during sign-up</li>
-                      <li>"Shazam"-like song recognition</li>
+                      <li>&quot;Shazam&quot;-like song recognition</li>
                     </ul>
                   </div>
                   {/* PresenterBuddy Features */}
