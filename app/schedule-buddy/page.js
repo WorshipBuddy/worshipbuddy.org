@@ -1,5 +1,5 @@
 import Footer from "@/components/Footer";
-import { FaApple, FaDesktop } from "react-icons/fa";
+import { FaApple, FaDesktop, FaGooglePlay } from "react-icons/fa";
 
 export default function ScheduleBuddy() {
   return (
