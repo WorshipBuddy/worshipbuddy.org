@@ -61,6 +61,15 @@ export default function ScheduleBuddy() {
                 <FaApple className="text-xl" />
                 Download on iOS
               </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=org.worshipbuddycompany.ScheduleBuddyApp&pcampaignid=web_share"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary text-center flex items-center justify-center gap-2 w-full sm:w-auto"
+              >
+                <FaGooglePlay className="text-xl" />
+                Download on Android
+              </a>
             </div>
           </div>
         </div>
