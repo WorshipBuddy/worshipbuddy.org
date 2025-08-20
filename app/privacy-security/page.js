@@ -14,9 +14,9 @@ export default function PrivacySecurity() {
             <div className="section-card animate-fade-in">
               <h2 className="text-2xl font-bold mb-6 text-[#10245c]">TL;DR</h2>
               <ul className="list-disc space-y-2 text-gray-600 mb-4 ml-4">
-                <li>We don't run ads.</li>
-                <li>We don't sell your data.</li>
-                <li>We only collect what's absolutely necessary to make the apps work.</li>
+                <li>We don&apos;t run ads.</li>
+                <li>We don&apos;t sell your data.</li>
+                <li>We only collect what&apos;s absolutely necessary to make the apps work.</li>
                 <li>You can ask us to delete your account anytime.</li>
                 <li>Your data lives on secure AWS servers, locked down and encrypted.</li>
                 <li>Only a few trusted team leads can touch production data (and we test everything else with dummy data).</li>
@@ -35,7 +35,7 @@ export default function PrivacySecurity() {
                   <ul className="list-disc space-y-2 text-gray-600 ml-4">
                     <li>You can use WorshipBuddy with or without an account.</li>
                     <li>If you make an account, we store your liked songs and sets so that they stick across devices or if you get a new device you can easily restore your profile.</li>
-                    <li>That's it. No personal info required unless you choose to create an account.</li>
+                    <li>That&apos;s it. No personal info required unless you choose to create an account.</li>
                   </ul>
                 </div>
 
@@ -67,7 +67,7 @@ export default function PrivacySecurity() {
                 <li><span className="font-semibold">PostHog:</span> helps us understand how people use the app (things like which features are popular).</li>
               </ul>
               <p className="text-gray-600">
-                These services only get the minimum data needed to do their job. No one's selling your info, and we don't do retargeting ads.
+                These services only get the minimum data needed to do their job. No one&apos;s selling your info, and we don&apos;t do retargeting ads.
               </p>
             </div>
 
@@ -76,8 +76,8 @@ export default function PrivacySecurity() {
               <p className="text-gray-600 mb-4">Want your account gone? No problem.</p>
               <ul className="list-disc space-y-2 text-gray-600 ml-4">
                 <li>Send us a note at <a href="mailto:support@worshipbuddy.com" className="text-[#10245c] hover:underline">support@worshipbuddy.com</a></li>
-                <li>We'll send a confirmation email.</li>
-                <li>Once confirmed, we'll delete your account and email data from our systems.</li>
+                <li>We&apos;ll send a confirmation email.</li>
+                <li>Once confirmed, we&apos;ll delete your account and email data from our systems.</li>
               </ul>
             </div>
 
@@ -89,7 +89,7 @@ export default function PrivacySecurity() {
               <ul className="list-disc space-y-2 text-gray-600 ml-4">
                 <li>Data is stored on AWS servers with encryption at rest and SSL in transit.</li>
                 <li>Only a handful of trusted team leads can access production data. Everyone else works with dummy data when testing.</li>
-                <li>We don't share your personal data with anyone else.</li>
+                <li>We don&apos;t share your personal data with anyone else.</li>
               </ul>
             </div>
 
