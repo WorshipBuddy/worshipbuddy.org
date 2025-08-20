@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaBars, FaTimes, FaChevronDown, FaShoppingBag, FaHeart } from "react-icons/fa";
+import { FaBars, FaTimes, FaChevronDown, FaHeart } from "react-icons/fa";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -73,16 +73,7 @@ export default function Nav() {
                 </div>
               )}
             </div>
-            {/* Merch and Donate */}
-            <Link
-              href="https://worshipbuddyco.printify.me/"
-              className={`nav-link flex items-center space-x-1 ${pathname === "https://worshipbuddyco.printify.me/" ? "active" : ""}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaShoppingBag className="text-sm" />
-              <span>Merch</span>
-            </Link>
+            {/* Donate */}
             <Link
               href="/donate"
               className={`nav-link flex items-center space-x-1 ${pathname === "/donate" ? "active" : ""}`}
@@ -139,18 +130,8 @@ export default function Nav() {
                 </Link>
               ))}
             </div>
-            {/* Merch and Donate on Mobile */}
+            {/* Donate on Mobile */}
             <div className="border-t border-gray-200 pt-3 mt-3">
-              <Link
-                href="https://worshipbuddyco.printify.me/"
-                className={`block nav-link flex items-center space-x-2 ${pathname === "https://worshipbuddyco.printify.me/" ? "active" : ""}`}
-                onClick={() => setIsOpen(false)}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaShoppingBag className="text-sm" />
-                <span>Merch</span>
-              </Link>
               <Link
                 href="/donate"
                 className={`block nav-link flex items-center space-x-2 ${pathname === "/donate" ? "active" : ""}`}
