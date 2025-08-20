@@ -1,5 +1,5 @@
 import Footer from "@/components/Footer";
-import { FaApple, FaDesktop } from "react-icons/fa";
+import { FaApple, FaDesktop, FaGooglePlay } from "react-icons/fa";
 
 export default function ScheduleBuddy() {
   return (
@@ -8,7 +8,7 @@ export default function ScheduleBuddy() {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold mb-8 gradient-text leading-tight py-1">ScheduleBuddy</h1>
           <p className="text-lg mb-12 text-gray-700">
-            ScheduleBuddy helps worship teams coordinate schedules, manage team members, and ensure smooth service transitions. Keep your team organized and informed with our intuitive scheduling platform.
+            ScheduleBuddy helps your organization coordinate schedules, manage ministries and teams, and ensure smooth service transitions. Keep everyone organized and informed with our intuitive scheduling platform.
           </p>
           
           <div className="section-card rounded-2xl">
@@ -16,15 +16,23 @@ export default function ScheduleBuddy() {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <span className="text-[#10245c] mr-3">•</span>
-                <span className="text-gray-600">Easy team scheduling and rotation management</span>
+                <span className="text-gray-600">Manage multiple ministries (e.g., Musicians, Ushers, PA)</span>
               </li>
               <li className="flex items-start">
                 <span className="text-[#10245c] mr-3">•</span>
-                <span className="text-gray-600">Automated availability tracking</span>
+                <span className="text-gray-600">Create and schedule services (e.g., Sunday Service, Bible Study)</span>
               </li>
               <li className="flex items-start">
                 <span className="text-[#10245c] mr-3">•</span>
-                <span className="text-gray-600">Service planning and team assignments</span>
+                <span className="text-gray-600">Assign team members to roles and services</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-[#10245c] mr-3">•</span>
+                <span className="text-gray-600">Import people via Excel or add manually</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-[#10245c] mr-3">•</span>
+                <span className="text-gray-600">Export schedules for sharing or printing</span>
               </li>
             </ul>
           </div>
@@ -52,6 +60,15 @@ export default function ScheduleBuddy() {
               >
                 <FaApple className="text-xl" />
                 Download on iOS
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=org.worshipbuddycompany.ScheduleBuddyApp&pcampaignid=web_share"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary text-center flex items-center justify-center gap-2 w-full sm:w-auto"
+              >
+                <FaGooglePlay className="text-xl" />
+                Download on Android
               </a>
             </div>
           </div>
