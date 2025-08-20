@@ -36,8 +36,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="https://worshipbuddyco.printify.me/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 flex items-center gap-1">
-                  Merch <span className="inline ml-1 text-sm text-gray-400">↗</span>
+                <Link href="/privacy-security" className="text-gray-600 hover:text-gray-900">
+                  Privacy and Security
                 </Link>
               </li>
               <li>
