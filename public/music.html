@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Worship Buddy - Music</title>
+  <script>
+    function handleDeepLink() {
+      const isAndroid = /android/i.test(navigator.userAgent);
+      const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+      // Parse URL path: music.worshipbuddy.org/{songbookId}/{versionId}/{songNumber}
+      const pathSegments = window.location.pathname.split('/').filter(Boolean);
+      
+      let appUrl = "worshipbuddy://";
+      let storeUrl = "";
+
+      // If we have the new format with songbookId, versionId, and songNumber
+      if (pathSegments.length === 3) {
+        const [songbookId, versionId, songNumber] = pathSegments;
+        appUrl += `song?songbookId=${songbookId}&versionId=${versionId}&songNumber=${songNumber}`;
+      } 
+      // Fallback for old format (just song number)
+      else if (pathSegments.length === 1) {
+        const songNumber = pathSegments[0];
+        appUrl += `song?${songNumber}`;
+      }
+
+      if (isAndroid) {
+        storeUrl = "https://play.google.com/store/apps/details?id=com.NewTestamentChurch.Songbook";
+      } else if (isIOS) {
+        storeUrl = "https://apps.apple.com/us/app/worshipbuddy/id6451153168"; 
+      }
+
+      // Attempt to open the app
+      const start = Date.now();
+      window.location = appUrl;
+
+      // Fallback: Redirect to the app store if the app does not open
+      setTimeout(() => {
+        const elapsed = Date.now() - start;
+
+        // If user is still on this page after 3000ms, redirect to app store
+        if (document.visibilityState === "visible" && elapsed < 4000 && storeUrl) {
+          window.location = storeUrl;
+        }
+      }, 3000);
+    }
+
+    // Run the function when the page loads
+    window.onload = handleDeepLink;
+  </script>
+</head>
+<body>
+  <p>Opening music in the WorshipBuddy app...</p>
+</body>
+</html>
+

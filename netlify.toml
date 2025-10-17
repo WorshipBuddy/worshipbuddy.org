@@ -1,3 +1,4 @@
+## Old format redirects (for backward compatibility)
 [[redirects]]
   from = "/sets/:setId"
   to = "/deeplink.html?setId=:setId"
@@ -12,3 +13,25 @@
   from = "/lyrics/:songNumberId"
   to = "/deeplink.html?songNumberId=:songNumberId"
   status = 301
+
+## New format redirects with songbook ID and version ID
+[[redirects]]
+  from = "/:songbookId/:versionId/:songNumber"
+  to = "/lyrics.html"
+  status = 200
+  force = false
+  conditions = {Host = ["lyrics.worshipbuddy.org"]}
+
+[[redirects]]
+  from = "/:songbookId/:versionId/:songNumber"
+  to = "/music.html"
+  status = 200
+  force = false
+  conditions = {Host = ["music.worshipbuddy.org"]}
+
+[[redirects]]
+  from = "/:songbookId/:setNumber"
+  to = "/sets.html"
+  status = 200
+  force = false
+  conditions = {Host = ["sets.worshipbuddy.org"]}
