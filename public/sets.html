@@ -9,21 +9,21 @@
       const isAndroid = /android/i.test(navigator.userAgent);
       const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-      // Parse URL path: sets.worshipbuddy.org/{songbookId}/{setNumber}
-      const pathSegments = window.location.pathname.split('/').filter(Boolean);
+      // Parse URL query parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const songbookId = urlParams.get('songbookId');
+      const setNumber = urlParams.get('setNumber');
       
       let appUrl = "worshipbuddy://";
       let storeUrl = "";
 
-      // If we have the new format with songbookId and setNumber
-      if (pathSegments.length === 2) {
-        const [songbookId, setNumber] = pathSegments;
+      // If we have the new format with both parameters
+      if (songbookId && setNumber) {
         appUrl += `sets?songbookId=${songbookId}&setNumber=${setNumber}`;
       } 
-      // Fallback for old format (just set number)
-      else if (pathSegments.length === 1) {
-        const setNumber = pathSegments[0];
-        appUrl += `sets?${setNumber}`;
+      // Fallback - no valid parameters
+      else {
+        appUrl += `sets`;
       }
 
       if (isAndroid) {

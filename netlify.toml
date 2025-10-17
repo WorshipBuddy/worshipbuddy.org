@@ -14,24 +14,18 @@
   to = "/deeplink.html?songNumberId=:songNumberId"
   status = 301
 
-## New format redirects with songbook ID and version ID
+## New format redirects with songbook ID and version ID (path-based)
 [[redirects]]
-  from = "/:songbookId/:versionId/:songNumber"
-  to = "/lyrics.html"
+  from = "/lyric/:songbookId/:versionId/:songNumber"
+  to = "/lyrics.html?songbookId=:songbookId&versionId=:versionId&songNumber=:songNumber"
   status = 200
-  force = false
-  conditions = {Host = ["lyrics.worshipbuddy.org"]}
 
 [[redirects]]
-  from = "/:songbookId/:versionId/:songNumber"
-  to = "/music.html"
+  from = "/music/:songbookId/:versionId/:songNumber"
+  to = "/music.html?songbookId=:songbookId&versionId=:versionId&songNumber=:songNumber"
   status = 200
-  force = false
-  conditions = {Host = ["music.worshipbuddy.org"]}
 
 [[redirects]]
-  from = "/:songbookId/:setNumber"
-  to = "/sets.html"
+  from = "/set/:songbookId/:setNumber"
+  to = "/sets.html?songbookId=:songbookId&setNumber=:setNumber"
   status = 200
-  force = false
-  conditions = {Host = ["sets.worshipbuddy.org"]}

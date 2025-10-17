@@ -9,21 +9,22 @@
       const isAndroid = /android/i.test(navigator.userAgent);
       const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-      // Parse URL path: lyrics.worshipbuddy.org/{songbookId}/{versionId}/{songNumber}
-      const pathSegments = window.location.pathname.split('/').filter(Boolean);
+      // Parse URL query parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const songbookId = urlParams.get('songbookId');
+      const versionId = urlParams.get('versionId');
+      const songNumber = urlParams.get('songNumber');
       
       let appUrl = "worshipbuddy://";
       let storeUrl = "";
 
-      // If we have the new format with songbookId, versionId, and songNumber
-      if (pathSegments.length === 3) {
-        const [songbookId, versionId, songNumber] = pathSegments;
+      // If we have the new format with all parameters
+      if (songbookId && versionId && songNumber) {
         appUrl += `lyrics?songbookId=${songbookId}&versionId=${versionId}&songNumber=${songNumber}`;
       } 
-      // Fallback for old format (just song number)
-      else if (pathSegments.length === 1) {
-        const songNumber = pathSegments[0];
-        appUrl += `lyrics?${songNumber}`;
+      // Fallback - no valid parameters
+      else {
+        appUrl += `lyrics`;
       }
 
       if (isAndroid) {
