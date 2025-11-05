@@ -54,6 +54,10 @@ module.exports = {
       backgroundImage: {
         worship: 'url("/worship-overlay.jpg")',
       },
+      zIndex: {
+        'popup-button': '50',
+        'popup-modal': '100',
+      },
     },
   },
   plugins: [],
