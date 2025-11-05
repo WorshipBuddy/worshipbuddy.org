@@ -22,7 +22,7 @@ export default function Hero() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href="https://apps.apple.com/us/app/worshipbuddy/id6451153168"
+            href="https://apps.apple.com/us/app/worshipbuddy/id6754536842"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary text-center flex items-center justify-center gap-2"
