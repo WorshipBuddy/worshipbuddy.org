@@ -31,7 +31,7 @@ export default function Hero() {
             Download on iOS
           </Link>
           <Link
-            href="https://play.google.com/store/apps/details?id=com.NewTestamentChurch.Songbook&pcampaignid=web_share"
+            href="https://play.google.com/store/apps/details?id=com.Worshipbuddy.Songbook"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary text-center flex items-center justify-center gap-2"
