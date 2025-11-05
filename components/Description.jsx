@@ -5,7 +5,7 @@ export default function Description() {
     <div className="flex flex-col items-center justify-center my-10 px-4 md:px-6">
       <div className="flex flex-col gap-8 max-w-2xl text-base md:text-xl">
         <p className="font-bold text-2xl md:text-3xl text-center gradient-text">
-          WorshipBuddy is a free app with over a thousand Christian songs included
+          Bring harmony to your worship planning
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="section-card group rounded-2xl hover:shadow-xl hover:shadow-primary-navy/10 transition-all duration-300">
