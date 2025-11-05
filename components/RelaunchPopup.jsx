@@ -235,7 +235,7 @@ export default function RelaunchPopup() {
                   {/* Introduction - always show on mobile to maintain box size */}
                   <div className="bg-blue-50 rounded-lg p-3 border border-blue-100">
                     <p className="text-sm leading-relaxed">
-                      We've released an <span className="font-semibold text-primary-blue">all-new version</span> of WorshipBuddy with exciting new features, a fresh design, and better performance!
+                      We&apos;ve released an <span className="font-semibold text-primary-blue">all-new version</span> of WorshipBuddy with exciting new features, a fresh design, and better performance!
                     </p>
                     <p className="mt-2 text-xs text-gray-600">
                       To make sure your liked songs and saved sets carry over correctly, please follow the steps below.
@@ -310,7 +310,7 @@ export default function RelaunchPopup() {
                   {/* Introduction */}
                   <div className="bg-blue-50 rounded-lg md:rounded-xl p-3 md:p-4 border border-blue-100">
                     <p className="text-sm md:text-base leading-relaxed">
-                      We've released an <span className="font-semibold text-primary-blue">all-new version</span> of WorshipBuddy with exciting new features, a fresh design, and better performance!
+                      We&apos;ve released an <span className="font-semibold text-primary-blue">all-new version</span> of WorshipBuddy with exciting new features, a fresh design, and better performance!
                     </p>
                     <p className="mt-2 text-xs md:text-sm text-gray-600">
                       To make sure your liked songs and saved sets carry over correctly, please follow the steps below.
