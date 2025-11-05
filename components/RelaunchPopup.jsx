@@ -83,8 +83,18 @@ export default function RelaunchPopup() {
     {
       title: "Download the new WorshipBuddy app",
       content: [
-        "Once your data is synced, download the new WorshipBuddy app from the App Store or Google Play Store.",
+        "Once your data is synced, download the new WorshipBuddy app from the Apple App Store or Google Play Store.",
         "You'll see both apps listed — the old one will appear as WorshipBuddy Classic, and the new one simply as WorshipBuddy."
+      ],
+      links: [
+        {
+          text: "Apple App Store",
+          url: "https://apps.apple.com/us/app/worshipbuddy/id6754536842"
+        },
+        {
+          text: "Google Play Store",
+          url: "https://play.google.com/store/apps/details?id=com.Worshipbuddy.Songbook"
+        }
       ]
     },
     {
@@ -127,6 +137,46 @@ export default function RelaunchPopup() {
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1);
     }
+  };
+
+  // Helper function to render content with links
+  const renderContentWithLinks = (paragraph, links) => {
+    if (!links || links.length === 0) {
+      return paragraph;
+    }
+
+    let parts = [paragraph];
+    links.forEach(link => {
+      const newParts = [];
+      parts.forEach(part => {
+        if (typeof part === 'string') {
+          const regex = new RegExp(`(${link.text})`, 'g');
+          const split = part.split(regex);
+          split.forEach((segment, idx) => {
+            if (segment === link.text) {
+              newParts.push(
+                <a
+                  key={`${link.text}-${idx}`}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-blue underline hover:text-primary-blue-light font-semibold"
+                >
+                  {segment}
+                </a>
+              );
+            } else if (segment) {
+              newParts.push(segment);
+            }
+          });
+        } else {
+          newParts.push(part);
+        }
+      });
+      parts = newParts;
+    });
+
+    return <>{parts}</>;
   };
 
   return (
@@ -223,7 +273,7 @@ export default function RelaunchPopup() {
                         <div className="space-y-2">
                           {steps[currentStep].content.map((paragraph, idx) => (
                             <p key={idx} className="text-sm text-gray-600 leading-relaxed">
-                              {paragraph}
+                              {renderContentWithLinks(paragraph, steps[currentStep].links)}
                             </p>
                           ))}
                           {steps[currentStep].code && (
@@ -282,7 +332,7 @@ export default function RelaunchPopup() {
                           </h3>
                           {step.content.map((paragraph, idx) => (
                             <p key={idx} className={`text-xs md:text-sm text-gray-600 ${idx === 0 ? 'mb-1' : ''} leading-relaxed`}>
-                              {paragraph}
+                              {renderContentWithLinks(paragraph, step.links)}
                             </p>
                           ))}
                           {step.code && (
