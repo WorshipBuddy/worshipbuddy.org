@@ -53,7 +53,7 @@ export default function ChurchBuddy() {
                 Try ChurchBuddy
               </a>
               <a
-                href="https://apps.apple.com/ca/app/churchbuddy/id6747605543?uo=2"
+                href="https://apps.apple.com/us/app/churchbuddy-app/id6747605543"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary text-center flex items-center justify-center gap-2 w-full sm:w-auto"

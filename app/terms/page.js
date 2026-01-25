@@ -14,7 +14,7 @@ export default function TermsOfService() {
           <div className="space-y-12">
             <div className="section-card animate-fade-in">
               <p className="text-gray-600 mb-4">
-                These Terms of Service ("Terms") govern access to and use of WorshipBuddy's websites, mobile apps, desktop apps, APIs, and related services (collectively, the "Services"). The Services include: WorshipBuddy, WorshipBuddyAPI, ChurchBuddy, ChurchBuddy App, PresenterBuddy Studio, PresenterBuddy, and BibleBuddy.
+                These Terms of Service (&quot;Terms&quot;) govern access to and use of WorshipBuddy&apos;s websites, mobile apps, desktop apps, APIs, and related services (collectively, the &quot;Services&quot;). The Services include: WorshipBuddy, WorshipBuddyAPI, ChurchBuddy, ChurchBuddy App, PresenterBuddy Studio, PresenterBuddy, and BibleBuddy.
               </p>
               <p className="text-gray-600 font-semibold">
                 By accessing or using the Services, you agree to these Terms.
@@ -34,7 +34,7 @@ export default function TermsOfService() {
             <div className="section-card animate-fade-in">
               <h2 className="text-2xl font-bold mb-6 text-[#10245c]">2) Privacy and security</h2>
               <p className="text-gray-600 mb-4">
-                Our Privacy & Security practices are described in our "Privacy & Security for our Suite of Apps" page, including that we don't run ads, we don't sell data, we collect what's necessary to operate the Services, data is stored on secured AWS infrastructure with encryption in transit and at rest, and you can request account deletion.
+                Our Privacy & Security practices are described in our &quot;Privacy & Security for our Suite of Apps&quot; page, including that we don&apos;t run ads, we don&apos;t sell data, we collect what&apos;s necessary to operate the Services, data is stored on secured AWS infrastructure with encryption in transit and at rest, and you can request account deletion.
               </p>
               <p className="text-gray-600">
                 <a href="/privacy-security" className="text-[#10245c] hover:underline">View Privacy & Security Policy</a>
@@ -88,7 +88,7 @@ export default function TermsOfService() {
                     ChurchBuddy may provide optional features for churches/organizations to accept donations.
                   </p>
                   <ul className="list-disc space-y-2 text-gray-600 ml-4 mb-4">
-                    <li><span className="font-semibold">Connected account model:</span> If your organization enables donations, you connect a Stripe account through Stripe Connect. Donation processing occurs through Stripe, and funds are intended to be collected by your connected organization's Stripe account and paid out to the bank account configured in that Stripe account.</li>
+                    <li><span className="font-semibold">Connected account model:</span> If your organization enables donations, you connect a Stripe account through Stripe Connect. Donation processing occurs through Stripe, and funds are intended to be collected by your connected organization&apos;s Stripe account and paid out to the bank account configured in that Stripe account.</li>
                     <li><span className="font-semibold">Our role:</span> ChurchBuddy primarily provides the software interface and donation reporting/administration tools. We are not a bank and do not provide financial, legal, or tax advice.</li>
                     <li><span className="font-semibold">Your responsibilities:</span> You (the organization) are responsible for:
                       <ul className="list-disc ml-6 mt-2 space-y-1">
@@ -109,7 +109,7 @@ export default function TermsOfService() {
             <div className="section-card animate-fade-in">
               <h2 className="text-2xl font-bold mb-6 text-[#10245c]">5) Donations to WorshipBuddy Company (separate from Stripe)</h2>
               <p className="text-gray-600">
-                WorshipBuddy Company may accept donations to support its nonprofit mission through third-party donation platforms linked from our website/apps. Such donations are governed by the donation platform's checkout terms and any donor disclosures we provide.
+                WorshipBuddy Company may accept donations to support its nonprofit mission through third-party donation platforms linked from our website/apps. Such donations are governed by the donation platform&apos;s checkout terms and any donor disclosures we provide.
               </p>
             </div>
 
@@ -163,7 +163,7 @@ export default function TermsOfService() {
             <div className="section-card animate-fade-in">
               <h2 className="text-2xl font-bold mb-6 text-[#10245c]">11) Disclaimers</h2>
               <p className="text-gray-600">
-                The Services are provided "AS IS" and "AS AVAILABLE." We do not guarantee uninterrupted, error-free operation.
+                The Services are provided &quot;AS IS&quot; and &quot;AS AVAILABLE.&quot; We do not guarantee uninterrupted, error-free operation.
               </p>
             </div>
 

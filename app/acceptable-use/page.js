@@ -14,7 +14,7 @@ export default function AcceptableUse() {
           <div className="space-y-12">
             <div className="section-card animate-fade-in">
               <p className="text-gray-600 mb-4">
-                This Acceptable Use Policy ("AUP") applies to all WorshipBuddy Services (WorshipBuddy, WorshipBuddyAPI, ChurchBuddy, ChurchBuddy App, PresenterBuddy Studio, PresenterBuddy, BibleBuddy).
+                This Acceptable Use Policy (&quot;AUP&quot;) applies to all WorshipBuddy Services (WorshipBuddy, WorshipBuddyAPI, ChurchBuddy, ChurchBuddy App, PresenterBuddy Studio, PresenterBuddy, BibleBuddy).
               </p>
             </div>
 
@@ -69,7 +69,7 @@ export default function AcceptableUse() {
                 <div>
                   <h3 className="text-lg font-semibold mb-3 text-[#10245c]">Security and platform abuse</h3>
                   <ul className="list-disc space-y-2 text-gray-600 ml-4">
-                    <li>Attempt to bypass authentication or access systems/data you don't own</li>
+                    <li>Attempt to bypass authentication or access systems/data you don&apos;t own</li>
                     <li>Reverse engineer or scrape the Services in a way that harms availability</li>
                     <li>Introduce malware, ransomware, or malicious code</li>
                     <li>Abuse rate limits, run automated attacks, or probe for vulnerabilities</li>
@@ -95,7 +95,7 @@ export default function AcceptableUse() {
                 <li>Donation features are intended for legitimate churches/organizations and church-related giving purposes.</li>
                 <li>You must provide clear, truthful descriptions for donation funds/purposes.</li>
                 <li>You must not create donation flows for personal fundraising, unlawful purposes, or prohibited activities.</li>
-                <li>You must not attempt to route donation proceeds to unrelated third parties outside your organization's connected Stripe account.</li>
+                <li>You must not attempt to route donation proceeds to unrelated third parties outside your organization&apos;s connected Stripe account.</li>
                 <li>You must comply with applicable laws (including charitable solicitation, donor disclosures, and tax acknowledgements).</li>
               </ul>
             </div>
