@@ -45,6 +45,16 @@ export default function Footer() {
                   Donate
                 </Link>
               </li>
+              <li>
+                <Link href="/terms" className="text-gray-600 hover:text-gray-900">
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link href="/acceptable-use" className="text-gray-600 hover:text-gray-900">
+                  Acceptable Use Policy
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
