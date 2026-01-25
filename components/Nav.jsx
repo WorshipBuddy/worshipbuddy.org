@@ -12,7 +12,7 @@ export default function Nav() {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "ScheduleBuddy", href: "/schedule-buddy" },
+    { name: "ChurchBuddy", href: "/church-buddy" },
     { name: "About", href: "/about" },
   ];
 

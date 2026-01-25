@@ -40,7 +40,7 @@ export default function PrivacySecurity() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold mb-3 text-[#10245c]">ScheduleBuddy</h3>
+                  <h3 className="text-lg font-semibold mb-3 text-[#10245c]">ChurchBuddy</h3>
                   <ul className="list-disc space-y-2 text-gray-600 ml-4">
                     <li>We ask for your email when you sign up.</li>
                     <li>Email is used for login and to identify you as a person so that you can be scheduled for different ministries. In the future, we will use this email to send important updates or product news.</li>
@@ -96,7 +96,7 @@ export default function PrivacySecurity() {
             <div className="section-card animate-fade-in">
               <h2 className="text-2xl font-bold mb-6 text-[#10245c]">Consent</h2>
               <p className="text-gray-600">
-                By using WorshipBuddy, ScheduleBuddy, or PresenterBuddy, you agree to this policy.
+                By using WorshipBuddy, ChurchBuddy, or PresenterBuddy, you agree to this policy.
               </p>
             </div>
           </div>

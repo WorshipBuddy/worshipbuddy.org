@@ -30,10 +30,10 @@ export default function Changelog() {
               PresenterBuddy
             </button>
             <button
-              className={`nav-link px-5 py-2 text-base border border-[#10245c] ${activeSection === "schedulebuddy" ? "active" : ""}`}
-              onClick={() => setActiveSection("schedulebuddy")}
+              className={`nav-link px-5 py-2 text-base border border-[#10245c] ${activeSection === "churchbuddy" ? "active" : ""}`}
+              onClick={() => setActiveSection("churchbuddy")}
             >
-              ScheduleBuddy
+              ChurchBuddy
             </button>
             <button
               className={`nav-link px-5 py-2 text-base border border-[#10245c] ${activeSection === "upcomingfeatures" ? "active" : ""}`}
@@ -164,16 +164,16 @@ export default function Changelog() {
               </div>
             )}
 
-            {/* ScheduleBuddy Section */}
-            {activeSection === "schedulebuddy" && (
-              <div id="schedulebuddy" className="space-y-8">
-                <h2 className="text-3xl font-bold mb-6 gradient-text">ScheduleBuddy</h2>
+            {/* ChurchBuddy Section */}
+            {activeSection === "churchbuddy" && (
+              <div id="churchbuddy" className="space-y-8">
+                <h2 className="text-3xl font-bold mb-6 gradient-text">ChurchBuddy</h2>
                 <div className="section-card flex flex-col gap-2 animate-fade-in">
                   <div className="flex items-center gap-3 mb-1">
                     <span className="inline-block bg-[#ddd6fe] text-[#5b21b6] text-xs font-bold px-2 py-1 rounded-full border border-[#a78bfa] shadow-sm uppercase tracking-wider">Public Beta</span>
                   </div>
                   <p className="text-base text-gray-700 mb-2">
-                    <span className="font-bold">ScheduleBuddy</span> makes it easy to create, share, and manage schedules for your org or ministries—like music, ushers, or cleaning teams—and for services such as Sunday service or Bible study. Build your organization, set up teams, add services, and schedule people in just a few clicks. ScheduleBuddy keeps everyone organized and connected. Now in public beta, available on web and iOS.
+                    <span className="font-bold">ChurchBuddy</span> makes it easy to create, share, and manage schedules for your org or ministries—like music, ushers, or cleaning teams—and for services such as Sunday service or Bible study. Build your organization, set up teams, add services, and schedule people in just a few clicks. ChurchBuddy keeps everyone organized and connected. Now in public beta, available on web and iOS.
                   </p>
                 </div>
                 <div className="flex flex-col gap-6">
@@ -311,10 +311,10 @@ export default function Changelog() {
                       <li>Public beta release (target: end of year)</li>
                     </ul>
                   </div>
-                  {/* ScheduleBuddy Features */}
+                  {/* ChurchBuddy Features */}
                   <div>
                     <div className="flex items-center gap-3 mb-1">
-                      <span className="inline-block bg-[#10245c] text-white text-xs font-bold px-2 py-1 rounded-full shadow-sm uppercase tracking-wider">ScheduleBuddy</span>
+                      <span className="inline-block bg-[#10245c] text-white text-xs font-bold px-2 py-1 rounded-full shadow-sm uppercase tracking-wider">ChurchBuddy</span>
                     </div>
                     <ul className="list-disc list-inside space-y-1 text-gray-700 ml-4">
                       <li>Add assigned dates to your calendar and set alerts</li>

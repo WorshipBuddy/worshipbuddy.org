@@ -1,14 +1,14 @@
 import Footer from "@/components/Footer";
 import { FaApple, FaDesktop, FaGooglePlay } from "react-icons/fa";
 
-export default function ScheduleBuddy() {
+export default function ChurchBuddy() {
   return (
     <main className="min-h-screen">
       <section className="container mx-auto px-4 py-20">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold mb-8 gradient-text leading-tight py-1">ScheduleBuddy</h1>
+          <h1 className="text-4xl font-bold mb-8 gradient-text leading-tight py-1">ChurchBuddy</h1>
           <p className="text-lg mb-12 text-gray-700">
-            ScheduleBuddy helps your organization coordinate schedules, manage ministries and teams, and ensure smooth service transitions. Keep everyone organized and informed with our intuitive scheduling platform.
+            ChurchBuddy helps your organization coordinate schedules, manage ministries and teams, and ensure smooth service transitions. Keep everyone organized and informed with our intuitive scheduling platform.
           </p>
           
           <div className="section-card rounded-2xl">
@@ -40,20 +40,20 @@ export default function ScheduleBuddy() {
           <div className="section-card rounded-2xl mt-12">
             <h2 className="text-2xl font-semibold mb-4 text-gray-900">Get Started</h2>
             <p className="mb-6 text-gray-900">
-              ScheduleBuddy is available on the web and iOS, making it easy to manage your worship team schedules and service plans from anywhere. Try it online or download the app today.
+              ChurchBuddy is available on the web and iOS, making it easy to manage your worship team schedules and service plans from anywhere. Try it online or download the app today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-center sm:items-start">
               <a
-                href="https://schedule.worshipbuddy.org"
+                href="https://church.worshipbuddy.org"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary text-center flex items-center justify-center gap-2 w-full sm:w-auto"
               >
                 <FaDesktop className="text-xl" />
-                Try ScheduleBuddy
+                Try ChurchBuddy
               </a>
               <a
-                href="https://apps.apple.com/ca/app/schedulebuddy/id6747605543?uo=2"
+                href="https://apps.apple.com/ca/app/churchbuddy/id6747605543?uo=2"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary text-center flex items-center justify-center gap-2 w-full sm:w-auto"
@@ -62,7 +62,7 @@ export default function ScheduleBuddy() {
                 Download on iOS
               </a>
               <a
-                href="https://play.google.com/store/apps/details?id=org.worshipbuddycompany.ScheduleBuddyApp&pcampaignid=web_share"
+                href="https://play.google.com/store/apps/details?id=org.worshipbuddycompany.ChurchBuddyApp&pcampaignid=web_share"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary text-center flex items-center justify-center gap-2 w-full sm:w-auto"
