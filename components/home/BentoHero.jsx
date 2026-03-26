@@ -26,8 +26,8 @@ export default function BentoHero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-heading text-gray-900 leading-[1.1] mb-6"
           >
-            Everything your worship team{" "}
-            <span className="gradient-text">needs</span>
+            Everything your church teams{" "}
+            <span className="gradient-text">need</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
