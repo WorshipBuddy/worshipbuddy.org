@@ -1,132 +1,246 @@
-import Link from "next/link";
-import { FaApple } from "react-icons/fa";
+"use client";
+
+import { motion } from "framer-motion";
+import { FaApple, FaLinux, FaCheck, FaTimes, FaDesktop, FaBroadcastTower, FaGamepad, FaMusic, FaFileImport, FaMicrophone, FaBible, FaBullhorn, FaSyncAlt, FaEye } from "react-icons/fa";
 import { FaWindows } from "react-icons/fa6";
+import AnimatedSection from "@/components/shared/AnimatedSection";
 import Footer from "@/components/Footer";
+import { PresenterLiteDemo, PresenterStudioDemo } from "@/components/demos/PresenterBuddyDemo";
+
+const liteFeatures = [
+  { icon: FaMusic, title: "Song Lyrics", desc: "Browse and present songs from the WorshipBuddy songbook library" },
+  { icon: FaDesktop, title: "Dual Display", desc: "Controller on your laptop, lyrics projected on your second screen" },
+  { icon: FaBible, title: "Bible Verses", desc: "Display scripture passages with multiple Bible versions" },
+  { icon: FaBullhorn, title: "Announcements", desc: "Create and manage announcement slides with multi-slide support" },
+  { icon: FaSyncAlt, title: "Auto-Scroll", desc: "Configurable auto-scroll speed for hands-free presentations" },
+  { icon: FaEye, title: "Live Preview", desc: "See exactly what your audience sees in real-time" },
+];
+
+const studioFeatures = [
+  { icon: FaBroadcastTower, title: "NDI Output", desc: "Professional video output for streaming and broadcast workflows" },
+  { icon: FaDesktop, title: "Stage Display", desc: "Dedicated stage monitor view for worship leaders and musicians" },
+  { icon: FaGamepad, title: "Remote Control", desc: "Control presentations from any device on the network via Socket.io" },
+  { icon: FaFileImport, title: "Multi-Format Import", desc: "Import from ProPresenter, EasyWorship, MediaShout, OpenLP, PowerPoint, and more" },
+  { icon: FaMusic, title: "Audio & Playlists", desc: "Built-in audio channels, playlists, metronome, and audio visualizer" },
+  { icon: FaMicrophone, title: "MIDI & OSC", desc: "Professional control protocols for integration with hardware and software" },
+];
+
+const comparisonRows = [
+  { feature: "Song Lyrics Display", lite: true, studio: true },
+  { feature: "Bible Verses", lite: true, studio: true },
+  { feature: "Announcements", lite: true, studio: true },
+  { feature: "Dual Display Output", lite: true, studio: true },
+  { feature: "Auto-Scroll", lite: true, studio: true },
+  { feature: "Live Preview", lite: true, studio: true },
+  { feature: "Background Images & Video", lite: true, studio: true },
+  { feature: "NDI Video Output", lite: false, studio: true },
+  { feature: "Stage Display", lite: false, studio: true },
+  { feature: "Remote Control", lite: false, studio: true },
+  { feature: "MIDI / OSC Control", lite: false, studio: true },
+  { feature: "Multi-Format Import", lite: false, studio: true },
+  { feature: "Audio Channels & Playlists", lite: false, studio: true },
+  { feature: "Recording & Streaming", lite: false, studio: true },
+  { feature: "Drawing Tools", lite: false, studio: true },
+  { feature: "Google Drive Sync", lite: false, studio: true },
+];
 
 export default function PresenterBuddy() {
   return (
-    <main className="min-h-screen">
-      <section className="container mx-auto px-4 py-20">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold mb-8 gradient-text leading-tight py-1">PresenterBuddy</h1>
-          <p className="text-lg mb-12 text-gray-700">
-            A powerful presentation tool designed specifically for worship services
-          </p>
+    <>
+      {/* Hero */}
+      <section className="relative min-h-[70vh] flex items-center overflow-hidden pt-20 section-navy">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(249,115,22,0.12)_0%,_transparent_60%)]" />
 
-          <div className="space-y-12">
-            <div className="section-card">
-              <h2 className="text-2xl font-semibold mb-6 text-gray-900">Features</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="p-6 rounded-xl bg-white/50 backdrop-blur-sm">
-                  <h3 className="text-xl font-bold mb-3 text-[#10245c]">Easy Setup</h3>
-                  <p className="text-gray-600">
-                    Quickly set up your presentation with our intuitive interface. Import songs, 
-                    Bible verses, and announcements with just a few clicks.
-                  </p>
-                </div>
-                <div className="p-6 rounded-xl bg-white/50 backdrop-blur-sm">
-                  <h3 className="text-xl font-bold mb-3 text-[#10245c]">Live Preview</h3>
-                  <p className="text-gray-600">
-                    See exactly what your audience will see with our live preview feature. 
-                    Make adjustments in real-time without disrupting the service.
-                  </p>
-                </div>
-                <div className="p-6 rounded-xl bg-white/50 backdrop-blur-sm">
-                  <h3 className="text-xl font-bold mb-3 text-[#10245c]">Customizable</h3>
-                  <p className="text-gray-600">
-                    Customize fonts, colors, and layouts to match your church&apos;s branding. 
-                    Create a consistent look across all your presentations.
-                  </p>
-                </div>
-                <div className="p-6 rounded-xl bg-white/50 backdrop-blur-sm">
-                  <h3 className="text-xl font-bold mb-3 text-[#10245c]">Remote Control</h3>
-                  <p className="text-gray-600">
-                    Control your presentation from anywhere in the room using your mobile device. 
-                    No more running back to the computer to change slides.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="section-card">
-              <h2 className="text-2xl font-semibold mb-6 text-gray-900">Documentation</h2>
-              <p className="mb-6 text-gray-700">
-                Get started with PresenterBuddy by exploring our comprehensive documentation. Learn about installation, 
-                features, and advanced capabilities to make the most of your worship presentations.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div className="p-6 rounded-xl bg-white/50 backdrop-blur-sm">
-                  <h3 className="text-xl font-bold mb-3 text-[#10245c]">Key Features</h3>
-                  <ul className="text-gray-600 space-y-2">
-                    <li>• Multi-language support (20+ languages)</li>
-                    <li>• CMG Sans font included</li>
-                    <li>• NDI® output support</li>
-                    <li>• Cloud sync with Google Drive</li>
-                    <li>• Multiple output displays</li>
-                    <li>• Advanced animations & transitions</li>
-                  </ul>
-                </div>
-                <div className="p-6 rounded-xl bg-white/50 backdrop-blur-sm">
-                  <h3 className="text-xl font-bold mb-3 text-[#10245c]">Import/Export</h3>
-                  <ul className="text-gray-600 space-y-2">
-                    <li>• Import from PowerPoint, ProPresenter</li>
-                    <li>• Support for ChordPro, PDF, Text</li>
-                    <li>• Export to PDF and text formats</li>
-                    <li>• Project backup and restore</li>
-                    <li>• Template management</li>
-                    <li>• Custom layouts and styles</li>
-                  </ul>
-                </div>
-              </div>
-              <a
-                href="https://guide.worshipbuddy.org/introduction"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary text-center inline-flex items-center justify-center gap-2"
-              >
-                View Full Documentation
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <AnimatedSection className="text-center max-w-3xl mx-auto">
+            <p className="text-orange-300 font-semibold text-sm uppercase tracking-wider mb-4">Presentation Software</p>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-heading text-white mb-6 leading-tight">
+              Present with <span className="text-orange-300">confidence</span>
+            </h1>
+            <p className="text-lg sm:text-xl text-blue-100/70 mb-8 max-w-2xl mx-auto">
+              From a simple lyrics display to a full production suite — PresenterBuddy has the right tool for every church, no matter the size.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="#lite" className="btn-white text-center"><span>PresenterBuddy</span></a>
+              <a href="#studio" className="inline-flex items-center justify-center px-8 py-3 rounded-full font-semibold text-white border-2 border-white/30 hover:bg-white/10 transition-all duration-300 text-center">
+                PresenterBuddy Studio
               </a>
             </div>
-
-            <div className="section-card">
-              <h2 className="text-2xl font-semibold mb-6 text-gray-900">Download</h2>
-              <p className="mb-8 text-gray-700">
-                PresenterBuddy is available for Mac and Windows devices. Choose your platform below.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <a
-                  href="https://pb.worshipbuddy.org/PresenterBuddy%20Apple%20Silicon.dmg"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary text-center flex items-center justify-center gap-2"
-                >
-                  <FaApple className="text-xl" />
-                  Apple Silicon Mac
-                </a>
-                <a
-                  href="https://pb.worshipbuddy.org/PresenterBuddy%20Intel.dmg"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary text-center flex items-center justify-center gap-2"
-                >
-                  <FaApple className="text-xl" />
-                  Intel Mac
-                </a>
-                <a
-                  href="https://pb.worshipbuddy.org/PresenterBuddy%20Windows.exe"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary text-center flex items-center justify-center gap-2"
-                >
-                  <FaWindows className="text-xl" />
-                  Windows
-                </a>
-              </div>
-            </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
+
+      {/* PresenterBuddy Lite */}
+      <section id="lite" className="section-white py-24 sm:py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-orange-600 text-sm font-medium mb-6">
+              Free & Simple
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold font-heading text-gray-900 mb-4">PresenterBuddy</h2>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+              Everything you need to display lyrics, Bible verses, and announcements on a second screen. Clean, fast, and easy to use.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            {liteFeatures.map((f, i) => (
+              <AnimatedSection key={f.title} delay={i * 0.1}>
+                <div className="card-hover p-6 h-full">
+                  <div className="w-10 h-10 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center mb-4">
+                    <f.icon />
+                  </div>
+                  <h3 className="text-lg font-semibold font-heading text-gray-900 mb-2">{f.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          {/* Interactive Lite Demo */}
+          <AnimatedSection className="mb-16">
+            <p className="text-center text-sm font-medium text-gray-500 mb-4">
+              See the actual 3-column layout — click songs, navigate stanzas
+            </p>
+            <PresenterLiteDemo />
+          </AnimatedSection>
+
+          <AnimatedSection className="text-center">
+            <p className="text-sm text-gray-400 mb-4">Available for macOS and Windows</p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <a href="https://github.com/WorshipBuddy/PresenterBuddyLite/releases/latest/download/PresenterBuddy-Mac-Installer.dmg" target="_blank" rel="noopener noreferrer" className="btn-primary text-center gap-2">
+                <FaApple className="text-lg" /><span>Mac</span>
+              </a>
+              <a href="https://github.com/WorshipBuddy/PresenterBuddyLite/releases/latest/download/PresenterBuddy-Windows-Setup.exe" target="_blank" rel="noopener noreferrer" className="btn-primary text-center gap-2">
+                <FaWindows className="text-lg" /><span>Windows</span>
+              </a>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* PresenterBuddy Studio */}
+      <section id="studio" className="section-light py-24 sm:py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-50 border border-purple-200 text-purple-600 text-sm font-medium mb-6">
+              Advanced & Comprehensive
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold font-heading text-gray-900 mb-4">
+              PresenterBuddy <span className="gradient-text">Studio</span>
+            </h2>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+              For teams that need more. A full production suite with NDI output, stage display, remote control, and professional integrations.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            {studioFeatures.map((f, i) => (
+              <AnimatedSection key={f.title} delay={i * 0.1}>
+                <div className="card-hover p-6 h-full">
+                  <div className="w-10 h-10 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center mb-4">
+                    <f.icon />
+                  </div>
+                  <h3 className="text-lg font-semibold font-heading text-gray-900 mb-2">{f.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          {/* Interactive Studio Demo */}
+          <AnimatedSection className="mb-16">
+            <p className="text-center text-sm font-medium text-gray-500 mb-4">
+              Full IDE-style layout with slides, output preview, and stage monitor
+            </p>
+            <PresenterStudioDemo />
+          </AnimatedSection>
+
+          <AnimatedSection>
+            <div className="card p-8 mb-16">
+              <h3 className="text-lg font-semibold font-heading text-gray-900 mb-4">Supported Import Formats</h3>
+              <div className="flex flex-wrap gap-2">
+                {["ProPresenter", "EasyWorship", "MediaShout", "OpenLP", "OpenSong", "SongBeamer", "Quelea", "SoftProjector", "VideoPsalm", "ChordPro", "PowerPoint", "PDF", "CSV"].map((format) => (
+                  <span key={format} className="px-3 py-1 rounded-full text-xs font-medium bg-purple-50 text-purple-600 border border-purple-100">
+                    {format}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection className="text-center">
+            <p className="text-sm text-gray-400 mb-4">Available for macOS and Windows</p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <a href="https://github.com/WorshipBuddy/PB-pro-FSFORK/releases/latest/download/PresenterBuddy-Studio-arm64.dmg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold text-white transition-all duration-300 hover:-translate-y-0.5" style={{ background: "linear-gradient(135deg, #8b5cf6, #a855f7)" }}>
+                <FaApple className="text-lg" />Apple Silicon Mac
+              </a>
+              <a href="https://github.com/WorshipBuddy/PB-pro-FSFORK/releases/latest/download/PresenterBuddy-Studio-x64.dmg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold text-white transition-all duration-300 hover:-translate-y-0.5" style={{ background: "linear-gradient(135deg, #8b5cf6, #a855f7)" }}>
+                <FaApple className="text-lg" />Intel Mac
+              </a>
+              <a href="https://github.com/WorshipBuddy/PB-pro-FSFORK/releases/latest/download/PresenterBuddy-Studio-x64.exe" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold text-white transition-all duration-300 hover:-translate-y-0.5" style={{ background: "linear-gradient(135deg, #8b5cf6, #a855f7)" }}>
+                <FaWindows className="text-lg" />Windows
+              </a>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Comparison Table */}
+      <section className="section-white py-24 sm:py-32">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold font-heading text-gray-900 mb-4">
+              Compare <span className="gradient-text">editions</span>
+            </h2>
+            <p className="text-gray-500 text-lg">Both are free. Choose the one that fits your needs.</p>
+          </AnimatedSection>
+
+          <AnimatedSection>
+            <div className="card overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-gray-100">
+                      <th className="text-left text-sm font-semibold text-gray-700 px-6 py-4">Feature</th>
+                      <th className="text-center text-sm font-semibold text-orange-500 px-6 py-4 w-32">Lite</th>
+                      <th className="text-center text-sm font-semibold text-purple-500 px-6 py-4 w-32">Studio</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {comparisonRows.map((row, i) => (
+                      <motion.tr key={row.feature} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.03 }} className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
+                        <td className="text-sm text-gray-600 px-6 py-3">{row.feature}</td>
+                        <td className="text-center px-6 py-3">
+                          {row.lite ? <FaCheck className="text-orange-500 mx-auto" /> : <FaTimes className="text-gray-300 mx-auto" />}
+                        </td>
+                        <td className="text-center px-6 py-3">
+                          {row.studio ? <FaCheck className="text-purple-500 mx-auto" /> : <FaTimes className="text-gray-300 mx-auto" />}
+                        </td>
+                      </motion.tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Documentation CTA */}
+      <section className="section-navy py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <AnimatedSection>
+            <h3 className="text-2xl font-bold font-heading text-white mb-4">Need help getting started?</h3>
+            <p className="text-blue-100/70 mb-6">Check out our comprehensive documentation for setup guides, features, and tips.</p>
+            <a href="https://guide.worshipbuddy.org/introduction" target="_blank" rel="noopener noreferrer" className="btn-white inline-flex items-center gap-2">
+              <span>View Documentation ↗</span>
+            </a>
+          </AnimatedSection>
+        </div>
+      </section>
+
       <Footer />
-    </main>
+    </>
   );
 }
