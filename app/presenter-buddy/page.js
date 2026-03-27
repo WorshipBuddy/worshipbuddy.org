@@ -108,10 +108,10 @@ export default function PresenterBuddy() {
           <AnimatedSection className="text-center">
             <p className="text-sm text-gray-400 mb-4">Available for macOS and Windows</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href="https://github.com/WorshipBuddy/PresenterBuddyLite/releases/latest/download/PresenterBuddy-Mac-Installer.dmg" target="_blank" rel="noopener noreferrer" className="btn-primary text-center gap-2">
+              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/lite-latest/PresenterBuddy-Mac-Installer.dmg" target="_blank" rel="noopener noreferrer" className="btn-primary text-center gap-2">
                 <FaApple className="text-lg" /><span>Mac</span>
               </a>
-              <a href="https://github.com/WorshipBuddy/PresenterBuddyLite/releases/latest/download/PresenterBuddy-Windows-Setup.exe" target="_blank" rel="noopener noreferrer" className="btn-primary text-center gap-2">
+              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/lite-latest/PresenterBuddy-Windows-Setup.exe" target="_blank" rel="noopener noreferrer" className="btn-primary text-center gap-2">
                 <FaWindows className="text-lg" /><span>Windows</span>
               </a>
             </div>
@@ -172,13 +172,13 @@ export default function PresenterBuddy() {
           <AnimatedSection className="text-center">
             <p className="text-sm text-gray-400 mb-4">Available for macOS and Windows</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href="https://github.com/WorshipBuddy/PB-pro-FSFORK/releases/latest/download/PresenterBuddy-Studio-arm64.dmg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold text-white transition-all duration-300 hover:-translate-y-0.5" style={{ background: "linear-gradient(135deg, #8b5cf6, #a855f7)" }}>
+              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/studio-latest/PresenterBuddy-Studio-arm64.dmg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold text-white transition-all duration-300 hover:-translate-y-0.5" style={{ background: "linear-gradient(135deg, #8b5cf6, #a855f7)" }}>
                 <FaApple className="text-lg" />Apple Silicon Mac
               </a>
-              <a href="https://github.com/WorshipBuddy/PB-pro-FSFORK/releases/latest/download/PresenterBuddy-Studio-x64.dmg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold text-white transition-all duration-300 hover:-translate-y-0.5" style={{ background: "linear-gradient(135deg, #8b5cf6, #a855f7)" }}>
+              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/studio-latest/PresenterBuddy-Studio-x64.dmg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold text-white transition-all duration-300 hover:-translate-y-0.5" style={{ background: "linear-gradient(135deg, #8b5cf6, #a855f7)" }}>
                 <FaApple className="text-lg" />Intel Mac
               </a>
-              <a href="https://github.com/WorshipBuddy/PB-pro-FSFORK/releases/latest/download/PresenterBuddy-Studio-x64.exe" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold text-white transition-all duration-300 hover:-translate-y-0.5" style={{ background: "linear-gradient(135deg, #8b5cf6, #a855f7)" }}>
+              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/studio-latest/PresenterBuddy-Studio-x64.exe" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold text-white transition-all duration-300 hover:-translate-y-0.5" style={{ background: "linear-gradient(135deg, #8b5cf6, #a855f7)" }}>
                 <FaWindows className="text-lg" />Windows
               </a>
             </div>
