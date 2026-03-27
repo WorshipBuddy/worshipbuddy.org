@@ -124,7 +124,7 @@ export default function DonationCalculator() {
             <input
               type="range"
               min="1"
-              max="2000"
+              max="10000"
               value={attendees}
               onChange={(e) => setAttendees(Number(e.target.value))}
               className="flex-1 h-2 bg-gray-200 rounded-full appearance-none cursor-pointer accent-brand"
@@ -155,7 +155,7 @@ export default function DonationCalculator() {
             <input
               type="range"
               min="1"
-              max="500"
+              max="5000"
               value={songs}
               onChange={(e) => setSongs(Number(e.target.value))}
               className="flex-1 h-2 bg-gray-200 rounded-full appearance-none cursor-pointer accent-blue-600"
