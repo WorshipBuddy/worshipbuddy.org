@@ -2,222 +2,180 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaBars, FaTimes, FaChevronDown, FaHeart } from "react-icons/fa";
+
+const products = [
+  { name: "worshipbuddy",   label: "WorshipBuddy",   href: "/worship-buddy",   colorClass: "text-wb" },
+  { name: "churchbuddy",    label: "ChurchBuddy",    href: "/church-buddy",    colorClass: "text-cb" },
+  { name: "presenterbuddy", label: "PresenterBuddy", href: "/presenter-buddy", colorClass: "text-pb" },
+];
+
+const resources = [
+  { name: "About",     href: "/about" },
+  { name: "Changelog", href: "/changelog" },
+  { name: "Guide",     href: "https://guide.worshipbuddy.org", external: true },
+  { name: "Feedback",  href: "/feedback" },
+];
 
 export default function Nav() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [resourcesOpen, setResourcesOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    setIsOpen(false);
-    setResourcesOpen(false);
-  }, [pathname]);
-
-  const navItems = [
-    { name: "Home", href: "/" },
-    { name: "WorshipBuddy", href: "/worship-buddy" },
-    { name: "ChurchBuddy", href: "/church-buddy" },
-    { name: "PresenterBuddy", href: "/presenter-buddy" },
-    { name: "About", href: "/about" },
-  ];
-
-  const resourcesItems = [
-    { name: "Feedback", href: "/feedback" },
-    { name: "Changelog", href: "/changelog" },
-    { name: "Guide", href: "https://guide.worshipbuddy.org", external: true },
-  ];
+  useEffect(() => { setMenuOpen(false); }, [pathname]);
 
   const isActive = (href) => pathname === href;
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-nav border-b border-gray-100"
-          : "bg-white/70 backdrop-blur-sm"
+          ? "bg-white/95 backdrop-blur-md border-b border-border shadow-nav"
+          : "bg-white border-b border-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2 group">
-            <span className="text-xl font-bold font-heading text-brand group-hover:text-brand-dark transition-colors duration-200">
-              WorshipBuddy
-            </span>
-          </Link>
+      <div className="max-w-content mx-auto px-6 lg:px-8 h-[60px] flex items-center justify-between">
 
-          <div className="hidden lg:flex lg:items-center lg:gap-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
-                  isActive(item.href)
-                    ? "text-brand"
-                    : "text-gray-600 hover:text-brand hover:bg-gray-50"
-                }`}
-              >
-                {item.name}
-                {isActive(item.href) && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute bottom-0 left-2 right-2 h-0.5 bg-brand rounded-full"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </Link>
-            ))}
+        {/* ── Logo + wordmark ── */}
+        <Link href="/" className="flex items-center gap-2.5 shrink-0">
+          <div className="w-7 h-7 relative">
+            <Image
+              src="/worship-buddy-white-logo.png"
+              alt="WorshipBuddy"
+              width={28}
+              height={28}
+              className="object-contain"
+            />
+          </div>
+          <span className="font-sans font-bold text-[17px] text-ink tracking-tight">
+            WorshipBuddy
+          </span>
+        </Link>
 
-            <div className="relative">
-              <button
-                onClick={() => setResourcesOpen(!resourcesOpen)}
-                onBlur={() => setTimeout(() => setResourcesOpen(false), 200)}
-                className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-gray-600 hover:text-brand hover:bg-gray-50 rounded-lg transition-all duration-200"
-              >
-                Resources
-                <FaChevronDown
-                  className={`text-[10px] transition-transform duration-200 ${
-                    resourcesOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              <AnimatePresence>
-                {resourcesOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute top-full right-0 mt-2 w-48 bg-white rounded-xl border border-gray-100 shadow-lg py-1 overflow-hidden"
-                  >
-                    {resourcesItems.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="block px-4 py-2.5 text-sm text-gray-600 hover:text-brand hover:bg-gray-50 transition-colors duration-150"
-                        target={item.external ? "_blank" : "_self"}
-                        rel={item.external ? "noopener noreferrer" : undefined}
-                      >
-                        {item.name}
-                        {item.external && (
-                          <span className="ml-1 text-xs text-gray-400">↗</span>
-                        )}
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
+        {/* ── Desktop nav ── */}
+        <nav className="hidden lg:flex items-center gap-0.5">
+          {products.map((p) => (
             <Link
-              href="/donate"
-              className={`flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
-                isActive("/donate")
-                  ? "text-brand"
-                  : "text-gray-600 hover:text-brand hover:bg-gray-50"
+              key={p.name}
+              href={p.href}
+              className={`font-mono text-[12px] font-medium px-3 py-1.5 rounded-md transition-colors duration-150 ${
+                isActive(p.href)
+                  ? `${p.colorClass} bg-surface-card`
+                  : "text-muted hover:text-ink hover:bg-surface-card"
               }`}
             >
-              <FaHeart className="text-xs text-pink-500" />
-              Donate
+              {p.name}
             </Link>
-          </div>
+          ))}
 
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-gray-600 hover:text-brand p-2 rounded-lg transition-colors duration-200"
+          <span className="w-px h-4 bg-border mx-1.5" />
+
+          {resources.map((r) => (
+            <Link
+              key={r.name}
+              href={r.href}
+              target={r.external ? "_blank" : undefined}
+              rel={r.external ? "noopener noreferrer" : undefined}
+              className={`font-sans text-[13px] px-3 py-1.5 rounded-md transition-colors duration-150 ${
+                isActive(r.href)
+                  ? "text-ink font-semibold bg-surface-card"
+                  : "text-muted hover:text-ink hover:bg-surface-card"
+              }`}
+            >
+              {r.name}
+            </Link>
+          ))}
+        </nav>
+
+        {/* ── Right side ── */}
+        <div className="flex items-center gap-3">
+          <Link
+            href="/donate"
+            className="hidden sm:inline-flex font-sans text-[13px] text-muted hover:text-ink transition-colors duration-150"
           >
-            {isOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
+            Donate
+          </Link>
+          <Link href="/worship-buddy" className="btn btn-primary px-4 py-2 text-[13px]">
+            Get started — free
+          </Link>
+
+          {/* Hamburger */}
+          <button
+            onClick={() => setMenuOpen((v) => !v)}
+            className="lg:hidden p-2 -mr-1 text-muted hover:text-ink transition-colors"
+            aria-label="Toggle menu"
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              {menuOpen ? (
+                <path d="M4 4l12 12M4 16L16 4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round"/>
+              ) : (
+                <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round"/>
+              )}
+            </svg>
           </button>
         </div>
       </div>
 
+      {/* ── Mobile menu ── */}
       <AnimatePresence>
-        {isOpen && (
+        {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="lg:hidden bg-white border-t border-gray-100 overflow-hidden"
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.15 }}
+            className="lg:hidden border-t border-border bg-white"
           >
-            <div className="px-4 py-4 space-y-1">
-              {navItems.map((item, i) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
+            <div className="max-w-content mx-auto px-6 py-4 flex flex-col gap-0.5">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-muted/50 px-2 pt-1 pb-2">
+                Products
+              </p>
+              {products.map((p) => (
+                <Link
+                  key={p.name}
+                  href={p.href}
+                  className={`font-mono text-[13px] font-medium px-3 py-2.5 rounded-lg transition-colors ${
+                    isActive(p.href)
+                      ? `${p.colorClass} bg-surface-card`
+                      : "text-muted hover:text-ink hover:bg-surface-card"
+                  }`}
                 >
-                  <Link
-                    href={item.href}
-                    className={`block px-4 py-3 text-base font-medium rounded-lg transition-colors duration-150 ${
-                      isActive(item.href)
-                        ? "text-brand bg-blue-50"
-                        : "text-gray-600 hover:text-brand hover:bg-gray-50"
-                    }`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                </motion.div>
+                  {p.name}
+                </Link>
               ))}
 
-              <div className="border-t border-gray-100 pt-3 mt-3">
-                <p className="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
-                  Resources
-                </p>
-                {resourcesItems.map((item, i) => (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: (navItems.length + i) * 0.05 }}
-                  >
-                    <Link
-                      href={item.href}
-                      className="block px-4 py-2.5 text-sm text-gray-500 hover:text-brand hover:bg-gray-50 rounded-lg transition-colors duration-150"
-                      onClick={() => setIsOpen(false)}
-                      target={item.external ? "_blank" : "_self"}
-                      rel={item.external ? "noopener noreferrer" : undefined}
-                    >
-                      {item.name}
-                      {item.external && (
-                        <span className="ml-1 text-xs text-gray-400">↗</span>
-                      )}
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="border-t border-gray-100 pt-3 mt-3">
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: (navItems.length + resourcesItems.length) * 0.05 }}
+              <p className="font-mono text-[10px] uppercase tracking-widest text-muted/50 px-2 pt-4 pb-2">
+                Resources
+              </p>
+              {resources.map((r) => (
+                <Link
+                  key={r.name}
+                  href={r.href}
+                  target={r.external ? "_blank" : undefined}
+                  rel={r.external ? "noopener noreferrer" : undefined}
+                  className="font-sans text-[14px] text-muted hover:text-ink px-3 py-2.5 rounded-lg hover:bg-surface-card transition-colors"
                 >
-                  <Link
-                    href="/donate"
-                    className="flex items-center gap-2 px-4 py-3 text-base font-medium text-gray-600 hover:text-brand hover:bg-gray-50 rounded-lg transition-colors duration-150"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    <FaHeart className="text-sm text-pink-500" />
-                    Donate
-                  </Link>
-                </motion.div>
+                  {r.name}
+                </Link>
+              ))}
+
+              <div className="pt-3 mt-2 border-t border-border">
+                <Link href="/worship-buddy" className="btn btn-primary btn-lg w-full justify-center">
+                  Get started — free
+                </Link>
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </header>
   );
 }
