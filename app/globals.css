@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+/* Satoshi from Fontshare */
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap');
+/* Instrument Serif + JetBrains Mono from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -12,21 +15,22 @@
   }
 
   body {
-    font-family: 'DM Sans', system-ui, sans-serif;
-    background-color: #f4f6f8;
-    color: #4a5568;
+    font-family: 'Satoshi', system-ui, sans-serif;
+    background-color: #FAFAF9;
+    color: #18181B;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', system-ui, sans-serif;
+    font-family: 'Satoshi', system-ui, sans-serif;
+  }
+
+  .font-heading {
+    font-family: 'Instrument Serif', Georgia, serif;
   }
 }
 
 @layer components {
-  .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 font-bold;
-  }
-
+  /* ── Sections ── */
   .section-light {
     @apply relative overflow-hidden bg-surface;
   }
@@ -35,88 +39,110 @@
     @apply relative overflow-hidden bg-white;
   }
 
-  .section-navy {
-    @apply relative overflow-hidden text-white;
-    background: linear-gradient(135deg, #10245c 0%, #1a365d 100%);
+  .section-dark {
+    @apply relative overflow-hidden text-white bg-dark;
   }
 
+  /* ── Cards ── */
   .card {
-    @apply bg-white rounded-2xl border border-gray-100 shadow-card;
+    @apply bg-white rounded-xl border border-border shadow-card;
   }
 
   .card-hover {
-    @apply card transition-all duration-300;
+    @apply card transition-all duration-200;
   }
 
   .card-hover:hover {
-    @apply shadow-card-hover border-gray-200;
-    transform: translateY(-4px);
+    @apply shadow-card-hover;
+    transform: translateY(-3px);
+  }
+
+  /* ── Buttons ── */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-sans font-semibold text-sm
+           transition-all duration-150 rounded-lg px-5 py-2.5 no-underline;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center px-8 py-3 rounded-full font-semibold text-white transition-all duration-300;
-    background: #10245c;
+    @apply btn bg-ink text-white;
   }
-
   .btn-primary:hover {
-    background: #0c1b48;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(16, 36, 92, 0.25);
+    @apply bg-zinc-800;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(24,24,27,0.18);
   }
 
-  .btn-primary span {
-    @apply relative z-10;
+  .btn-wb {
+    @apply btn text-white;
+    background: #2563EB;
+  }
+  .btn-wb:hover {
+    background: #1D4ED8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(37,99,235,0.32);
   }
 
-  .btn-outline {
-    @apply inline-flex items-center justify-center px-8 py-3 rounded-full font-semibold border-2 border-gray-200 text-gray-700 hover:border-brand hover:text-brand transition-all duration-300;
+  .btn-cb {
+    @apply btn text-white;
+    background: #D97706;
+  }
+  .btn-cb:hover {
+    background: #B45309;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(217,119,6,0.32);
   }
 
-  .btn-outline:hover {
-    transform: translateY(-2px);
+  .btn-pb {
+    @apply btn text-white;
+    background: #7C3AED;
+  }
+  .btn-pb:hover {
+    background: #6D28D9;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(124,58,237,0.32);
   }
 
-  .btn-white {
-    @apply inline-flex items-center justify-center px-8 py-3 rounded-full font-semibold bg-white text-brand transition-all duration-300;
+  .btn-ghost {
+    @apply btn text-muted border border-border bg-transparent;
+  }
+  .btn-ghost:hover {
+    @apply bg-surface-card text-ink;
   }
 
-  .btn-white:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.25);
+  .btn-lg {
+    @apply px-7 py-3.5 text-base rounded-xl;
   }
 
+  /* ── Badges / pills ── */
+  .badge {
+    @apply inline-flex items-center gap-1.5 font-mono text-[11px] font-medium
+           tracking-wide px-2.5 py-0.5 rounded-full;
+  }
+  .badge-wb { @apply bg-wb-light text-wb; }
+  .badge-cb { @apply bg-cb-light text-cb-dark; }
+  .badge-pb { @apply bg-pb-light text-pb; }
+  .badge-neutral { @apply bg-surface-card text-muted border border-border; }
+
+  /* ── Section label (eyebrow) ── */
+  .section-label {
+    @apply font-mono text-[11px] font-medium tracking-widest uppercase text-wb;
+  }
+
+  /* ── Utility ── */
   .text-balance {
     text-wrap: balance;
   }
 }
 
+/* Scrollbar */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(16, 36, 92, 0.2) transparent;
+  scrollbar-color: #E4E4E7 transparent;
 }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #E4E4E7; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #D4D4D8; }
 
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(16, 36, 92, 0.2);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(16, 36, 92, 0.35);
-}
-
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

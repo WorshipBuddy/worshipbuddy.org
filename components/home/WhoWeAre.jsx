@@ -1,69 +1,54 @@
 "use client";
 
 import AnimatedSection from "@/components/shared/AnimatedSection";
-import { FaMusic, FaChurch, FaHandsHelping } from "react-icons/fa";
 
 const values = [
   {
-    icon: FaMusic,
-    title: "Built for Worship",
+    label: "Built for Worship",
     description:
-      "Every tool we build is designed by worship leaders, for worship leaders. We understand the unique needs of church music ministry.",
-    color: "text-blue-600 bg-blue-50",
+      "Every tool is designed by worship leaders, for worship leaders. We understand the unique rhythms of church music ministry.",
+    dot: "bg-wb",
   },
   {
-    icon: FaChurch,
-    title: "Free for Every Church",
+    label: "Free for Every Church",
     description:
-      "As a 501(c)(3) nonprofit, we believe every church — regardless of size or budget — deserves professional-grade worship tools.",
-    color: "text-purple-600 bg-purple-50",
+      "As a 501(c)(3) nonprofit, we believe every church — regardless of size or budget — deserves professional-grade tools.",
+    dot: "bg-cb",
   },
   {
-    icon: FaHandsHelping,
-    title: "Community Driven",
+    label: "Community Driven",
     description:
-      "Our platform grows through the feedback and contributions of worship teams worldwide. Your input shapes our roadmap.",
-    color: "text-orange-600 bg-orange-50",
+      "Our platform grows through the feedback of worship teams worldwide. Your input shapes what we build next.",
+    dot: "bg-pb",
   },
 ];
 
 export default function WhoWeAre() {
   return (
-    <section className="section-light py-24 sm:py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection className="text-center mb-16">
-          <p className="text-brand font-semibold text-sm uppercase tracking-wider mb-3">
-            Who We Are
-          </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-gray-900 mb-6 text-balance">
-            No ads. No purchases.{" "}
-            <span className="gradient-text">Just worship.</span>
+    <section className="bg-surface border-t border-border py-24 sm:py-32">
+      <div className="max-w-content mx-auto px-6 lg:px-8">
+
+        <AnimatedSection className="mb-14">
+          <span className="section-label mb-3 block">Who We Are</span>
+          <h2 className="font-heading text-[clamp(30px,5vw,52px)] leading-[1.1] text-ink text-balance max-w-2xl mb-5">
+            No ads. No purchases. Just worship.
           </h2>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
-            WorshipBuddy is a nonprofit organization on a mission to equip every worship
-            team with free, powerful software — from song management to live presentation.
+          <p className="font-sans text-[17px] text-muted max-w-xl leading-relaxed">
+            WorshipBuddy is a nonprofit on a mission to equip every worship team with
+            free, powerful software — from song management to live presentation.
           </p>
         </AnimatedSection>
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-          {values.map((value, index) => (
-            <AnimatedSection
-              key={value.title}
-              delay={index * 0.15}
-              className="card-hover p-8"
-            >
-              <div className={`w-12 h-12 rounded-xl ${value.color} flex items-center justify-center mb-5`}>
-                <value.icon className="text-xl" />
-              </div>
-              <h3 className="text-xl font-semibold font-heading text-gray-900 mb-3">
-                {value.title}
-              </h3>
-              <p className="text-gray-500 leading-relaxed">
-                {value.description}
-              </p>
+          {values.map((v, i) => (
+            <AnimatedSection key={v.label} delay={i * 0.12} className="card p-8">
+              <div className={`w-2 h-2 rounded-full ${v.dot} mb-6`} />
+              <h3 className="font-sans font-semibold text-[17px] text-ink mb-3">{v.label}</h3>
+              <p className="font-sans text-[15px] text-muted leading-relaxed">{v.description}</p>
             </AnimatedSection>
           ))}
         </div>
+
       </div>
     </section>
   );
