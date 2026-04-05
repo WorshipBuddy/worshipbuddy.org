@@ -13,8 +13,8 @@ const products = [
     tagline: "Your church's music library",
     description:
       "Host all your church's music in one place — originals, purchased songs, and multiple language versions. Manage everything through the admin portal and share it with your whole team.",
-    color: "#2563EB",
-    lightBg: "#DBEAFE",
+    color: "#0C245E",
+    lightBg: "#DCE4F8",
     textColor: "text-wb",
     bgClass: "bg-wb-light",
     btnClass: "btn-wb",
@@ -33,8 +33,8 @@ const products = [
     tagline: "Scheduling that actually works",
     description:
       "Coordinate ministry teams, manage services, assign roles, and keep your entire church organized — without the spreadsheets.",
-    color: "#D97706",
-    lightBg: "#FEF3C7",
+    color: "#0B7261",
+    lightBg: "#CCE9E4",
     textColor: "text-cb",
     bgClass: "bg-cb-light",
     btnClass: "btn-cb",
@@ -53,8 +53,8 @@ const products = [
     tagline: "Present with confidence",
     description:
       "Professional presentation software for worship — from a simple lyrics display to a full production suite with NDI output and remote control.",
-    color: "#7C3AED",
-    lightBg: "#EDE9FE",
+    color: "#1E6B8A",
+    lightBg: "#D0E9F2",
     textColor: "text-pb",
     bgClass: "bg-pb-light",
     btnClass: "btn-pb",

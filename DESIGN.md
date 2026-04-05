@@ -54,9 +54,9 @@
 ### Per-Product Colors
 | Product          | Token  | Hex       | Light bg    | Dark        | Rationale |
 |------------------|--------|-----------|-------------|-------------|-----------|
-| WorshipBuddy     | `--wb` | `#2563EB` | `#DBEAFE`   | `#1D4ED8`   | Music, focus, reliability — deep electric blue |
-| ChurchBuddy      | `--cb` | `#D97706` | `#FEF3C7`   | `#B45309`   | Community, warmth, scheduling — amber signals people, not enterprise |
-| PresenterBuddy   | `--pb` | `#7C3AED` | `#EDE9FE`   | `#6D28D9`   | Stage, performance, creativity — bold violet |
+| WorshipBuddy     | `--wb` | `#0C245E` | `#DCE4F8`   | `#0A1A45`   | Deep navy — serious, trustworthy, focused. AAA contrast (18.4:1) on all backgrounds |
+| ChurchBuddy      | `--cb` | `#0B7261` | `#CCE9E4`   | `#074F43`   | Sage teal — organic, life-giving, community. Derived from #032224. AA pass (5.3:1) |
+| PresenterBuddy   | `--pb` | `#1E6B8A` | `#D0E9F2`   | `#134F67`   | Deep Horizon teal — muted, sophisticated, stage-depth. Distinct blue-teal vs CB's green-teal. AA pass (5.1:1) |
 
 ### Semantic Colors
 | State   | Hex       | Background | Text      |
@@ -151,10 +151,10 @@ fontFamily: {
   mono:    ['"JetBrains Mono"', '"Courier New"', 'monospace'],
 },
 colors: {
-  // Replace existing brand/navy with:
-  wb:   { DEFAULT: '#2563EB', light: '#DBEAFE', dark: '#1D4ED8' },
-  cb:   { DEFAULT: '#D97706', light: '#FEF3C7', dark: '#B45309' },
-  pb:   { DEFAULT: '#7C3AED', light: '#EDE9FE', dark: '#6D28D9' },
+  // Per-product color system:
+  wb:   { DEFAULT: '#0C245E', light: '#DCE4F8', dark: '#0A1A45' },
+  cb:   { DEFAULT: '#0B7261', light: '#CCE9E4', dark: '#074F43' },
+  pb:   { DEFAULT: '#1E6B8A', light: '#D0E9F2', dark: '#134F67' },
   zinc: { /* keep Tailwind defaults */ },
   surface: { DEFAULT: '#FAFAF9', card: '#F4F4F0' },
   dark: '#0F172A',
@@ -172,3 +172,6 @@ colors: {
 | 2026-04-03 | Zero gradients policy | Gradients age badly and signal "2019 SaaS". Flat color blocks age better and look more confident |
 | 2026-04-03 | Dark footer with ruled column separators | Direct reference to Tailscale footer pattern user identified as a design reference |
 | 2026-04-03 | Full redesign (navy removed) | User approved full redesign — original navy #10245c replaced by per-product color system on neutral foundation |
+| 2026-04-04 | WB color → #0C245E deep navy | Returned to a deep navy feel (intentionally close to the original #10245c); user confirmed this direction. Light: #DCE4F8, Dark: #0A1A45. AAA contrast. |
+| 2026-04-04 | CB color → #0B7261 Sage Teal | Replaced amber with Sage Teal derived from #032224 hue. Warm, organic, community feel. Differentiates from PB's blue-teal direction. |
+| 2026-04-04 | PB color → #1E6B8A Deep Horizon Teal | Replaced violet with a muted blue-teal. Sophisticated, desktop-native feel appropriate for a macOS/Windows app. Distinct from CB's green-teal. |

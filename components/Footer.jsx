@@ -6,9 +6,9 @@ import { FaInstagram, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 // Products with their colors for the colored dot treatment
 const productLinks = [
-  { name: "WorshipBuddy",   href: "/worship-buddy",   dot: "#2563EB" },
-  { name: "ChurchBuddy",    href: "/church-buddy",    dot: "#D97706" },
-  { name: "PresenterBuddy", href: "/presenter-buddy", dot: "#7C3AED" },
+  { name: "WorshipBuddy",   href: "/worship-buddy",   dot: "#0C245E" },
+  { name: "ChurchBuddy",    href: "/church-buddy",    dot: "#0B7261" },
+  { name: "PresenterBuddy", href: "/presenter-buddy", dot: "#1E6B8A" },
 ];
 
 const resourceLinks = [

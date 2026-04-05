@@ -15,19 +15,19 @@ module.exports = {
       colors: {
         // Per-product colors
         wb: {
-          DEFAULT: '#2563EB',
-          light:   '#DBEAFE',
-          dark:    '#1D4ED8',
+          DEFAULT: '#0C245E',
+          light:   '#DCE4F8',
+          dark:    '#0A1A45',
         },
         cb: {
-          DEFAULT: '#D97706',
-          light:   '#FEF3C7',
-          dark:    '#B45309',
+          DEFAULT: '#0B7261',
+          light:   '#CCE9E4',
+          dark:    '#074F43',
         },
         pb: {
-          DEFAULT: '#7C3AED',
-          light:   '#EDE9FE',
-          dark:    '#6D28D9',
+          DEFAULT: '#1E6B8A',
+          light:   '#D0E9F2',
+          dark:    '#134F67',
         },
         // Global palette
         surface: {
