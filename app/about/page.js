@@ -47,12 +47,12 @@ export default function About() {
       <section className="section-navy relative min-h-[50vh] flex items-center overflow-hidden pt-20">
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
           <AnimatedSection>
-            <p className="text-brand font-semibold text-sm uppercase tracking-wider mb-4">About Us</p>
+            <p className="text-[#DCE4F8] font-semibold text-sm uppercase tracking-wider mb-4">About Us</p>
             <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
               Built by worship leaders,{" "}
-              <span className="gradient-text">for worship leaders</span>
+              <span className="text-[#DCE4F8]">for worship leaders</span>
             </h1>
-            <p className="text-lg text-blue-100/70 max-w-2xl mx-auto">
+            <p className="text-lg text-[#DCE4F8]/70 max-w-2xl mx-auto">
               We understand the challenges of organizing and presenting songs during services.
               Our mission is to make worship leading easier and more enjoyable.
             </p>

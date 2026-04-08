@@ -18,17 +18,17 @@ export default function ChurchBuddy() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden pt-20 section-navy">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(139,92,246,0.15)_0%,_transparent_60%)]" />
+      <section className="relative min-h-[70vh] flex items-center overflow-hidden pt-20 section-cb">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(11,114,97,0.25)_0%,_transparent_60%)]" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
           <AnimatedSection>
-            <p className="text-purple-300 font-semibold text-sm uppercase tracking-wider mb-4">Church Scheduling</p>
+            <p className="text-[#CCE9E4] font-semibold text-sm uppercase tracking-wider mb-4">Church Scheduling</p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-heading text-white mb-6 leading-tight">
               Scheduling that{" "}
-              <span className="text-purple-300">actually works</span>
+              <span className="text-[#CCE9E4]">actually works</span>
             </h1>
-            <p className="text-lg sm:text-xl text-blue-100/70 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-[#CCE9E4]/70 mb-8 max-w-2xl mx-auto">
               Coordinate schedules, manage ministries and teams, and ensure smooth
               service transitions. Keep everyone organized and informed.
             </p>
@@ -52,7 +52,7 @@ export default function ChurchBuddy() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold font-heading text-gray-900 mb-4">
-              See it in <span className="gradient-text">action</span>
+              See it in <span style={{ color: "#0B7261" }}>action</span>
             </h2>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto">
               This is what your team sees — a real calendar with services, assignments, and confirmations.
@@ -69,7 +69,7 @@ export default function ChurchBuddy() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold font-heading text-gray-900 mb-4">
-              Keep your church <span className="gradient-text">organized</span>
+              Keep your church <span style={{ color: "#0B7261" }}>organized</span>
             </h2>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto">From ministry teams to service schedules, ChurchBuddy handles it all.</p>
           </AnimatedSection>
@@ -78,7 +78,7 @@ export default function ChurchBuddy() {
             {features.map((feature, i) => (
               <AnimatedSection key={feature.title} delay={i * 0.1}>
                 <div className="card-hover p-6 h-full">
-                  <div className="w-10 h-10 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center mb-4">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style={{ background: "#CCE9E4", color: "#0B7261" }}>
                     <feature.icon />
                   </div>
                   <h3 className="text-lg font-semibold font-heading text-gray-900 mb-2">{feature.title}</h3>
@@ -91,13 +91,13 @@ export default function ChurchBuddy() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-24 overflow-hidden section-navy">
+      <section className="relative py-24 overflow-hidden section-cb">
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
             <h2 className="text-3xl sm:text-4xl font-bold font-heading text-white mb-6">
-              Get started with ChurchBuddy <span className="text-purple-300">today</span>
+              Get started with ChurchBuddy <span className="text-[#CCE9E4]">today</span>
             </h2>
-            <p className="text-blue-100/70 text-lg mb-8 max-w-2xl mx-auto">Free for every church. Available on the web, iOS, and Android.</p>
+            <p className="text-[#CCE9E4]/70 text-lg mb-8 max-w-2xl mx-auto">Free for every church. Available on the web, iOS, and Android.</p>
             <a href="https://church.worshipbuddy.org" target="_blank" rel="noopener noreferrer" className="btn-white inline-flex items-center gap-2">
               <span>Launch ChurchBuddy</span>
             </a>

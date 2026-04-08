@@ -44,20 +44,25 @@ const comparisonRows = [
   { feature: "Google Drive Sync", lite: false, studio: true },
 ];
 
+// PB colors
+const PB = "#1E6B8A";
+const PB_LIGHT = "#D0E9F2";
+const PB_DARK = "#134F67";
+
 export default function PresenterBuddy() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden pt-20 section-navy">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(249,115,22,0.12)_0%,_transparent_60%)]" />
+      <section className="relative min-h-[70vh] flex items-center overflow-hidden pt-20 section-pb">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(30,107,138,0.25)_0%,_transparent_60%)]" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <AnimatedSection className="text-center max-w-3xl mx-auto">
-            <p className="text-orange-300 font-semibold text-sm uppercase tracking-wider mb-4">Presentation Software</p>
+            <p className="text-[#D0E9F2] font-semibold text-sm uppercase tracking-wider mb-4">Presentation Software</p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-heading text-white mb-6 leading-tight">
-              Present with <span className="text-orange-300">confidence</span>
+              Present with <span className="text-[#D0E9F2]">confidence</span>
             </h1>
-            <p className="text-lg sm:text-xl text-blue-100/70 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-[#D0E9F2]/70 mb-8 max-w-2xl mx-auto">
               From a simple lyrics display to a full production suite — PresenterBuddy has the right tool for every church, no matter the size.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -74,8 +79,8 @@ export default function PresenterBuddy() {
       <section id="lite" className="section-white py-24 sm:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-orange-600 text-sm font-medium mb-6">
-              Free & Simple
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ background: PB_LIGHT, color: PB }}>
+              Free &amp; Simple
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold font-heading text-gray-900 mb-4">PresenterBuddy</h2>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto">
@@ -87,7 +92,7 @@ export default function PresenterBuddy() {
             {liteFeatures.map((f, i) => (
               <AnimatedSection key={f.title} delay={i * 0.1}>
                 <div className="card-hover p-6 h-full">
-                  <div className="w-10 h-10 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center mb-4">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style={{ background: PB_LIGHT, color: PB }}>
                     <f.icon />
                   </div>
                   <h3 className="text-lg font-semibold font-heading text-gray-900 mb-2">{f.title}</h3>
@@ -123,11 +128,11 @@ export default function PresenterBuddy() {
       <section id="studio" className="section-light py-24 sm:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-50 border border-purple-200 text-purple-600 text-sm font-medium mb-6">
-              Advanced & Comprehensive
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-6" style={{ background: PB_LIGHT, color: PB_DARK }}>
+              Advanced &amp; Comprehensive
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold font-heading text-gray-900 mb-4">
-              PresenterBuddy <span className="gradient-text">Studio</span>
+              PresenterBuddy <span style={{ color: PB }}>Studio</span>
             </h2>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto">
               For teams that need more. A full production suite with NDI output, stage display, remote control, and professional integrations.
@@ -138,7 +143,7 @@ export default function PresenterBuddy() {
             {studioFeatures.map((f, i) => (
               <AnimatedSection key={f.title} delay={i * 0.1}>
                 <div className="card-hover p-6 h-full">
-                  <div className="w-10 h-10 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center mb-4">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style={{ background: PB_LIGHT, color: PB_DARK }}>
                     <f.icon />
                   </div>
                   <h3 className="text-lg font-semibold font-heading text-gray-900 mb-2">{f.title}</h3>
@@ -161,7 +166,7 @@ export default function PresenterBuddy() {
               <h3 className="text-lg font-semibold font-heading text-gray-900 mb-4">Supported Import Formats</h3>
               <div className="flex flex-wrap gap-2">
                 {["ProPresenter", "EasyWorship", "MediaShout", "OpenLP", "OpenSong", "SongBeamer", "Quelea", "SoftProjector", "VideoPsalm", "ChordPro", "PowerPoint", "PDF", "CSV"].map((format) => (
-                  <span key={format} className="px-3 py-1 rounded-full text-xs font-medium bg-purple-50 text-purple-600 border border-purple-100">
+                  <span key={format} className="px-3 py-1 rounded-full text-xs font-medium" style={{ background: PB_LIGHT, color: PB_DARK, border: `1px solid ${PB}33` }}>
                     {format}
                   </span>
                 ))}
@@ -172,13 +177,13 @@ export default function PresenterBuddy() {
           <AnimatedSection className="text-center">
             <p className="text-sm text-gray-400 mb-4">Available for macOS and Windows</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/studio-latest/PresenterBuddy-Studio-arm64.dmg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold text-white transition-all duration-300 hover:-translate-y-0.5" style={{ background: "linear-gradient(135deg, #8b5cf6, #a855f7)" }}>
+              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/studio-latest/PresenterBuddy-Studio-arm64.dmg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-semibold text-white transition-all duration-150 hover:-translate-y-0.5" style={{ background: PB }}>
                 <FaApple className="text-lg" />Apple Silicon Mac
               </a>
-              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/studio-latest/PresenterBuddy-Studio-x64.dmg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold text-white transition-all duration-300 hover:-translate-y-0.5" style={{ background: "linear-gradient(135deg, #8b5cf6, #a855f7)" }}>
+              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/studio-latest/PresenterBuddy-Studio-x64.dmg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-semibold text-white transition-all duration-150 hover:-translate-y-0.5" style={{ background: PB }}>
                 <FaApple className="text-lg" />Intel Mac
               </a>
-              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/studio-latest/PresenterBuddy-Studio-x64.exe" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold text-white transition-all duration-300 hover:-translate-y-0.5" style={{ background: "linear-gradient(135deg, #8b5cf6, #a855f7)" }}>
+              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/studio-latest/PresenterBuddy-Studio-x64.exe" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-semibold text-white transition-all duration-150 hover:-translate-y-0.5" style={{ background: PB }}>
                 <FaWindows className="text-lg" />Windows
               </a>
             </div>
@@ -191,7 +196,7 @@ export default function PresenterBuddy() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold font-heading text-gray-900 mb-4">
-              Compare <span className="gradient-text">editions</span>
+              Compare <span style={{ color: PB }}>editions</span>
             </h2>
             <p className="text-gray-500 text-lg">Both are free. Choose the one that fits your needs.</p>
           </AnimatedSection>
@@ -203,8 +208,8 @@ export default function PresenterBuddy() {
                   <thead>
                     <tr className="border-b border-gray-100">
                       <th className="text-left text-sm font-semibold text-gray-700 px-6 py-4">Feature</th>
-                      <th className="text-center text-sm font-semibold text-orange-500 px-6 py-4 w-32">Lite</th>
-                      <th className="text-center text-sm font-semibold text-purple-500 px-6 py-4 w-32">Studio</th>
+                      <th className="text-center text-sm font-semibold px-6 py-4 w-32" style={{ color: PB }}>Lite</th>
+                      <th className="text-center text-sm font-semibold px-6 py-4 w-32" style={{ color: PB_DARK }}>Studio</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -212,10 +217,10 @@ export default function PresenterBuddy() {
                       <motion.tr key={row.feature} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.03 }} className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
                         <td className="text-sm text-gray-600 px-6 py-3">{row.feature}</td>
                         <td className="text-center px-6 py-3">
-                          {row.lite ? <FaCheck className="text-orange-500 mx-auto" /> : <FaTimes className="text-gray-300 mx-auto" />}
+                          {row.lite ? <FaCheck className="mx-auto" style={{ color: PB }} /> : <FaTimes className="text-gray-300 mx-auto" />}
                         </td>
                         <td className="text-center px-6 py-3">
-                          {row.studio ? <FaCheck className="text-purple-500 mx-auto" /> : <FaTimes className="text-gray-300 mx-auto" />}
+                          {row.studio ? <FaCheck className="mx-auto" style={{ color: PB_DARK }} /> : <FaTimes className="text-gray-300 mx-auto" />}
                         </td>
                       </motion.tr>
                     ))}
@@ -228,11 +233,11 @@ export default function PresenterBuddy() {
       </section>
 
       {/* Documentation CTA */}
-      <section className="section-navy py-16">
+      <section className="section-pb py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
             <h3 className="text-2xl font-bold font-heading text-white mb-4">Need help getting started?</h3>
-            <p className="text-blue-100/70 mb-6">Check out our comprehensive documentation for setup guides, features, and tips.</p>
+            <p className="text-[#D0E9F2]/70 mb-6">Check out our comprehensive documentation for setup guides, features, and tips.</p>
             <a href="https://guide.worshipbuddy.org/introduction" target="_blank" rel="noopener noreferrer" className="btn-white inline-flex items-center gap-2">
               <span>View Documentation ↗</span>
             </a>
