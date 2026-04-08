@@ -105,7 +105,7 @@ export default function PresenterBuddy() {
           {/* Interactive Lite Demo */}
           <AnimatedSection className="mb-16">
             <p className="text-center text-sm font-medium text-gray-500 mb-4">
-              See the actual 3-column layout — click songs, navigate stanzas
+              Interactive demo — click songs, browse lyrics, and see real-time projection
             </p>
             <PresenterLiteDemo />
           </AnimatedSection>
@@ -156,7 +156,7 @@ export default function PresenterBuddy() {
           {/* Interactive Studio Demo */}
           <AnimatedSection className="mb-16">
             <p className="text-center text-sm font-medium text-gray-500 mb-4">
-              Full IDE-style layout with slides, output preview, and stage monitor
+              Interactive demo — slide grid, song library, and presentation groups
             </p>
             <PresenterStudioDemo />
           </AnimatedSection>
