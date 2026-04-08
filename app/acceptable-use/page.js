@@ -6,7 +6,7 @@ export default function AcceptableUse() {
       <section className="relative pt-32 pb-16 overflow-hidden section-navy">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(59,130,246,0.15)_0%,_transparent_60%)]" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="font-heading text-4xl font-bold mb-8 gradient-text leading-tight py-1">WorshipBuddy Acceptable Use Policy</h1>
+          <h1 className="font-heading text-4xl font-bold mb-8 text-white leading-tight py-1">WorshipBuddy Acceptable Use Policy</h1>
           <p className="text-lg text-blue-100/70">
             Effective Date: 9/23/2023<br />
             Last Updated: 1/1/2026

@@ -7,7 +7,7 @@ export default function Feedback() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(59,130,246,0.15)_0%,_transparent_60%)]" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="font-heading text-4xl sm:text-5xl font-bold text-white mb-4">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-400">Feedback</span>
+            Feedback
           </h1>
           <p className="text-lg text-blue-100/70">
             We value your feedback and are constantly working to improve WorshipBuddy. Your input helps us understand how we can better serve worship teams and make the app more useful for everyone.
