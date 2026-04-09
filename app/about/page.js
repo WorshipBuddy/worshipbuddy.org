@@ -26,7 +26,7 @@ const teamSections = [
     members: [
       { name: "Jason John", role: "Director of Engineering", image: "/images/jason.JPEG" },
       { name: "Joel Thomas", role: "Software Engineer", image: "/images/jt.png" },
-      { name: "Ansun Sujoe", role: "Software Engineer", image: null },
+      { name: "Ansun Sujoe", role: "Software Engineer", image: "/images/ansun.png" },
       { name: "Joel Prakash", role: "Frontend Developer", image: "/images/jp.jpg" },
       { name: "Joel Roy", role: "Software Engineer Intern", image: "/images/jr.jpg" },
     ],

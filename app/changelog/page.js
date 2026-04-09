@@ -18,7 +18,7 @@ export default function Changelog() {
         </div>
       </section>
 
-      <section className="relative section-light pb-20">
+      <section className="relative section-light pt-8 pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             {/* Toggle Buttons */}
