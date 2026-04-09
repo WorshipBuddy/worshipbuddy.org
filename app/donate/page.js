@@ -18,7 +18,7 @@ export default function Donate() {
               <FaHeart className="text-xl text-white" />
             </div>
             <h1 className="font-heading text-4xl sm:text-5xl font-bold text-white mb-4">
-              Support <span className="gradient-text">WorshipBuddy</span>
+              Support WorshipBuddy
             </h1>
             <p className="text-lg text-blue-100/70 max-w-2xl mx-auto">
               WorshipBuddy is a 501(c)(3) nonprofit dedicated to empowering worship teams
