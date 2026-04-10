@@ -58,17 +58,6 @@ export default function Changelog() {
               >
                 ChurchBuddy
               </button>
-              <button
-                type="button"
-                className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
-                  activeSection === "upcomingfeatures"
-                    ? "bg-blue-50 text-brand border border-brand/30"
-                    : "text-gray-500 border border-gray-100 hover:text-gray-900 hover:border-gray-200"
-                }`}
-                onClick={() => setActiveSection("upcomingfeatures")}
-              >
-                Upcoming Features
-              </button>
             </div>
 
             <div className="space-y-16">
@@ -394,59 +383,6 @@ export default function Changelog() {
                 </div>
               )}
 
-              {/* Upcoming Features Section */}
-              {activeSection === "upcomingfeatures" && (
-                <div id="upcomingfeatures">
-                  <h2 className="font-heading text-3xl font-bold mb-6 gradient-text">Upcoming Features</h2>
-                  <div className="card p-6 sm:p-8">
-                    {/* WorshipBuddy Features */}
-                    <div className="mb-4">
-                      <div className="flex items-center gap-3 mb-1">
-                        <span className="inline-block bg-blue-50 text-brand text-xs font-bold px-2 py-1 rounded-full shadow-sm uppercase tracking-wider">
-                          WorshipBuddy
-                        </span>
-                      </div>
-                      <ul className="list-disc list-inside space-y-1 text-gray-500 ml-4">
-                        <li>Key detection and auto transposition</li>
-                        <li>Song recognition</li>
-                        <li>PresenterBuddy + WorshipBuddy live syncing</li>
-                        <li>Support more file types with ChurchBuddy + WorshipBuddy music</li>
-                      </ul>
-                    </div>
-                    {/* PresenterBuddy Features */}
-                    <div className="mb-4">
-                      <div className="flex items-center gap-3 mb-1">
-                        <span className="inline-block bg-blue-50 text-brand text-xs font-bold px-2 py-1 rounded-full shadow-sm uppercase tracking-wider">
-                          PresenterBuddy
-                        </span>
-                      </div>
-                      <ul className="list-disc list-inside space-y-1 text-gray-500 ml-4">
-                        
-                      <li>Split View for Bible</li>
-                        <li>Dedicated Split View Font & Sizing Settings</li>
-                        <li>More Bible Versions including AMP Classic </li>
-                        <li>Assignable Toggle buttons for easier stanza selection</li>
-                        <li>Ability to manually add songs to the Queue</li>
-                        <li>Ability to save up to 3 user settings - great when switching from sanctuary to a prayer hall</li>
-                        <li>Live syncing of added set from WorshipBuddy </li>
-                      </ul>
-                    </div>
-                    {/* ChurchBuddy Features */}
-                    <div>
-                      <div className="flex items-center gap-3 mb-1">
-                        <span className="inline-block bg-blue-50 text-brand text-xs font-bold px-2 py-1 rounded-full shadow-sm uppercase tracking-wider">
-                          ChurchBuddy
-                        </span>
-                      </div>
-                      <ul className="list-disc list-inside space-y-1 text-gray-500 ml-4">
-                        <li>Add assigned dates to your calendar</li>
-                        <li>Customize Start Page</li>
-                        <li>Org templates for popular ministries (music, ushers, PA, etc.)</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              )}
             </div>
           </div>
         </div>
