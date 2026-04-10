@@ -147,7 +147,7 @@ export default function Nav() {
                       : "text-muted hover:text-ink hover:bg-surface-card"
                   }`}
                 >
-                  {p.name}
+                  {p.label}
                 </Link>
               ))}
 
