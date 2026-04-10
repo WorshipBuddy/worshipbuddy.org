@@ -182,7 +182,7 @@ export default function DonationCalculator() {
             <motion.div
               key={product.id}
               layout
-              className={`card p-5 transition-all duration-200 ${
+              className={`card p-5 overflow-hidden transition-all duration-200 ${
                 isOn
                   ? "border-gray-200 shadow-card-hover"
                   : "opacity-60 border-gray-100"
