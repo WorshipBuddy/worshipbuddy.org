@@ -40,11 +40,11 @@ export default function WorshipBuddyPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-              <a href="https://apps.apple.com/us/app/worshipbuddy/id1631006446" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'WorshipBuddy', platform: 'iOS' })}>
+              <a href="https://apps.apple.com/us/app/worshipbuddy/id6754536842" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'WorshipBuddy', platform: 'iOS' })}>
                 <FaApple className="text-xl" />
                 <span>Download iOS App</span>
               </a>
-              <a href="https://play.google.com/store/apps/details?id=com.worshipbuddy.app" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'WorshipBuddy', platform: 'Android' })}>
+              <a href="https://play.google.com/store/apps/details?id=com.Worshipbuddy.Songbook" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'WorshipBuddy', platform: 'Android' })}>
                 <FaGooglePlay className="text-lg" />
                 <span>Download Android App</span>
               </a>
@@ -137,10 +137,10 @@ export default function WorshipBuddyPage() {
             </h2>
             <p className="text-blue-100/70 text-lg mb-8 max-w-2xl mx-auto">Available on iOS and Android. Free forever, no ads, no in-app purchases.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://apps.apple.com/us/app/worshipbuddy/id1631006446" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'WorshipBuddy', platform: 'iOS' })}>
+              <a href="https://apps.apple.com/us/app/worshipbuddy/id6754536842" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'WorshipBuddy', platform: 'iOS' })}>
                 <FaApple className="text-xl" /><span>App Store</span>
               </a>
-              <a href="https://play.google.com/store/apps/details?id=com.worshipbuddy.app" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'WorshipBuddy', platform: 'Android' })}>
+              <a href="https://play.google.com/store/apps/details?id=com.Worshipbuddy.Songbook" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'WorshipBuddy', platform: 'Android' })}>
                 <FaGooglePlay className="text-lg" /><span>Google Play</span>
               </a>
             </div>
