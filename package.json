@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "caniuse-lite": "^1.0.30001713",
+    "framer-motion": "^12.38.0",
     "next": "13.5.4",
     "react": "^18",
     "react-dom": "^18",
-    "react-icons": "^4.11.0"
+    "react-icons": "^4.11.0",
+    "react-intersection-observer": "^10.0.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",

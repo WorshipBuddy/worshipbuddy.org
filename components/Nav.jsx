@@ -1,149 +1,181 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { FaBars, FaTimes, FaChevronDown, FaHeart } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaHeart } from "react-icons/fa";
+
+const products = [
+  { name: "churchbuddy",    label: "ChurchBuddy",    href: "/church-buddy",    colorClass: "text-cb" },
+  { name: "worshipbuddy",   label: "WorshipBuddy",   href: "/worship-buddy",   colorClass: "text-wb" },
+  { name: "presenterbuddy", label: "PresenterBuddy", href: "/presenter-buddy", colorClass: "text-pb" },
+];
+
+const resources = [
+  { name: "About",     href: "/about" },
+  { name: "Changelog", href: "/changelog" },
+  { name: "Guide ↗",  href: "https://guide.worshipbuddy.org", external: true },
+  { name: "Feedback",  href: "/feedback" },
+];
 
 export default function Nav() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [resourcesOpen, setResourcesOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  const navItems = [
-    { name: "Home", href: "/" },
-    { name: "ChurchBuddy", href: "/church-buddy" },
-    { name: "About", href: "/about" },
-  ];
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-  const resourcesItems = [
-    { name: "Feedback", href: "/feedback" },
-    { name: "Changelog", href: "/changelog" },
-    { name: "Guide", href: "https://guide.worshipbuddy.org", external: true},
-  ];
+  useEffect(() => { setMenuOpen(false); }, [pathname]);
+
+  const isActive = (href) => pathname === href;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#f1f5f9] backdrop-blur-sm border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <span className="text-2xl font-bold text-[#10245c]">WorshipBuddy</span>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+        scrolled
+          ? "bg-white/95 backdrop-blur-md border-b border-border shadow-nav"
+          : "bg-white border-b border-transparent"
+      }`}
+    >
+      <div className="max-w-content mx-auto px-6 lg:px-8 h-[60px] flex items-center justify-between">
+
+        {/* ── Logo + wordmark ── */}
+        <Link href="/" className="flex items-center gap-2.5 shrink-0">
+          <div className="w-7 h-7 relative">
+            <Image
+              src="/worship-buddy-white-logo.png"
+              alt="WorshipBuddy"
+              width={28}
+              height={28}
+              className="object-contain"
+            />
+          </div>
+          <span className="font-sans font-bold text-[17px] text-ink tracking-tight">
+            WorshipBuddy
+          </span>
+        </Link>
+
+        {/* ── Desktop nav ── */}
+        <nav className="hidden lg:flex items-center gap-0.5">
+          {products.map((p) => (
+            <Link
+              key={p.name}
+              href={p.href}
+              className={`font-mono text-[12px] font-medium px-3 py-1.5 rounded-md transition-colors duration-150 ${
+                isActive(p.href)
+                  ? `${p.colorClass} bg-surface-card`
+                  : "text-muted hover:text-ink hover:bg-surface-card"
+              }`}
+            >
+              {p.label}
+            </Link>
+          ))}
+
+          <span className="w-px h-4 bg-border mx-1.5" />
+
+          {resources.map((r) => (
+            <Link
+              key={r.name}
+              href={r.href}
+              target={r.external ? "_blank" : undefined}
+              rel={r.external ? "noopener noreferrer" : undefined}
+              className={`font-sans text-[13px] px-3 py-1.5 rounded-md transition-colors duration-150 ${
+                isActive(r.href)
+                  ? "text-ink font-semibold bg-surface-card"
+                  : "text-muted hover:text-ink hover:bg-surface-card"
+              }`}
+            >
+              {r.name}
+            </Link>
+          ))}
+        </nav>
+
+        {/* ── Right side ── */}
+        <div className="flex items-center gap-3">
+          <Link
+            href="/donate"
+            className="hidden sm:inline-flex items-center gap-1.5 font-sans text-[13px] font-medium px-4 py-2 rounded-lg border border-border text-muted hover:text-ink hover:border-red-400 transition-colors duration-150"
+          >
+            <FaHeart className="text-[11px] text-red-400" />
+            Donate
           </Link>
 
-          {/* Right-justified Navigation */}
-          <div className="hidden md:flex md:items-center md:space-x-6">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`nav-link flex items-center space-x-1 ${pathname === item.href ? "active" : ""}`}
-                target={item.external ? "_blank" : "_self"}
-                rel={item.external ? "noopener noreferrer" : undefined}
-              >
-                {item.icon && <item.icon className="text-sm" />}
-                <span>{item.name}</span>
-                {item.external && !item.noArrow && <span className="inline ml-1 text-sm text-gray-400">↗</span>}
-              </Link>
-            ))}
-            {/* Resources Dropdown */}
-            <div className="relative">
-              <button
-                onClick={() => setResourcesOpen(!resourcesOpen)}
-                className="nav-link flex items-center space-x-1"
-              >
-                <span>Resources</span>
-                <FaChevronDown className={`text-xs relative top-[2px] transition-transform duration-200 ${resourcesOpen ? 'rotate-180' : ''}`} />
-              </button>
-              {resourcesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
-                  {resourcesItems.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className={`block px-4 py-2 text-sm hover:bg-gray-50 transition-colors duration-200 ${pathname === item.href ? "text-[#10245c] font-medium" : "text-gray-700"}`}
-                      onClick={() => setResourcesOpen(false)}
-                      target={item.external ? "_blank" : "_self"}
-                      rel={item.external ? "noopener noreferrer" : undefined}
-                    >
-                      {item.name}
-                      {item.external && <span className="inline ml-1 text-sm text-gray-400">↗</span>}
-                    </Link>
-                  ))}
-                </div>
+          {/* Hamburger */}
+          <button
+            onClick={() => setMenuOpen((v) => !v)}
+            className="lg:hidden p-2 -mr-1 text-muted hover:text-ink transition-colors"
+            aria-label="Toggle menu"
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              {menuOpen ? (
+                <path d="M4 4l12 12M4 16L16 4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round"/>
+              ) : (
+                <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round"/>
               )}
-            </div>
-            {/* Donate */}
-            <Link
-              href="/donate"
-              className={`nav-link flex items-center space-x-1 ${pathname === "/donate" ? "active" : ""}`}
-            >
-              <FaHeart className="text-sm" />
-              <span>Donate</span>
-            </Link>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-[#10245c] p-2 rounded-xl transition-colors duration-200"
-            >
-              {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-            </button>
-          </div>
+            </svg>
+          </button>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
-      {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200 animate-fade-in">
-          <div className="px-4 py-3 space-y-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`block nav-link flex items-center space-x-2 ${pathname === item.href ? "active" : ""}`}
-                onClick={() => setIsOpen(false)}
-                target={item.external ? "_blank" : "_self"}
-                rel={item.external ? "noopener noreferrer" : undefined}
-              >
-                {item.icon && <item.icon className="text-sm" />}
-                <span>{item.name}</span>
-                {item.external && !item.noArrow && <span className="inline ml-1 text-sm text-gray-400">↗</span>}
-              </Link>
-            ))}
-            {/* Mobile Resources Section */}
-            <div className="border-t border-gray-200 pt-3 mt-3">
-              <div className="text-sm font-medium text-gray-500 mb-2 px-2">Resources</div>
-              {resourcesItems.map((item) => (
+      {/* ── Mobile menu ── */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.15 }}
+            className="lg:hidden border-t border-border bg-white"
+          >
+            <div className="max-w-content mx-auto px-6 py-4 flex flex-col gap-0.5">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-muted/50 px-2 pt-1 pb-2">
+                Products
+              </p>
+              {products.map((p) => (
                 <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`block nav-link pl-4 ${pathname === item.href ? "active" : ""}`}
-                  onClick={() => setIsOpen(false)}
-                  target={item.external ? "_blank" : "_self"}
-                  rel={item.external ? "noopener noreferrer" : undefined}
+                  key={p.name}
+                  href={p.href}
+                  className={`font-mono text-[13px] font-medium px-3 py-2.5 rounded-lg transition-colors ${
+                    isActive(p.href)
+                      ? `${p.colorClass} bg-surface-card`
+                      : "text-muted hover:text-ink hover:bg-surface-card"
+                  }`}
                 >
-                  {item.name}
-                  {item.external && <span className="inline ml-1 text-sm text-gray-400">↗</span>}
+                  {p.name}
                 </Link>
               ))}
+
+              <p className="font-mono text-[10px] uppercase tracking-widest text-muted/50 px-2 pt-4 pb-2">
+                Resources
+              </p>
+              {resources.map((r) => (
+                <Link
+                  key={r.name}
+                  href={r.href}
+                  target={r.external ? "_blank" : undefined}
+                  rel={r.external ? "noopener noreferrer" : undefined}
+                  className="font-sans text-[14px] text-muted hover:text-ink px-3 py-2.5 rounded-lg hover:bg-surface-card transition-colors"
+                >
+                  {r.name}
+                </Link>
+              ))}
+
+              <div className="pt-3 mt-2 border-t border-border">
+                <Link href="/donate" className="flex items-center justify-center gap-2 font-sans text-[14px] font-medium px-4 py-3 rounded-lg border border-border text-muted hover:text-ink hover:border-ink transition-colors duration-150 w-full">
+                  <FaHeart className="text-[12px] text-red-400" />
+                  Donate
+                </Link>
+              </div>
             </div>
-            {/* Donate on Mobile */}
-            <div className="border-t border-gray-200 pt-3 mt-3">
-              <Link
-                href="/donate"
-                className={`block nav-link flex items-center space-x-2 ${pathname === "/donate" ? "active" : ""}`}
-                onClick={() => setIsOpen(false)}
-              >
-                <FaHeart className="text-sm" />
-                <span>Donate</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
-    </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
   );
 }

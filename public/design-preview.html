@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WorshipBuddy — Design Guidelines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap" />
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --bg:        #FAFAF9;
+      --surface:   #F4F4F0;
+      --border:    #E4E4E7;
+      --text:      #18181B;
+      --muted:     #71717A;
+      --dark:      #0F172A;
+      --dark-mid:  #162032;
+      --wb:        #0C245E;
+      --wb-light:  #DCE4F8;
+      --wb-dark:   #0A1A45;
+      --cb:        #0B7261;
+      --cb-light:  #CCE9E4;
+      --cb-dark:   #074F43;
+      --pb:        #1E6B8A;
+      --pb-light:  #D0E9F2;
+      --pb-dark:   #134F67;
+      --r-sm: 4px; --r-md: 8px; --r-lg: 12px; --r-xl: 16px;
+      --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+      --shadow-hover: 0 4px 20px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Satoshi', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── LAYOUT ── */
+    .wrap   { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+    .wrap-sm { max-width: 880px; margin: 0 auto; padding: 0 40px; }
+    .section { padding: 96px 0; }
+    .section-dark { padding: 96px 0; background: var(--dark); color: #fff; }
+    .section-mid  { padding: 96px 0; background: var(--dark-mid); color: #fff; }
+    .section-surface { padding: 96px 0; background: var(--surface); }
+
+    /* Instrument.com-style: sections flow into each other with angled clip transitions */
+    .transition-down {
+      position: relative;
+      padding-bottom: 120px;
+    }
+    .transition-down::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0; right: 0;
+      height: 80px;
+      background: inherit;
+      clip-path: polygon(0 0, 100% 60%, 100% 100%, 0 100%);
+    }
+    .transition-down-light::after { background: var(--bg); }
+    .transition-down-surface::after { background: var(--surface); }
+    .transition-down-dark::after { background: var(--dark); }
+
+    /* ── SIDEBAR NAV ── */
+    .layout { display: flex; min-height: 100vh; }
+    .sidebar {
+      width: 240px; min-height: 100vh; background: white;
+      border-right: 1px solid var(--border);
+      position: sticky; top: 0; height: 100vh;
+      overflow-y: auto; padding: 32px 0; flex-shrink: 0;
+    }
+    .sidebar-brand {
+      padding: 0 24px 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+    .sidebar-brand-name { font-family: 'Satoshi', sans-serif; font-weight: 700; font-size: 14px; color: var(--text); }
+    .sidebar-brand-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2px; }
+    .sidebar-section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--muted);
+      padding: 16px 24px 6px;
+    }
+    .sidebar a {
+      display: block; padding: 6px 24px;
+      font-size: 13px; color: var(--muted);
+      font-family: 'Satoshi', sans-serif;
+      transition: color 0.15s, background 0.15s;
+      border-left: 2px solid transparent;
+    }
+    .sidebar a:hover { color: var(--text); background: var(--surface); }
+    .sidebar a.active { color: var(--wb); border-left-color: var(--wb); background: var(--wb-light); }
+    .main { flex: 1; min-width: 0; }
+
+    /* ── SECTION HEADERS ── */
+    .page-section { padding: 80px 48px; border-bottom: 1px solid var(--border); }
+    .page-section:last-child { border-bottom: none; }
+    .section-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--wb); margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 400; line-height: 1.1;
+      color: var(--text); margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: 17px; color: var(--muted);
+      max-width: 560px; line-height: 1.7; margin-bottom: 48px;
+    }
+
+    /* ── GRID HELPERS ── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .grid-auto { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+    @media (max-width: 768px) {
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .page-section { padding: 48px 24px; }
+    }
+
+    /* ── CARDS ── */
+    .card {
+      background: white; border: 1px solid var(--border);
+      border-radius: var(--r-xl); padding: 24px;
+      box-shadow: var(--shadow-card);
+    }
+    .card-hover {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+    .card-hover:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+
+    /* ── TYPOGRAPHY SPECIMENS ── */
+    .type-row { display: flex; align-items: baseline; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .type-row:last-child { border-bottom: none; }
+    .type-meta { width: 160px; flex-shrink: 0; }
+    .type-meta-name { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--wb); }
+    .type-meta-spec { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); margin-top: 2px; }
+    .type-sample { flex: 1; }
+
+    /* ── COLOR SWATCHES ── */
+    .swatch-group { margin-bottom: 32px; }
+    .swatch-group-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
+    .swatch-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .swatch {
+      width: 100px; border-radius: var(--r-md);
+      overflow: hidden; box-shadow: var(--shadow-card);
+    }
+    .swatch-color { height: 64px; }
+    .swatch-info { background: white; padding: 8px 10px; border-top: 1px solid var(--border); }
+    .swatch-name { font-family: 'Satoshi', sans-serif; font-size: 12px; font-weight: 600; color: var(--text); }
+    .swatch-hex  { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); margin-top: 1px; }
+
+    /* ── PRODUCT BADGES ── */
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.04em; padding: 3px 10px;
+      border-radius: 999px;
+    }
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; }
+    .badge-wb { background: var(--wb-light); color: var(--wb); }
+    .badge-cb { background: var(--cb-light); color: var(--cb-dark); }
+    .badge-pb { background: var(--pb-light); color: var(--pb); }
+    .badge-neutral { background: var(--surface); color: var(--muted); border: 1px solid var(--border); }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-family: 'Satoshi', sans-serif; font-weight: 600; font-size: 14px;
+      border-radius: var(--r-lg); padding: 10px 20px;
+      border: none; cursor: pointer; text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .btn-primary { background: var(--text); color: white; }
+    .btn-primary:hover { background: #27272a; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(24,24,27,0.18); }
+    .btn-wb { background: var(--wb); color: white; }
+    .btn-wb:hover { background: var(--wb-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(37,99,235,0.32); }
+    .btn-cb { background: var(--cb); color: white; }
+    .btn-cb:hover { background: var(--cb-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(217,119,6,0.32); }
+    .btn-pb { background: var(--pb); color: white; }
+    .btn-pb:hover { background: var(--pb-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(124,58,237,0.32); }
+    .btn-ghost { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+    .btn-ghost:hover { background: var(--surface); color: var(--text); }
+    .btn-lg { padding: 14px 28px; font-size: 16px; border-radius: var(--r-xl); }
+    .btn-sm { padding: 6px 14px; font-size: 12px; border-radius: var(--r-md); }
+
+    /* ── FORM ELEMENTS ── */
+    .input {
+      width: 100%; font-family: 'Satoshi', sans-serif; font-size: 14px;
+      padding: 10px 14px; border: 1px solid var(--border); border-radius: var(--r-lg);
+      background: white; color: var(--text);
+      transition: border-color 0.15s, box-shadow 0.15s;
+      outline: none;
+    }
+    .input:focus { border-color: var(--wb); box-shadow: 0 0 0 3px rgba(37,99,235,0.12); }
+    .input::placeholder { color: var(--muted); }
+    .input-label { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; display: block; }
+    .input-hint { font-size: 12px; color: var(--muted); margin-top: 5px; }
+    .input-error { border-color: #EF4444; }
+    .input-error:focus { box-shadow: 0 0 0 3px rgba(239,68,68,0.12); }
+    .error-msg { font-size: 12px; color: #EF4444; margin-top: 5px; font-family: 'JetBrains Mono', monospace; }
+    .input-group { margin-bottom: 20px; }
+    select.input { cursor: pointer; }
+
+    /* ── SECTION LABEL (eyebrow) ── */
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.12em; color: var(--wb);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--wb); }
+
+    /* ── DIVIDERS ── */
+    .divider { height: 1px; background: var(--border); margin: 32px 0; }
+    .divider-strong { height: 1px; background: var(--text); opacity: 0.12; margin: 32px 0; }
+
+    /* ── SPACING DEMO ── */
+    .space-demo { display: flex; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+    .space-block { background: var(--wb-light); border: 1px solid var(--wb); border-radius: 4px; }
+    .space-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); margin-top: 6px; text-align: center; }
+
+    /* ── ICON ROW ── */
+    .icon-demo { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .icon-box {
+      width: 40px; height: 40px; border-radius: var(--r-md);
+      background: var(--surface); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+
+    /* ── ALERT / CALLOUT ── */
+    .callout {
+      padding: 14px 18px; border-radius: var(--r-lg);
+      border-left: 3px solid; font-size: 14px; line-height: 1.6;
+    }
+    .callout-info    { background: #EFF6FF; border-color: var(--wb); color: #1E40AF; }
+    .callout-success { background: #F0FDF4; border-color: #22C55E; color: #166534; }
+    .callout-warning { background: #FFFBEB; border-color: var(--cb); color: #92400E; }
+    .callout-error   { background: #FEF2F2; border-color: #EF4444; color: #991B1B; }
+
+    /* ── MOTION DEMO ── */
+    .motion-card {
+      background: white; border: 1px solid var(--border);
+      border-radius: var(--r-xl); padding: 20px 24px;
+      cursor: pointer; user-select: none;
+    }
+    .motion-fade  { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .motion-fade.visible { opacity: 1; transform: translateY(0); }
+    .motion-scale { transition: transform 0.15s ease; }
+    .motion-scale:hover { transform: scale(1.02); }
+    .motion-slide { transition: transform 0.25s cubic-bezier(0.21, 0.47, 0.32, 0.98); }
+    .motion-slide:hover { transform: translateX(6px); }
+
+    /* ── PRINCIPLE CARDS ── */
+    .principle-card {
+      background: white; border: 1px solid var(--border);
+      border-radius: var(--r-xl); padding: 32px;
+      box-shadow: var(--shadow-card);
+      position: relative; overflow: hidden;
+    }
+    .principle-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .principle-card.unified::before   { background: var(--wb); }
+    .principle-card.universal::before { background: var(--cb); }
+    .principle-card.iconic::before    { background: var(--pb); }
+    .principle-card.conversational::before { background: linear-gradient(90deg, var(--wb), var(--pb)); }
+    .principle-num {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px;
+    }
+    .principle-num.unified   { color: var(--wb); }
+    .principle-num.universal { color: var(--cb-dark); }
+    .principle-num.iconic    { color: var(--pb); }
+    .principle-num.conversational { color: var(--pb); }
+    .principle-title { font-family: 'Instrument Serif', Georgia, serif; font-size: 28px; font-weight: 400; margin-bottom: 12px; color: var(--text); }
+    .principle-body  { font-size: 15px; color: var(--muted); line-height: 1.7; }
+
+    /* ── DO / DON'T ── */
+    .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .do-card, .dont-card { border-radius: var(--r-xl); padding: 24px; }
+    .do-card   { background: #F0FDF4; border: 1px solid #BBF7D0; }
+    .dont-card { background: #FEF2F2; border: 1px solid #FECACA; }
+    .do-label   { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #166534; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+    .dont-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #991B1B; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+    .do-body, .dont-body { font-size: 14px; color: var(--text); line-height: 1.65; }
+
+    /* ── NAV DEMO ── */
+    .nav-demo {
+      background: white; border-bottom: 1px solid var(--border);
+      padding: 0 32px; height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-radius: var(--r-xl); overflow: hidden;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo-mark {
+      width: 28px; height: 28px; background: var(--wb);
+      border-radius: 6px; display: flex; align-items: center;
+      justify-content: center; color: white; font-size: 14px;
+    }
+    .nav-wordmark { font-weight: 700; font-size: 15px; }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-link {
+      font-family: 'JetBrains Mono', monospace; font-size: 12px;
+      padding: 6px 12px; border-radius: 6px; color: var(--muted);
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-link:hover { color: var(--text); background: var(--surface); }
+    .nav-link.wb { color: var(--wb); }
+    .nav-sep { width: 1px; height: 16px; background: var(--border); margin: 0 8px; }
+    .nav-link-regular { font-family: 'Satoshi', sans-serif; font-size: 14px; padding: 6px 12px; border-radius: 6px; color: var(--muted); }
+    .nav-link-regular:hover { color: var(--text); background: var(--surface); }
+
+    /* ── FOOTER DEMO ── */
+    .footer-demo {
+      background: var(--dark); border-radius: var(--r-xl);
+      padding: 48px; color: rgba(255,255,255,0.45);
+    }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; }
+    .footer-col-header {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px;
+      font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.28); padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 16px;
+    }
+    .footer-link { font-size: 13px; color: rgba(255,255,255,0.45); display: block; margin-bottom: 10px; transition: color 0.15s; }
+    .footer-link:hover { color: white; }
+    .footer-product-link { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 10px; }
+    .footer-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+
+    /* ── SECTION COLOR TRANSITIONS (Instrument.com style) ── */
+    .color-transition-demo { border-radius: var(--r-xl); overflow: hidden; }
+    .ct-band { padding: 32px 40px; position: relative; }
+    .ct-band::after {
+      content: ''; position: absolute;
+      bottom: -24px; left: 0; right: 0;
+      height: 48px; z-index: 1;
+    }
+    .ct-light  { background: var(--bg); }
+    .ct-surface{ background: var(--surface); }
+    .ct-dark   { background: var(--dark); }
+    .ct-wb     { background: var(--wb); }
+    .ct-label  { font-family: 'JetBrains Mono', monospace; font-size: 11px; opacity: 0.5; margin-bottom: 4px; }
+    .ct-value  { font-family: 'Instrument Serif', serif; font-size: 24px; color: var(--text); }
+    .ct-dark .ct-value, .ct-wb .ct-value { color: white; }
+    .ct-dark .ct-label, .ct-wb .ct-label { color: rgba(255,255,255,0.4); }
+
+    /* ── TABS DEMO ── */
+    .tabs { border-bottom: 1px solid var(--border); display: flex; gap: 0; }
+    .tab {
+      font-family: 'JetBrains Mono', monospace; font-size: 12px;
+      padding: 12px 20px; cursor: pointer; color: var(--muted);
+      border-bottom: 2px solid transparent; margin-bottom: -1px;
+      transition: color 0.15s; display: flex; flex-direction: column; gap: 3px;
+    }
+    .tab-sub { font-family: 'Satoshi', sans-serif; font-size: 11px; color: var(--muted); }
+    .tab.active-wb { color: var(--wb); border-bottom-color: var(--wb); background: var(--wb-light); }
+    .tab.active-cb { color: var(--cb-dark); border-bottom-color: var(--cb); background: var(--cb-light); }
+    .tab.active-pb { color: var(--pb); border-bottom-color: var(--pb); background: var(--pb-light); }
+    .tab-panel { padding: 32px 0; }
+
+    /* ── TABLE ── */
+    .spec-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .spec-table th { text-align: left; padding: 8px 16px; font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border-bottom: 1px solid var(--border); background: var(--surface); }
+    .spec-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .spec-table tr:last-child td { border-bottom: none; }
+    .spec-table td:first-child { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--wb); }
+    .spec-table td code { font-family: 'JetBrains Mono', monospace; font-size: 12px; background: var(--surface); padding: 2px 6px; border-radius: 4px; color: var(--text); }
+
+    /* ── MUX-STYLE TECHNICAL CALLOUT ── */
+    .tech-callout {
+      background: var(--dark); border-radius: var(--r-xl);
+      padding: 32px; display: flex; gap: 24px; align-items: flex-start;
+    }
+    .tech-callout-icon {
+      width: 40px; height: 40px; border-radius: var(--r-md);
+      background: rgba(37,99,235,0.15); border: 1px solid rgba(37,99,235,0.3);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 18px;
+    }
+    .tech-callout-title { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.9); margin-bottom: 6px; }
+    .tech-callout-body  { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.65; }
+
+    /* ── HERO DEMO ── */
+    .hero-demo {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--r-xl); padding: 64px 48px; text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.1em; color: var(--wb);
+      background: var(--wb-light); padding: 4px 12px; border-radius: 999px;
+      margin-bottom: 24px;
+    }
+    .hero-h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(48px, 7vw, 80px); font-weight: 400;
+      line-height: 1.04; letter-spacing: -0.02em;
+      color: var(--text); margin-bottom: 20px;
+    }
+    .hero-h1 em { font-style: normal; color: var(--wb); }
+    .hero-sub { font-size: 18px; color: var(--muted); max-width: 480px; margin: 0 auto 32px; line-height: 1.65; }
+    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .hero-trust { display: flex; gap: 24px; justify-content: center; margin-top: 24px; flex-wrap: wrap; }
+    .hero-trust-item { display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); }
+    .hero-trust-check { width: 16px; height: 16px; background: #22C55E; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 9px; }
+
+    /* ── STAT DEMO ── */
+    .stat-row { display: flex; gap: 0; }
+    .stat-item { flex: 1; text-align: center; padding: 32px 24px; border-right: 1px solid rgba(255,255,255,0.08); }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-family: 'JetBrains Mono', monospace; font-size: clamp(36px, 5vw, 56px); font-weight: 600; color: white; line-height: 1; margin-bottom: 8px; }
+    .stat-num span { color: rgba(255,255,255,0.3); }
+    .stat-label { font-size: 14px; color: rgba(255,255,255,0.4); }
+
+    /* ── STICKY HEADER ── */
+    .page-header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(250,250,249,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 48px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .page-header-title { font-family: 'Satoshi', sans-serif; font-weight: 700; font-size: 14px; color: var(--text); }
+    .page-header-meta  { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); }
+
+    /* ── UTILITY ── */
+    .gap-sm { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .gap-md { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .gap-lg { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
+    .mt-lg  { margin-top: 32px; }
+    .mt-md  { margin-top: 20px; }
+    .mt-sm  { margin-top: 12px; }
+    .label-sm { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+    .text-muted { color: var(--muted); }
+    .text-small { font-size: 13px; }
+
+    /* ── SCROLL ANIMATION OBSERVER ── */
+    .observe { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .observe.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-name">WorshipBuddy</div>
+      <div class="sidebar-brand-label">Design Guidelines v1.0</div>
+    </div>
+    <div class="sidebar-section-label">Foundation</div>
+    <a href="#principles">Principles</a>
+    <a href="#color">Color</a>
+    <a href="#typography">Typography</a>
+    <a href="#spacing">Spacing &amp; Layout</a>
+    <a href="#motion">Motion</a>
+    <div class="sidebar-section-label">Components</div>
+    <a href="#buttons">Buttons</a>
+    <a href="#forms">Forms</a>
+    <a href="#badges">Badges &amp; Labels</a>
+    <a href="#cards">Cards</a>
+    <a href="#alerts">Alerts &amp; Callouts</a>
+    <a href="#navigation">Navigation</a>
+    <a href="#footer">Footer</a>
+    <div class="sidebar-section-label">Patterns</div>
+    <a href="#hero">Hero Pattern</a>
+    <a href="#tabs">Product Tabs</a>
+    <a href="#stats">Stats Block</a>
+    <a href="#transitions">Section Transitions</a>
+    <div class="sidebar-section-label">Rules</div>
+    <a href="#dodont">Do &amp; Don't</a>
+    <a href="#voice">Voice &amp; Copy</a>
+  </nav>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div class="page-header-title">WorshipBuddy Design Guidelines</div>
+      <div class="page-header-meta">Version 1.0 · April 2026</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         PRINCIPLES
+    ════════════════════════════════════════════ -->
+    <div class="page-section" id="principles">
+      <div class="section-eyebrow">Foundation</div>
+      <h2 class="section-title">Design Principles</h2>
+      <p class="section-desc">Four principles guide every visual and interaction decision across all WorshipBuddy products. When in doubt, return here.</p>
+
+      <div class="grid-2">
+
+        <div class="principle-card unified observe">
+          <div class="principle-num unified">01 — Unified</div>
+          <div class="principle-title">One system, many surfaces</div>
+          <div class="principle-body">Every element contributes to a cohesive whole. No isolated features, no one-off styles. Design at scale — a component that works on the homepage should work in the app, in the docs, and in email. Consistency is trust.</div>
+          <div class="mt-md gap-sm">
+            <span class="badge badge-wb"><span class="badge-dot" style="background:var(--wb)"></span>worshipbuddy</span>
+            <span class="badge badge-cb"><span class="badge-dot" style="background:var(--cb)"></span>churchbuddy</span>
+            <span class="badge badge-pb"><span class="badge-dot" style="background:var(--pb)"></span>presenterbuddy</span>
+          </div>
+        </div>
+
+        <div class="principle-card universal observe" style="transition-delay:0.1s">
+          <div class="principle-num universal">02 — Universal</div>
+          <div class="principle-title">For every church, everywhere</div>
+          <div class="principle-body">WorshipBuddy serves a global, diverse community. Color contrast passes WCAG AA. Type stays legible at small sizes. Layouts work in RTL. Interactions work without a mouse. By meeting accessibility standards we respect all users.</div>
+          <div class="mt-md gap-sm">
+            <span class="badge badge-neutral">WCAG AA</span>
+            <span class="badge badge-neutral">RTL-ready</span>
+            <span class="badge badge-neutral">Keyboard nav</span>
+          </div>
+        </div>
+
+        <div class="principle-card iconic observe" style="transition-delay:0.2s">
+          <div class="principle-num iconic">03 — Iconic</div>
+          <div class="principle-title">Unmistakable at a glance</div>
+          <div class="principle-body">WorshipBuddy products should be instantly recognizable. The Instrument Serif × JetBrains Mono typographic contrast, the per-product color identity, and the flat-color discipline create a visual signature no competitor has. Function and distinctiveness aren't in tension.</div>
+          <div class="mt-md">
+            <span style="font-family:'Instrument Serif',serif; font-size:22px; color:var(--text)">WorshipBuddy</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:14px; color:var(--wb); margin-left:4px">WorshipBuddy</span>
+            
+          </div>
+        </div>
+
+        <div class="principle-card conversational observe" style="transition-delay:0.3s">
+          <div class="principle-num conversational">04 — Conversational</div>
+          <div class="principle-title">Motion that explains itself</div>
+          <div class="principle-body">Animation exists to communicate, not decorate. Transitions tell users where they are and where they went. Hover states confirm interactivity. Entrance animations reveal hierarchy. Every motion should have a reason a user could articulate — even if they never would.</div>
+          <div class="mt-md gap-sm">
+            <span class="badge badge-neutral">150ms hover</span>
+            <span class="badge badge-neutral">550ms entrance</span>
+            <span class="badge badge-neutral">ease-out exit</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         COLOR
+    ════════════════════════════════════════════ -->
+    <div class="page-section" id="color" style="background:var(--surface)">
+      <div class="section-eyebrow">Foundation</div>
+      <h2 class="section-title">Color System</h2>
+      <p class="section-desc">A neutral foundation with three strong product identities. Every color has a job — no decorative gradients, no arbitrary accent colors.</p>
+
+      <div class="swatch-group observe">
+        <div class="swatch-group-label">Global Palette</div>
+        <div class="swatch-row">
+          <div class="swatch">
+            <div class="swatch-color" style="background:#FAFAF9; border:1px solid var(--border)"></div>
+            <div class="swatch-info"><div class="swatch-name">Background</div><div class="swatch-hex">#FAFAF9</div></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#F4F4F0"></div>
+            <div class="swatch-info"><div class="swatch-name">Surface</div><div class="swatch-hex">#F4F4F0</div></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#E4E4E7"></div>
+            <div class="swatch-info"><div class="swatch-name">Border</div><div class="swatch-hex">#E4E4E7</div></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#71717A"></div>
+            <div class="swatch-info"><div class="swatch-name">Muted</div><div class="swatch-hex">#71717A</div></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#18181B"></div>
+            <div class="swatch-info"><div class="swatch-name">Ink</div><div class="swatch-hex">#18181B</div></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#0F172A"></div>
+            <div class="swatch-info"><div class="swatch-name">Dark</div><div class="swatch-hex">#0F172A</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swatch-group mt-lg observe">
+        <div class="swatch-group-label">WorshipBuddy — Blue</div>
+        <div class="swatch-row">
+          <div class="swatch">
+            <div class="swatch-color" style="background:#DCE4F8"></div>
+            <div class="swatch-info"><div class="swatch-name">WB Light</div><div class="swatch-hex">#DCE4F8</div></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#0C245E"></div>
+            <div class="swatch-info"><div class="swatch-name">WB Default</div><div class="swatch-hex">#0C245E</div></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#0A1A45"></div>
+            <div class="swatch-info"><div class="swatch-name">WB Dark</div><div class="swatch-hex">#0A1A45</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swatch-group mt-lg observe">
+        <div class="swatch-group-label">ChurchBuddy — Amber</div>
+        <div class="swatch-row">
+          <div class="swatch">
+            <div class="swatch-color" style="background:#CCE9E4"></div>
+            <div class="swatch-info"><div class="swatch-name">CB Light</div><div class="swatch-hex">#CCE9E4</div></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#0B7261"></div>
+            <div class="swatch-info"><div class="swatch-name">CB Default</div><div class="swatch-hex">#0B7261</div></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#074F43"></div>
+            <div class="swatch-info"><div class="swatch-name">CB Dark</div><div class="swatch-hex">#074F43</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swatch-group mt-lg observe">
+        <div class="swatch-group-label">PresenterBuddy — Violet</div>
+        <div class="swatch-row">
+          <div class="swatch">
+            <div class="swatch-color" style="background:#D0E9F2"></div>
+            <div class="swatch-info"><div class="swatch-name">PB Light</div><div class="swatch-hex">#D0E9F2</div></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#1E6B8A"></div>
+            <div class="swatch-info"><div class="swatch-name">PB Default</div><div class="swatch-hex">#1E6B8A</div></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#134F67"></div>
+            <div class="swatch-info"><div class="swatch-name">PB Dark</div><div class="swatch-hex">#134F67</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swatch-group mt-lg observe">
+        <div class="swatch-group-label">Semantic States</div>
+        <div class="swatch-row">
+          <div class="swatch">
+            <div class="swatch-color" style="background:#22C55E"></div>
+            <div class="swatch-info"><div class="swatch-name">Success</div><div class="swatch-hex">#22C55E</div></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#F59E0B"></div>
+            <div class="swatch-info"><div class="swatch-name">Warning</div><div class="swatch-hex">#F59E0B</div></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#EF4444"></div>
+            <div class="swatch-info"><div class="swatch-name">Error</div><div class="swatch-hex">#EF4444</div></div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#3B82F6"></div>
+            <div class="swatch-info"><div class="swatch-name">Info</div><div class="swatch-hex">#3B82F6</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         TYPOGRAPHY
+    ════════════════════════════════════════════ -->
+    <div class="page-section" id="typography">
+      <div class="section-eyebrow">Foundation</div>
+      <h2 class="section-title">Typography</h2>
+      <p class="section-desc">Three typefaces. Each has one job. The Instrument Serif × JetBrains Mono contrast is the visual signature — don't dilute it.</p>
+
+      <!-- Font families -->
+      <div class="grid-3 observe" style="margin-bottom:48px">
+        <div class="card">
+          <div class="label-sm">Display / Editorial</div>
+          <div style="font-family:'Instrument Serif',serif; font-size:36px; line-height:1.15; margin:12px 0 8px">Instrument Serif</div>
+          <div class="text-muted text-small">Hero headlines, section titles, pull quotes. The soul of the brand. Use at 32px+.</div>
+          <div class="mt-sm"><span class="badge badge-neutral">Google Fonts</span></div>
+        </div>
+        <div class="card">
+          <div class="label-sm">Body / UI</div>
+          <div style="font-family:'Satoshi',sans-serif; font-size:28px; font-weight:600; line-height:1.2; margin:12px 0 8px">Satoshi</div>
+          <div class="text-muted text-small">All body copy, UI labels, nav links, buttons. Clean and modern without being generic.</div>
+          <div class="mt-sm"><span class="badge badge-neutral">Fontshare</span></div>
+        </div>
+        <div class="card">
+          <div class="label-sm">Monospace Accent</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:22px; font-weight:500; line-height:1.3; margin:12px 0 8px">JetBrains Mono</div>
+          <div class="text-muted text-small">Product tags, nav items, eyebrows, version numbers, stat labels. Signals technical precision.</div>
+          <div class="mt-sm"><span class="badge badge-neutral">Google Fonts</span></div>
+        </div>
+      </div>
+
+      <!-- Type scale -->
+      <div class="label-sm">Type Scale</div>
+      <div class="mt-sm observe" style="border:1px solid var(--border); border-radius:var(--r-xl); overflow:hidden; background:white">
+
+        <div class="type-row" style="padding:24px 28px">
+          <div class="type-meta"><div class="type-meta-name">hero</div><div class="type-meta-spec">80px · 400 · Serif</div></div>
+          <div class="type-sample" style="font-family:'Instrument Serif',serif; font-size:clamp(36px,5vw,80px); line-height:1.04; letter-spacing:-0.02em">Worship</div>
+        </div>
+
+        <div class="type-row" style="padding:20px 28px">
+          <div class="type-meta"><div class="type-meta-name">display</div><div class="type-meta-spec">52px · 400 · Serif</div></div>
+          <div class="type-sample" style="font-family:'Instrument Serif',serif; font-size:clamp(28px,4vw,52px); line-height:1.08">Section heading</div>
+        </div>
+
+        <div class="type-row" style="padding:16px 28px">
+          <div class="type-meta"><div class="type-meta-name">title</div><div class="type-meta-spec">36px · 400 · Serif</div></div>
+          <div class="type-sample" style="font-family:'Instrument Serif',serif; font-size:clamp(24px,3vw,36px)">Sub-section title</div>
+        </div>
+
+        <div class="type-row" style="padding:14px 28px">
+          <div class="type-meta"><div class="type-meta-name">heading</div><div class="type-meta-spec">24px · 600 · Satoshi</div></div>
+          <div class="type-sample" style="font-size:24px; font-weight:600">Card heading</div>
+        </div>
+
+        <div class="type-row" style="padding:12px 28px">
+          <div class="type-meta"><div class="type-meta-name">body-lg</div><div class="type-meta-spec">18px · 400 · Satoshi</div></div>
+          <div class="type-sample" style="font-size:18px; color:var(--muted)">Lead paragraph text, introductory copy</div>
+        </div>
+
+        <div class="type-row" style="padding:12px 28px">
+          <div class="type-meta"><div class="type-meta-name">body</div><div class="type-meta-spec">16px · 400 · Satoshi</div></div>
+          <div class="type-sample">Standard body copy for all content</div>
+        </div>
+
+        <div class="type-row" style="padding:12px 28px">
+          <div class="type-meta"><div class="type-meta-name">body-sm</div><div class="type-meta-spec">14px · 400 · Satoshi</div></div>
+          <div class="type-sample" style="font-size:14px; color:var(--muted)">Supporting copy, captions, metadata</div>
+        </div>
+
+        <div class="type-row" style="padding:12px 28px">
+          <div class="type-meta"><div class="type-meta-name">mono-md</div><div class="type-meta-spec">13px · 500 · Mono</div></div>
+          <div class="type-sample" style="font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--wb)">worshipbuddy · churchbuddy · presenterbuddy</div>
+        </div>
+
+        <div class="type-row" style="padding:12px 28px">
+          <div class="type-meta"><div class="type-meta-name">mono-sm</div><div class="type-meta-spec">11px · 500 · Mono</div></div>
+          <div class="type-sample" style="font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:var(--muted)">EYEBROW LABEL · PRODUCTS · RESOURCES</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         SPACING
+    ════════════════════════════════════════════ -->
+    <div class="page-section" id="spacing" style="background:var(--surface)">
+      <div class="section-eyebrow">Foundation</div>
+      <h2 class="section-title">Spacing &amp; Layout</h2>
+      <p class="section-desc">8px base unit. Max content width 1280px. Generous section padding signals quality — don't compress it.</p>
+
+      <div class="observe">
+        <div class="label-sm">Spacing Scale</div>
+        <div class="space-demo mt-md">
+          <div><div class="space-block" style="width:4px;height:4px"></div><div class="space-label">4px<br>2xs</div></div>
+          <div><div class="space-block" style="width:8px;height:8px"></div><div class="space-label">8px<br>xs</div></div>
+          <div><div class="space-block" style="width:16px;height:16px"></div><div class="space-label">16px<br>sm</div></div>
+          <div><div class="space-block" style="width:24px;height:24px"></div><div class="space-label">24px<br>md</div></div>
+          <div><div class="space-block" style="width:32px;height:32px"></div><div class="space-label">32px<br>lg</div></div>
+          <div><div class="space-block" style="width:48px;height:48px"></div><div class="space-label">48px<br>xl</div></div>
+          <div><div class="space-block" style="width:64px;height:64px"></div><div class="space-label">64px<br>2xl</div></div>
+          <div><div class="space-block" style="width:96px;height:96px"></div><div class="space-label">96px<br>3xl</div></div>
+        </div>
+      </div>
+
+      <div class="mt-lg observe">
+        <div class="label-sm">Border Radius</div>
+        <div class="gap-md mt-md">
+          <div style="text-align:center"><div style="width:64px;height:64px;background:var(--wb-light);border:1px solid var(--wb);border-radius:4px;margin:0 auto"></div><div class="space-label">4px · sm<br>tags</div></div>
+          <div style="text-align:center"><div style="width:64px;height:64px;background:var(--wb-light);border:1px solid var(--wb);border-radius:8px;margin:0 auto"></div><div class="space-label">8px · md<br>inputs</div></div>
+          <div style="text-align:center"><div style="width:64px;height:64px;background:var(--wb-light);border:1px solid var(--wb);border-radius:12px;margin:0 auto"></div><div class="space-label">12px · lg<br>buttons</div></div>
+          <div style="text-align:center"><div style="width:64px;height:64px;background:var(--wb-light);border:1px solid var(--wb);border-radius:16px;margin:0 auto"></div><div class="space-label">16px · xl<br>cards</div></div>
+          <div style="text-align:center"><div style="width:64px;height:64px;background:var(--wb-light);border:1px solid var(--wb);border-radius:999px;margin:0 auto"></div><div class="space-label">full<br>pills only</div></div>
+        </div>
+      </div>
+
+      <div class="mt-lg observe">
+        <table class="spec-table" style="background:white; border:1px solid var(--border); border-radius:var(--r-xl); overflow:hidden">
+          <thead><tr><th>Section type</th><th>Desktop padding</th><th>Mobile padding</th><th>Tailwind</th></tr></thead>
+          <tbody>
+            <tr><td>--bg</td><td>96px top + bottom</td><td>64px top + bottom</td><td><code>py-24 sm:py-32</code></td></tr>
+            <tr><td>Hero</td><td>pt-32 pb-24</td><td>pt-20 pb-16</td><td><code>pt-[60px]</code> nav offset</td></tr>
+            <tr><td>Dark section</td><td>96px top + bottom</td><td>64px top + bottom</td><td><code>py-24 sm:py-32</code></td></tr>
+            <tr><td>Footer</td><td>64px top + bottom</td><td>48px top + bottom</td><td><code>py-16</code></td></tr>
+            <tr><td>Max content width</td><td colspan="3">1280px · <code>max-w-content mx-auto px-6 lg:px-8</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         MOTION
+    ════════════════════════════════════════════ -->
+    <div class="page-section" id="motion">
+      <div class="section-eyebrow">Foundation</div>
+      <h2 class="section-title">Motion &amp; Animation</h2>
+      <p class="section-desc">Motion communicates — it doesn't decorate. Every animation should help the user understand where they are or what just changed. Inspired by instrument.com's section-to-section flow.</p>
+
+      <div class="grid-2 observe">
+        <div>
+          <div class="label-sm">Duration Scale</div>
+          <table class="spec-table mt-md" style="background:white; border:1px solid var(--border); border-radius:var(--r-xl); overflow:hidden">
+            <thead><tr><th>Name</th><th>Duration</th><th>Use</th></tr></thead>
+            <tbody>
+              <tr><td>micro</td><td>50–100ms</td><td>Hover states, button presses</td></tr>
+              <tr><td>short</td><td>150–250ms</td><td>Tab transitions, tooltips</td></tr>
+              <tr><td>medium</td><td>250–400ms</td><td>Panel reveals, menu open</td></tr>
+              <tr><td>long</td><td>400–600ms</td><td>Page entrance, hero elements</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <div class="label-sm">Easing Curves</div>
+          <table class="spec-table mt-md" style="background:white; border:1px solid var(--border); border-radius:var(--r-xl); overflow:hidden">
+            <thead><tr><th>Context</th><th>Curve</th></tr></thead>
+            <tbody>
+              <tr><td>Enter</td><td><code>[0.21, 0.47, 0.32, 0.98]</code> — fast start, soft settle</td></tr>
+              <tr><td>Exit</td><td><code>ease-in</code> — accelerate out</td></tr>
+              <tr><td>Move</td><td><code>ease-in-out</code> — symmetric</td></tr>
+              <tr><td>Hover</td><td><code>ease</code> · 150ms</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="mt-lg observe">
+        <div class="label-sm">Live Motion Demos</div>
+        <div class="grid-3 mt-md">
+          <div>
+            <div class="label-sm" style="margin-bottom:8px">Fade up (entrance)</div>
+            <div class="motion-card motion-scale" onclick="this.style.background='var(--wb-light)';setTimeout(()=>this.style.background='',600)">
+              <div style="font-size:13px; color:var(--muted)">Hover to scale · Click to pulse</div>
+              <div style="font-family:'Instrument Serif',serif; font-size:22px; margin-top:6px">Section reveal</div>
+            </div>
+          </div>
+          <div>
+            <div class="label-sm" style="margin-bottom:8px">Slide right (list items)</div>
+            <div style="display:flex; flex-direction:column; gap:8px">
+              <div class="motion-card motion-slide" style="padding:14px 20px; font-size:13px">→ How Great Is Our God</div>
+              <div class="motion-card motion-slide" style="padding:14px 20px; font-size:13px; transition-delay:0.04s">→ Goodness of God</div>
+              <div class="motion-card motion-slide" style="padding:14px 20px; font-size:13px; transition-delay:0.08s">→ Way Maker</div>
+            </div>
+          </div>
+          <div>
+            <div class="label-sm" style="margin-bottom:8px">Scale (cards on hover)</div>
+            <div class="card card-hover" style="padding:20px">
+              <div class="label-sm">WorshipBuddy</div>
+              <div style="font-family:'Instrument Serif',serif; font-size:20px; margin:8px 0 4px">Song library</div>
+              <div style="font-size:13px; color:var(--muted)">Hover to lift</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-lg observe">
+        <div class="callout callout-info">
+          <strong>Accessibility rule:</strong> Always wrap motion in <code>@media (prefers-reduced-motion: reduce)</code> overrides. In Framer Motion, use the <code>useReducedMotion()</code> hook to skip animations for users who request it.
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         BUTTONS
+    ════════════════════════════════════════════ -->
+    <div class="page-section" id="buttons" style="background:var(--surface)">
+      <div class="section-eyebrow">Components</div>
+      <h2 class="section-title">Buttons</h2>
+      <p class="section-desc">Flat color only. No gradients. Hover states lift with a subtle shadow. Per-product CTAs use the product color.</p>
+
+      <div class="observe">
+        <div class="label-sm">Primary Actions</div>
+        <div class="gap-md mt-md">
+          <a class="btn btn-primary btn-lg">Get started — free</a>
+          <a class="btn btn-primary">Get started</a>
+          <a class="btn btn-primary btn-sm">Get started</a>
+        </div>
+      </div>
+
+      <div class="mt-lg observe">
+        <div class="label-sm">Per-Product CTAs</div>
+        <div class="gap-md mt-md">
+          <a class="btn btn-wb btn-lg">Get WorshipBuddy</a>
+          <a class="btn btn-cb btn-lg">Get ChurchBuddy</a>
+          <a class="btn btn-pb btn-lg">Get PresenterBuddy</a>
+        </div>
+      </div>
+
+      <div class="mt-lg observe">
+        <div class="label-sm">Secondary / Ghost</div>
+        <div class="gap-md mt-md">
+          <a class="btn btn-ghost btn-lg">Read our story</a>
+          <a class="btn btn-ghost">Learn more</a>
+          <a class="btn btn-ghost btn-sm">View all</a>
+        </div>
+      </div>
+
+      <div class="mt-lg observe">
+        <table class="spec-table" style="background:white; border:1px solid var(--border); border-radius:var(--r-xl); overflow:hidden">
+          <thead><tr><th>Variant</th><th>When to use</th><th>Color</th></tr></thead>
+          <tbody>
+            <tr><td>btn-primary</td><td>Single dominant CTA per section</td><td>Ink #18181B</td></tr>
+            <tr><td>btn-wb</td><td>WorshipBuddy-specific CTA</td><td>#0C245E</td></tr>
+            <tr><td>btn-cb</td><td>ChurchBuddy-specific CTA</td><td>#0B7261</td></tr>
+            <tr><td>btn-pb</td><td>PresenterBuddy-specific CTA</td><td>#1E6B8A</td></tr>
+            <tr><td>btn-ghost</td><td>Secondary actions alongside a primary CTA</td><td>Border + Muted text</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         FORMS
+    ════════════════════════════════════════════ -->
+    <div class="page-section" id="forms">
+      <div class="section-eyebrow">Components</div>
+      <h2 class="section-title">Forms &amp; Inputs</h2>
+      <p class="section-desc">Clean, low-noise form elements. Focus ring uses the WB blue. Errors use mono type for precision.</p>
+
+      <div class="grid-2 observe">
+        <div>
+          <div class="input-group">
+            <label class="input-label">Church name</label>
+            <input class="input" type="text" placeholder="Grace Community Church" />
+            <div class="input-hint">This will appear on your team's shared workspace.</div>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Email address</label>
+            <input class="input input-error" type="email" value="not-an-email" />
+            <div class="error-msg">// invalid email address</div>
+          </div>
+          <div class="input-group">
+            <label class="input-label">Product</label>
+            <select class="input">
+              <option>WorshipBuddy</option>
+              <option>ChurchBuddy</option>
+              <option>PresenterBuddy</option>
+            </select>
+          </div>
+          <a class="btn btn-wb" style="width:100%; margin-top:4px">Submit</a>
+        </div>
+
+        <div>
+          <div class="label-sm" style="margin-bottom:12px">States</div>
+          <div style="display:flex; flex-direction:column; gap:12px">
+            <div><div class="label-sm" style="margin-bottom:4px">Default</div><input class="input" placeholder="Placeholder text" /></div>
+            <div><div class="label-sm" style="margin-bottom:4px">Focus (click to see)</div><input class="input" placeholder="Focus me" style="border-color:var(--wb); box-shadow:0 0 0 3px rgba(37,99,235,0.12)" /></div>
+            <div><div class="label-sm" style="margin-bottom:4px">Error</div><input class="input input-error" value="Invalid value" /><div class="error-msg">// required field</div></div>
+            <div><div class="label-sm" style="margin-bottom:4px">Disabled</div><input class="input" value="Disabled input" disabled style="opacity:0.5; cursor:not-allowed" /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         BADGES
+    ════════════════════════════════════════════ -->
+    <div class="page-section" id="badges" style="background:var(--surface)">
+      <div class="section-eyebrow">Components</div>
+      <h2 class="section-title">Badges &amp; Labels</h2>
+      <p class="section-desc">JetBrains Mono throughout. Badges identify products and states — they never decorate.</p>
+
+      <div class="observe">
+        <div class="label-sm">Product Badges</div>
+        <div class="gap-md mt-md">
+          <span class="badge badge-wb"><span class="badge-dot" style="background:var(--wb)"></span>worshipbuddy</span>
+          <span class="badge badge-cb"><span class="badge-dot" style="background:var(--cb)"></span>churchbuddy</span>
+          <span class="badge badge-pb"><span class="badge-dot" style="background:var(--pb)"></span>presenterbuddy</span>
+          <span class="badge badge-neutral">neutral</span>
+        </div>
+      </div>
+
+      <div class="mt-lg observe">
+        <div class="label-sm">Eyebrow Labels (section starters)</div>
+        <div style="display:flex; flex-direction:column; gap:16px; margin-top:12px">
+          <div class="eyebrow">Products</div>
+          <div class="eyebrow" style="color:var(--cb); --wb:var(--cb)">Support the Mission</div>
+          <div class="eyebrow" style="color:var(--pb); --wb:var(--pb)">Who We Are</div>
+        </div>
+      </div>
+
+      <div class="mt-lg observe">
+        <div class="label-sm">Status Badges</div>
+        <div class="gap-md mt-md">
+          <span class="badge" style="background:#F0FDF4; color:#166534"><span class="badge-dot" style="background:#22C55E"></span>Active</span>
+          <span class="badge" style="background:#FFFBEB; color:#92400E"><span class="badge-dot" style="background:#F59E0B"></span>Pending</span>
+          <span class="badge" style="background:#FEF2F2; color:#991B1B"><span class="badge-dot" style="background:#EF4444"></span>Error</span>
+          <span class="badge" style="background:#F4F4F0; color:#71717A"><span class="badge-dot" style="background:#A1A1AA"></span>Inactive</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         CARDS
+    ════════════════════════════════════════════ -->
+    <div class="page-section" id="cards">
+      <div class="section-eyebrow">Components</div>
+      <h2 class="section-title">Cards</h2>
+      <p class="section-desc">White on warm-white background. Subtle shadow. No rounded-full — cards use 16px radius. Hover lifts 3px with deeper shadow.</p>
+
+      <div class="grid-3 observe">
+        <div class="card">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--wb);margin-bottom:20px"></div>
+          <div style="font-weight:600;font-size:17px;margin-bottom:8px">Built for Worship</div>
+          <div style="font-size:15px;color:var(--muted);line-height:1.65">Designed by worship leaders, for worship leaders. We understand the unique rhythms of church music ministry.</div>
+        </div>
+        <div class="card">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--cb);margin-bottom:20px"></div>
+          <div style="font-weight:600;font-size:17px;margin-bottom:8px">Free for Every Church</div>
+          <div style="font-size:15px;color:var(--muted);line-height:1.65">As a 501(c)(3) nonprofit, every church deserves professional-grade tools regardless of size or budget.</div>
+        </div>
+        <div class="card card-hover">
+          <div style="width:8px;height:8px;border-radius:50%;background:var(--pb);margin-bottom:20px"></div>
+          <div style="font-weight:600;font-size:17px;margin-bottom:8px">Community Driven</div>
+          <div style="font-size:15px;color:var(--muted);line-height:1.65">Our platform grows through the feedback of worship teams worldwide. Your input shapes what we build next.</div>
+          <div class="mt-sm" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--pb);text-transform:uppercase;letter-spacing:0.08em">← hover to lift</div>
+        </div>
+      </div>
+
+      <div class="mt-lg observe">
+        <div class="label-sm">Dark Surface Card (mux-style technical callout)</div>
+        <div class="tech-callout mt-md">
+          <div class="tech-callout-icon">⚡</div>
+          <div>
+            <div class="tech-callout-title">501(c)(3) Nonprofit · EIN 93-3532161</div>
+            <div class="tech-callout-body">Every donation is tax-deductible and goes directly toward building and maintaining free tools for churches worldwide. No administrative overhead. No VC alignment pressure.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         ALERTS
+    ════════════════════════════════════════════ -->
+    <div class="page-section" id="alerts" style="background:var(--surface)">
+      <div class="section-eyebrow">Components</div>
+      <h2 class="section-title">Alerts &amp; Callouts</h2>
+
+      <div style="display:flex; flex-direction:column; gap:12px" class="observe">
+        <div class="callout callout-info"><strong>Info:</strong> Your song library has been shared with 3 team members.</div>
+        <div class="callout callout-success"><strong>Success:</strong> Set "Sunday Morning" published and ready for your team.</div>
+        <div class="callout callout-warning"><strong>Warning:</strong> This song hasn't been used in over 6 months.</div>
+        <div class="callout callout-error"><strong>Error:</strong> Could not sync with Planning Center — check your connection.</div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         NAVIGATION
+    ════════════════════════════════════════════ -->
+    <div class="page-section" id="navigation">
+      <div class="section-eyebrow">Components</div>
+      <h2 class="section-title">Navigation</h2>
+
+      <div class="observe">
+        <div class="label-sm">Desktop Nav</div>
+        <div class="nav-demo mt-md">
+          <div class="nav-logo">
+            <div class="nav-logo-mark">♪</div>
+            <span class="nav-wordmark">WorshipBuddy</span>
+          </div>
+          <div class="nav-links">
+            <a class="nav-link wb">worshipbuddy</a>
+            <a class="nav-link" style="color:var(--cb-dark)">churchbuddy</a>
+            <a class="nav-link" style="color:var(--pb)">presenterbuddy</a>
+            <div class="nav-sep"></div>
+            <a class="nav-link-regular">About</a>
+            <a class="nav-link-regular">Changelog</a>
+            <a class="nav-link-regular">Guide</a>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center">
+            <a class="nav-link-regular" style="color:var(--muted)">Donate</a>
+            <a class="btn btn-primary btn-sm">Get started — free</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-lg observe">
+        <table class="spec-table" style="background:white; border:1px solid var(--border); border-radius:var(--r-xl); overflow:hidden">
+          <thead><tr><th>Element</th><th>Font</th><th>Color / Behavior</th></tr></thead>
+          <tbody>
+            <tr><td>Logo wordmark</td><td>Satoshi 700 · 15px</td><td>Ink #18181B</td></tr>
+            <tr><td>Product links</td><td>JetBrains Mono 500 · 12px</td><td>Each in product color, lowercase</td></tr>
+            <tr><td>Resource links</td><td>Satoshi 400 · 14px</td><td>Muted → Ink on hover</td></tr>
+            <tr><td>Nav height</td><td colspan="2">60px · sticky · blur on scroll</td></tr>
+            <tr><td>Separator</td><td colspan="2">1px vertical · border color · between product + resource links</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         FOOTER
+    ════════════════════════════════════════════ -->
+    <div class="page-section" id="footer" style="background:var(--surface)">
+      <div class="section-eyebrow">Components</div>
+      <h2 class="section-title">Footer</h2>
+
+      <div class="observe">
+        <div class="footer-demo">
+          <div class="footer-grid">
+            <div>
+              <div style="font-weight:700; font-size:15px; color:white; margin-bottom:8px">WorshipBuddy</div>
+              <div style="font-size:13px; line-height:1.65; margin-bottom:20px">A 501(c)(3) nonprofit building free tools for worship teams around the world.</div>
+              <div style="display:flex; gap:8px">
+                <div style="width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;font-size:14px">✉</div>
+                <div style="width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;font-size:14px">📷</div>
+                <div style="width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;font-size:14px">in</div>
+              </div>
+            </div>
+            <div>
+              <div class="footer-col-header">Products</div>
+              <div class="footer-product-link"><div class="footer-dot" style="background:var(--wb)"></div><a class="footer-link" style="margin:0">WorshipBuddy</a></div>
+              <div class="footer-product-link"><div class="footer-dot" style="background:var(--cb)"></div><a class="footer-link" style="margin:0">ChurchBuddy</a></div>
+              <div class="footer-product-link"><div class="footer-dot" style="background:var(--pb)"></div><a class="footer-link" style="margin:0">PresenterBuddy</a></div>
+            </div>
+            <div>
+              <div class="footer-col-header">Resources</div>
+              <a class="footer-link">About</a>
+              <a class="footer-link">Feedback</a>
+              <a class="footer-link">Changelog</a>
+              <a class="footer-link">Guide ↗</a>
+              <a class="footer-link">Donate</a>
+            </div>
+            <div>
+              <div class="footer-col-header">Legal</div>
+              <a class="footer-link">Privacy &amp; Security</a>
+              <a class="footer-link">Terms of Service</a>
+              <a class="footer-link">Acceptable Use</a>
+            </div>
+          </div>
+          <div style="margin-top:40px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.06); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(255,255,255,0.2)">© 2026 WorshipBuddy · 501(c)(3) Nonprofit · EIN 93-3532161</span>
+            <div style="display:flex; gap:20px">
+              <a class="footer-link" style="font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(255,255,255,0.2); margin:0">Privacy</a>
+              <a class="footer-link" style="font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(255,255,255,0.2); margin:0">Terms</a>
+              <a class="footer-link" style="font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(255,255,255,0.2); margin:0">Acceptable Use</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         HERO PATTERN
+    ════════════════════════════════════════════ -->
+    <div class="page-section" id="hero">
+      <div class="section-eyebrow">Patterns</div>
+      <h2 class="section-title">Hero Pattern</h2>
+      <p class="section-desc">Instrument Serif headline with a blue italic accent. JetBrains Mono eyebrow. Trust badges in mono below CTAs. App mockup grounds the abstraction.</p>
+
+      <div class="hero-demo observe">
+        <div class="hero-eyebrow">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--wb);display:inline-block"></span>
+          Free tools for every church
+        </div>
+        <div class="hero-h1">Everything your worship <em>team needs</em></div>
+        <div class="hero-sub">Song management, scheduling, and presentation software — built by worship leaders, free forever.</div>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg">Explore our tools</a>
+          <a class="btn btn-ghost btn-lg">Read our story</a>
+        </div>
+        <div class="hero-trust">
+          <div class="hero-trust-item"><div class="hero-trust-check">✓</div>No Ads</div>
+          <div class="hero-trust-item"><div class="hero-trust-check">✓</div>No In-App Purchases</div>
+          <div class="hero-trust-item"><div class="hero-trust-check">✓</div>501(c)(3) Nonprofit</div>
+          <div class="hero-trust-item"><div class="hero-trust-check">✓</div>Free Forever</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         PRODUCT TABS
+    ════════════════════════════════════════════ -->
+    <div class="page-section" id="tabs" style="background:var(--surface)">
+      <div class="section-eyebrow">Patterns</div>
+      <h2 class="section-title">Product Tabs</h2>
+      <p class="section-desc">Product name in JetBrains Mono, subtitle in Satoshi. Active tab shows product color border + tinted background.</p>
+
+      <div class="observe" style="background:white; border:1px solid var(--border); border-radius:var(--r-xl); overflow:hidden">
+        <div class="tabs">
+          <div class="tab active-wb">
+            <span>worshipbuddy</span>
+            <span class="tab-sub">Your church's music library</span>
+          </div>
+          <div class="tab">
+            <span style="color:var(--cb-dark)">churchbuddy</span>
+            <span class="tab-sub">Scheduling that actually works</span>
+          </div>
+          <div class="tab">
+            <span style="color:var(--pb)">presenterbuddy</span>
+            <span class="tab-sub">Present with confidence</span>
+          </div>
+        </div>
+        <div class="tab-panel" style="padding:32px 40px">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center">
+            <div>
+              <div class="eyebrow" style="margin-bottom:16px">Product</div>
+              <div style="font-family:'Instrument Serif',serif; font-size:clamp(24px,3vw,38px); line-height:1.1; margin-bottom:16px">Your church's music library</div>
+              <div style="font-size:16px; color:var(--muted); line-height:1.7; margin-bottom:24px">Host all your church's music in one place — originals, purchased songs, and multiple language versions.</div>
+              <a class="btn btn-wb">Get WorshipBuddy — free</a>
+            </div>
+            <div style="background:var(--surface); border-radius:var(--r-xl); padding:24px; border:1px solid var(--border)">
+              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); margin-bottom:16px">MY LIBRARY · 247 songs</div>
+              <div style="display:flex; flex-direction:column; gap:4px">
+                <div style="display:flex; align-items:center; gap:12px; padding:10px 12px; background:var(--wb-light); border-radius:8px">
+                  <div style="width:28px;height:28px;border-radius:6px;background:var(--wb);color:white;display:flex;align-items:center;justify-content:center;font-size:12px">♪</div>
+                  <div style="flex:1"><div style="font-size:13px;font-weight:500;color:var(--wb)">How Great Is Our God</div><div style="font-size:11px;color:var(--muted)">Chris Tomlin</div></div>
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:11px;background:var(--wb);color:white;padding:2px 8px;border-radius:4px">G</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; padding:10px 12px; border-radius:8px">
+                  <div style="width:28px;height:28px;border-radius:6px;background:var(--surface);color:var(--muted);display:flex;align-items:center;justify-content:center;font-size:12px">♪</div>
+                  <div style="flex:1"><div style="font-size:13px;font-weight:500">Goodness of God</div><div style="font-size:11px;color:var(--muted)">Bethel Music</div></div>
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:11px;background:var(--surface);color:var(--muted);padding:2px 8px;border-radius:4px;border:1px solid var(--border)">A</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; padding:10px 12px; border-radius:8px">
+                  <div style="width:28px;height:28px;border-radius:6px;background:var(--surface);color:var(--muted);display:flex;align-items:center;justify-content:center;font-size:12px">♪</div>
+                  <div style="flex:1"><div style="font-size:13px;font-weight:500">Way Maker</div><div style="font-size:11px;color:var(--muted)">Sinach</div></div>
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:11px;background:var(--surface);color:var(--muted);padding:2px 8px;border-radius:4px;border:1px solid var(--border)">Bb</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         STATS
+    ════════════════════════════════════════════ -->
+    <div class="page-section" id="stats">
+      <div class="section-eyebrow">Patterns</div>
+      <h2 class="section-title">Stats Block</h2>
+      <p class="section-desc">Dark background. JetBrains Mono for numbers — tabular-nums, large scale. The muted fraction color (`rgba(255,255,255,0.3)`) makes suffix characters feel secondary.</p>
+
+      <div class="observe" style="background:var(--dark); border-radius:var(--r-xl); overflow:hidden">
+        <div class="stat-row">
+          <div class="stat-item">
+            <div class="stat-num">500<span>+</span></div>
+            <div class="stat-label">Churches served</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">3</div>
+            <div class="stat-label">Integrated tools</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">100<span>%</span></div>
+            <div class="stat-label">Free forever</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         SECTION TRANSITIONS
+    ════════════════════════════════════════════ -->
+    <div class="page-section" id="transitions" style="background:var(--surface)">
+      <div class="section-eyebrow">Patterns</div>
+      <h2 class="section-title">Section Transitions</h2>
+      <p class="section-desc">Inspired by instrument.com — sections flow into each other rather than abruptly cutting. Use sequential background rhythm to guide the eye down the page.</p>
+
+      <div class="observe">
+        <div class="label-sm">Background Sequence (homepage)</div>
+        <div class="color-transition-demo mt-md" style="border:1px solid var(--border)">
+          <div class="ct-band ct-light" style="border-bottom:1px solid var(--border)">
+            <div class="ct-label">1. Hero + WhoWeAre</div>
+            <div class="ct-value">Warm White · #FAFAF9</div>
+          </div>
+          <div class="ct-band ct-surface" style="border-bottom:1px solid var(--border)">
+            <div class="ct-label">2. Product Showcase</div>
+            <div class="ct-value" style="color:var(--text)">Surface · #F4F4F0</div>
+          </div>
+          <div class="ct-band ct-dark" style="border-bottom:1px solid rgba(255,255,255,0.06)">
+            <div class="ct-label">3. Stats Counter</div>
+            <div class="ct-value">Dark · #0F172A</div>
+          </div>
+          <div class="ct-band ct-light" style="border-bottom:1px solid var(--border)">
+            <div class="ct-label">4. Support Us</div>
+            <div class="ct-value">Warm White · #FAFAF9</div>
+          </div>
+          <div class="ct-band ct-dark">
+            <div class="ct-label">5. CTA Banner + Footer</div>
+            <div class="ct-value">Dark · #0F172A</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-lg observe">
+        <div class="callout callout-info">
+          <strong>Rhythm rule:</strong> Alternate between light (#FAFAF9 / #F4F4F0) and dark (#0F172A) sections. Never place two dark sections back-to-back unless intentionally grouped (e.g. CTA + Footer). The contrast between surface temperatures creates the page flow instrument.com uses.
+        </div>
+      </div>
+
+      <div class="mt-lg observe">
+        <div class="label-sm">CSS Clip-path Transition (angled handoff)</div>
+        <div class="mt-md" style="border-radius:var(--r-xl); overflow:hidden; border:1px solid var(--border)">
+          <div style="background:#FAFAF9; padding:32px 40px 60px; position:relative; clip-path:polygon(0 0, 100% 0, 100% 85%, 0 100%)">
+            <div class="ct-label">Light section content</div>
+            <div style="font-family:'Instrument Serif',serif; font-size:24px; color:var(--text)">Flows into dark</div>
+          </div>
+          <div style="background:var(--dark); padding:60px 40px 32px; position:relative; margin-top:-40px">
+            <div class="ct-label">Dark section content</div>
+            <div style="font-family:'Instrument Serif',serif; font-size:24px; color:white">Receives from light</div>
+          </div>
+        </div>
+        <div class="mt-sm text-small text-muted">Use <code style="font-family:'JetBrains Mono',monospace; background:var(--surface); padding:2px 6px; border-radius:4px">clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%)</code> on the outgoing section for the angled edge effect.</div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         DO AND DON'T
+    ════════════════════════════════════════════ -->
+    <div class="page-section" id="dodont">
+      <div class="section-eyebrow">Rules</div>
+      <h2 class="section-title">Do &amp; Don't</h2>
+
+      <div style="display:flex; flex-direction:column; gap:20px" class="observe">
+
+        <div class="do-dont">
+          <div class="do-card">
+            <div class="do-label">✓ Do</div>
+            <div class="do-body">Use flat color for all buttons and CTAs. <strong>btn-wb</strong>, <strong>btn-cb</strong>, <strong>btn-pb</strong> are the only colored buttons. Solid fills, full opacity.</div>
+          </div>
+          <div class="dont-card">
+            <div class="dont-label">✕ Don't</div>
+            <div class="dont-body">Use gradient fills on buttons. <code>background: linear-gradient(...)</code> on any interactive element ages badly and conflicts with the flat-color discipline.</div>
+          </div>
+        </div>
+
+        <div class="do-dont">
+          <div class="do-card">
+            <div class="do-label">✓ Do</div>
+            <div class="do-body">Use Instrument Serif for section headings and hero text. The serif + mono contrast IS the visual identity. Even one section headline in serif lands the brand.</div>
+          </div>
+          <div class="dont-card">
+            <div class="dont-label">✕ Don't</div>
+            <div class="dont-body">Use Inter, Poppins, or system-ui as a deliberate choice. These make WB look like every other SaaS tool. The font system is a key differentiator.</div>
+          </div>
+        </div>
+
+        <div class="do-dont">
+          <div class="do-card">
+            <div class="do-label">✓ Do</div>
+            <div class="do-body">Use product colors purposefully — only on that product's own UI, buttons, badges, and active states. Blue = WorshipBuddy. Amber = ChurchBuddy. Violet = PresenterBuddy.</div>
+          </div>
+          <div class="dont-card">
+            <div class="dont-label">✕ Don't</div>
+            <div class="dont-body">Mix product colors freely or use them as generic accent colors. If a section is about all three products, use the neutral ink color, not any one product color.</div>
+          </div>
+        </div>
+
+        <div class="do-dont">
+          <div class="do-card">
+            <div class="do-label">✓ Do</div>
+            <div class="do-body">Use <code>rounded-full</code> only on pills, badges, and the nav CTA button. Cards, sections, inputs, and modals use the tiered radius system (4–16px).</div>
+          </div>
+          <div class="dont-card">
+            <div class="dont-label">✕ Don't</div>
+            <div class="dont-body">Use <code>rounded-full</code> on cards, images, or section backgrounds. Pill-shaped cards look playful and conflict with the precision/software aesthetic.</div>
+          </div>
+        </div>
+
+        <div class="do-dont">
+          <div class="do-card">
+            <div class="do-label">✓ Do</div>
+            <div class="do-body">Alternate section backgrounds: warm white → surface → dark → warm white → dark. This creates the visual rhythm that guides users down the page.</div>
+          </div>
+          <div class="dont-card">
+            <div class="dont-label">✕ Don't</div>
+            <div class="dont-body">Use custom background colors (blue sections, colored hero backgrounds) unless for a specific product page. The neutral palette is the canvas — product colors are the accents.</div>
+          </div>
+        </div>
+
+        <div class="do-dont">
+          <div class="do-card">
+            <div class="do-label">✓ Do</div>
+            <div class="do-body">Use JetBrains Mono for product names in nav, eyebrow labels, version numbers, key stats, and footer column headers. Lowercase product names in mono look intentional.</div>
+          </div>
+          <div class="dont-card">
+            <div class="dont-label">✕ Don't</div>
+            <div class="dont-body">Use JetBrains Mono for body copy, long-form descriptions, or any text over 14px in normal reading contexts. Mono is an accent — it loses its power when overused.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         VOICE & COPY
+    ════════════════════════════════════════════ -->
+    <div class="page-section" id="voice" style="background:var(--surface)">
+      <div class="section-eyebrow">Rules</div>
+      <h2 class="section-title">Voice &amp; Copy</h2>
+      <p class="section-desc">WorshipBuddy sounds like a team that built serious software and genuinely cares about worship ministry. Not pastoral. Not corporate. Not startup-hype.</p>
+
+      <div class="grid-2 observe">
+        <div class="card">
+          <div class="label-sm" style="color:var(--wb)">Tone qualities</div>
+          <ul style="list-style:none; margin-top:12px; display:flex; flex-direction:column; gap:10px">
+            <li style="display:flex; gap:10px; align-items:flex-start"><span style="color:var(--wb); font-weight:700; margin-top:2px">→</span><div><strong>Precise:</strong> Specific numbers, named features, honest limitations. "247 songs" not "thousands."</div></li>
+            <li style="display:flex; gap:10px; align-items:flex-start"><span style="color:var(--wb); font-weight:700; margin-top:2px">→</span><div><strong>Direct:</strong> "Free forever — no credit card, no catch." Not "Start your free journey today."</div></li>
+            <li style="display:flex; gap:10px; align-items:flex-start"><span style="color:var(--wb); font-weight:700; margin-top:2px">→</span><div><strong>Warm:</strong> We are worship leaders too. The mission is genuine — let that show in copy.</div></li>
+            <li style="display:flex; gap:10px; align-items:flex-start"><span style="color:var(--wb); font-weight:700; margin-top:2px">→</span><div><strong>Confident:</strong> Don't hedge. "WorshipBuddy is a 501(c)(3) nonprofit." Not "WorshipBuddy aims to be..."</div></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="do-dont" style="grid-template-columns:1fr; gap:12px">
+            <div class="do-card">
+              <div class="do-label">✓ Write this</div>
+              <div class="do-body">"Everything your worship team needs" · "No ads. No purchases. Just worship." · "Free forever — no credit card, no catch."</div>
+            </div>
+            <div class="dont-card">
+              <div class="dont-label">✕ Not this</div>
+              <div class="dont-body">"Empowering worship communities with innovative solutions" · "Transform your worship experience today!" · "The leading platform for ministry teams"</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-lg observe">
+        <div class="tech-callout">
+          <div class="tech-callout-icon">📖</div>
+          <div>
+            <div class="tech-callout-title">The mission lives in the copy, not the UI chrome</div>
+            <div class="tech-callout-body">WorshipBuddy looks like serious software — that's intentional. The spiritual warmth and nonprofit mission communicate through words, not pastel backgrounds or cross icons. Trust the content. Let the design be clean.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM PADDING -->
+    <div style="height:80px"></div>
+
+  </div><!-- /main -->
+</div><!-- /layout -->
+
+<script>
+  // Scroll-triggered reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.observe').forEach(el => observer.observe(el));
+
+  // Active sidebar link
+  const sections = document.querySelectorAll('.page-section[id]');
+  const links = document.querySelectorAll('.sidebar a');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.sidebar a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => io.observe(s));
+</script>
+</body>
+</html>

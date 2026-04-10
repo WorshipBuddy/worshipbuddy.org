@@ -1,23 +1,21 @@
-import Description from "@/components/Description";
+import SuiteHero from "@/components/home/SuiteHero";
+import ProductSpotlight from "@/components/home/ProductSpotlight";
+import ConnectedSuite from "@/components/home/ConnectedSuite";
+import MissionStatement from "@/components/home/MissionStatement";
+import SupportUs from "@/components/home/SupportUs";
+import FinalCTA from "@/components/home/FinalCTA";
 import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <section className="container mx-auto px-4 py-20">
-        <div className="max-w-4xl mx-auto">
-          <Hero />
-        </div>
-      </section>
-      
-      <section className="container mx-auto px-4 py-20">
-        <div className="max-w-4xl mx-auto">
-          <Description />
-        </div>
-      </section>
-
+    <>
+      <SuiteHero />
+      <ProductSpotlight />
+      <ConnectedSuite />
+      <MissionStatement />
+      <SupportUs />
+      <FinalCTA />
       <Footer />
-    </main>
+    </>
   );
 }

@@ -26,6 +26,7 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary text-center flex items-center justify-center gap-2"
+            onClick={() => window.gtag?.('event', 'download_click', { app_name: 'WorshipBuddy', platform: 'iOS' })}
           >
             <FaApple className="text-xl" />
             Download on iOS
@@ -35,6 +36,7 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary text-center flex items-center justify-center gap-2"
+            onClick={() => window.gtag?.('event', 'download_click', { app_name: 'WorshipBuddy', platform: 'Android' })}
           >
             <FaGooglePlay className="text-xl" />
             Download on Android
