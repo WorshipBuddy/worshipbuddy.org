@@ -264,7 +264,7 @@ export default function PresenterBuddy() {
           <AnimatedSection>
             <h3 className="text-2xl font-bold font-heading text-white mb-4">Need help getting started?</h3>
             <p className="text-[#D0E9F2]/70 mb-6">Check out our comprehensive documentation for setup guides, features, and tips.</p>
-            <a href="https://guide.worshipbuddy.org/PresenterBuddy%20Studio/introduction" target="_blank" rel="noopener noreferrer" className="btn-white inline-flex items-center gap-2">
+            <a href="https://guide.worshipbuddy.org/" target="_blank" rel="noopener noreferrer" className="btn-white inline-flex items-center gap-2">
               <span>View Documentation ↗</span>
             </a>
           </AnimatedSection>
