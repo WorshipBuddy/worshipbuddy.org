@@ -405,16 +405,10 @@ export default function Changelog() {
                         </span>
                       </div>
                       <ul className="list-disc list-inside space-y-1 text-gray-500 ml-4">
-                        <li>Liked songs button</li>
-                        <li>Hide album art option</li>
-                        <li>Split screen support</li>
-                        <li>Quick scroll for song lists</li>
-                        <li>Numeric keyboard for iPads</li>
-                        <li>Push notifications</li>
-                        <li>Worship Together integration</li>
-                        <li>Remove downloaded songs easily</li>
-                        <li>Resend OTP during sign-up</li>
-                        <li>&quot;Shazam&quot;-like song recognition</li>
+                        <li>Key detection and auto transposition</li>
+                        <li>Song recognition</li>
+                        <li>PresenterBuddy + WorshipBuddy live syncing</li>
+                        <li>Support more file types with ChurchBuddy + WorshipBuddy music</li>
                       </ul>
                     </div>
                     {/* PresenterBuddy Features */}
@@ -425,9 +419,14 @@ export default function Changelog() {
                         </span>
                       </div>
                       <ul className="list-disc list-inside space-y-1 text-gray-500 ml-4">
-                        <li>Integration with WorshipBuddy and live sets</li>
-                        <li>Ability to work offline</li>
-                        <li>Public beta release (target: end of year)</li>
+                        
+                      <li>Split View for Bible</li>
+                        <li>Dedicated Split View Font & Sizing Settings</li>
+                        <li>More Bible Versions including AMP Classic </li>
+                        <li>Assignable Toggle buttons for easier stanza selection</li>
+                        <li>Ability to manually add songs to the Queue</li>
+                        <li>Ability to save up to 3 user settings - great when switching from sanctuary to a prayer hall</li>
+                        <li>Live syncing of added set from WorshipBuddy </li>
                       </ul>
                     </div>
                     {/* ChurchBuddy Features */}
@@ -438,8 +437,8 @@ export default function Changelog() {
                         </span>
                       </div>
                       <ul className="list-disc list-inside space-y-1 text-gray-500 ml-4">
-                        <li>Add assigned dates to your calendar and set alerts</li>
-                        <li>Android native app</li>
+                        <li>Add assigned dates to your calendar</li>
+                        <li>Customize Start Page</li>
                         <li>Org templates for popular ministries (music, ushers, PA, etc.)</li>
                       </ul>
                     </div>
