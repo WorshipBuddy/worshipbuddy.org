@@ -199,9 +199,9 @@ export default function PresenterBuddy() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold font-heading text-gray-900 mb-4">
-              Compare <span style={{ color: PB }}>editions</span>
+              Compare <span style={{ color: PB }}>PresenterBuddy editions</span>
             </h2>
-            <p className="text-gray-500 text-lg">Both are free. Choose the one that fits your needs.</p>
+            <p className="text-gray-500 text-lg">Both editions are free. Choose the one that fits your needs.</p>
           </AnimatedSection>
 
           <AnimatedSection>
@@ -211,8 +211,8 @@ export default function PresenterBuddy() {
                   <thead>
                     <tr className="border-b border-gray-100">
                       <th className="text-left text-sm font-semibold text-gray-700 px-6 py-4">Feature</th>
-                      <th className="text-center text-sm font-semibold px-6 py-4 w-32" style={{ color: PB }}>Lite</th>
-                      <th className="text-center text-sm font-semibold px-6 py-4 w-32" style={{ color: PB_DARK }}>Studio</th>
+                      <th className="text-center text-sm font-semibold px-6 py-4 w-44 whitespace-nowrap" style={{ color: PB }}>PresenterBuddy</th>
+                      <th className="text-center text-sm font-semibold px-6 py-4 w-44 whitespace-nowrap" style={{ color: PB_DARK }}>PresenterBuddy Studio</th>
                     </tr>
                   </thead>
                   <tbody>

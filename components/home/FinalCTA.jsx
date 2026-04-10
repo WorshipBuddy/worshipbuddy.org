@@ -11,16 +11,36 @@ export default function FinalCTA() {
           <h2 className="font-heading text-[clamp(30px,5vw,56px)] leading-[1.1] text-white text-balance max-w-2xl mx-auto mb-5">
             Ready to get started?
           </h2>
-          <p className="font-sans text-[17px] mb-10 max-w-lg mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.45)" }}>
-            Free forever. No credit card. No catch.
+          <p className="font-sans text-[17px] mb-10 max-w-xl mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
+            Join hundreds of churches already using WorshipBuddy suite of tools. Free forever — no credit card, no catch.
           </p>
 
-          <Link href="#products" className="btn btn-primary btn-lg">
-            Explore the suite
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/worship-buddy"
+              className="btn btn-lg font-sans font-semibold text-white"
+              style={{ backgroundColor: "#0C245E" }}
+            >
+              Get WorshipBuddy
+            </Link>
+            <Link
+              href="/church-buddy"
+              className="btn btn-lg font-sans font-semibold text-white"
+              style={{ backgroundColor: "#0B7261" }}
+            >
+              Get ChurchBuddy
+            </Link>
+            <Link
+              href="/presenter-buddy"
+              className="btn btn-lg font-sans font-semibold text-white"
+              style={{ backgroundColor: "#1E6B8A" }}
+            >
+              Get PresenterBuddy
+            </Link>
+          </div>
 
           <p className="font-mono text-[11px] mt-8" style={{ color: "rgba(255,255,255,0.25)" }}>
-            501(c)(3) nonprofit · EIN 93-3532161
+            501(c)(3) nonprofit · EIN 93-3532161 · Free forever
           </p>
         </AnimatedSection>
       </div>
