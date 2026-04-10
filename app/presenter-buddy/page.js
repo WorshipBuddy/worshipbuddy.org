@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FaApple, FaLinux, FaCheck, FaTimes, FaDesktop, FaBroadcastTower, FaGamepad, FaMusic, FaFileImport, FaMicrophone, FaBible, FaBullhorn, FaSyncAlt, FaEye } from "react-icons/fa";
 import { FaWindows } from "react-icons/fa6";
+import Image from "next/image";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import Footer from "@/components/Footer";
 import { PresenterLiteDemo, PresenterStudioDemo } from "@/components/demos/PresenterBuddyDemo";
@@ -105,12 +106,23 @@ export default function PresenterBuddy() {
             ))}
           </div>
 
-          {/* Interactive Lite Demo */}
+          {/* Interactive Lite Demo (desktop) / Screenshot (mobile) */}
           <AnimatedSection className="mb-16">
-            <p className="text-center text-sm font-medium text-gray-500 mb-4">
+            <p className="text-center text-sm font-medium text-gray-500 mb-4 hidden lg:block">
               Interactive demo — click songs, browse lyrics, and see real-time projection
             </p>
-            <PresenterLiteDemo />
+            <div className="hidden lg:block">
+              <PresenterLiteDemo />
+            </div>
+            <div className="lg:hidden">
+              <Image
+                src="/images/pb.png"
+                alt="PresenterBuddy screenshot"
+                width={1600}
+                height={1000}
+                className="w-full h-auto rounded-xl border border-gray-200 shadow-lg"
+              />
+            </div>
           </AnimatedSection>
 
           <AnimatedSection className="text-center">
@@ -156,12 +168,23 @@ export default function PresenterBuddy() {
             ))}
           </div>
 
-          {/* Interactive Studio Demo */}
+          {/* Interactive Studio Demo (desktop) / Screenshot (mobile) */}
           <AnimatedSection className="mb-16">
-            <p className="text-center text-sm font-medium text-gray-500 mb-4">
+            <p className="text-center text-sm font-medium text-gray-500 mb-4 hidden lg:block">
               Interactive demo — slide grid, song library, and presentation groups
             </p>
-            <PresenterStudioDemo />
+            <div className="hidden lg:block">
+              <PresenterStudioDemo />
+            </div>
+            <div className="lg:hidden">
+              <Image
+                src="/images/pb-studio.png"
+                alt="PresenterBuddy Studio screenshot"
+                width={1600}
+                height={1000}
+                className="w-full h-auto rounded-xl border border-gray-200 shadow-lg"
+              />
+            </div>
           </AnimatedSection>
 
           <AnimatedSection>
