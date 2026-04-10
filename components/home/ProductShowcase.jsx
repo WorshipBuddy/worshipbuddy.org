@@ -30,7 +30,7 @@ const products = [
     id: "cb",
     slug: "churchbuddy",
     label: "ChurchBuddy",
-    tagline: "Scheduling that actually works",
+    tagline: "Church management, simplified",
     description:
       "Coordinate ministry teams, manage services, assign roles, and keep your entire church organized — without the spreadsheets.",
     color: "#0B7261",

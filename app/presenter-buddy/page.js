@@ -53,23 +53,26 @@ export default function PresenterBuddy() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden pt-20 section-pb">
+      <section className="relative min-h-[80vh] flex items-center overflow-hidden pt-20 section-pb">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(30,107,138,0.25)_0%,_transparent_60%)]" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <AnimatedSection className="text-center max-w-3xl mx-auto">
-            <p className="text-[#D0E9F2] font-semibold text-sm uppercase tracking-wider mb-4">Presentation Software</p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-heading text-white mb-6 leading-tight">
-              Present with <span className="text-[#D0E9F2]">confidence</span>
+              Present with <span className="text-[#D0E9F2]">confidence.</span>
             </h1>
-            <p className="text-lg sm:text-xl text-[#D0E9F2]/70 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-[#D0E9F2]/70 mb-10 max-w-2xl mx-auto">
               From a simple lyrics display to a full production suite — PresenterBuddy has the right tool for every church, no matter the size.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
               <a href="#lite" className="btn-white text-center"><span>PresenterBuddy</span></a>
-              <a href="#studio" className="inline-flex items-center justify-center px-8 py-3 rounded-full font-semibold text-white border-2 border-white/30 hover:bg-white/10 transition-all duration-300 text-center">
-                PresenterBuddy Studio
-              </a>
+              <a href="#studio" className="btn-white text-center"><span>PresenterBuddy Studio</span></a>
+            </div>
+
+            <div className="flex flex-wrap gap-4 justify-center text-sm text-[#D0E9F2]/60">
+              <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-green-400" />No Ads</span>
+              <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-green-400" />No In-App Purchases</span>
+              <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-green-400" />Free Forever</span>
             </div>
           </AnimatedSection>
         </div>
@@ -113,10 +116,10 @@ export default function PresenterBuddy() {
           <AnimatedSection className="text-center">
             <p className="text-sm text-gray-400 mb-4">Available for macOS and Windows</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/lite-latest/PresenterBuddy-Mac-Installer.dmg" target="_blank" rel="noopener noreferrer" className="btn-primary text-center gap-2">
+              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/lite-latest/PresenterBuddy-Mac-Installer.dmg" target="_blank" rel="noopener noreferrer" className="btn-primary text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'PresenterBuddy', version: 'Lite', platform: 'macOS' })}>
                 <FaApple className="text-lg" /><span>Mac</span>
               </a>
-              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/lite-latest/PresenterBuddy-Windows-Setup.exe" target="_blank" rel="noopener noreferrer" className="btn-primary text-center gap-2">
+              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/lite-latest/PresenterBuddy-Windows-Setup.exe" target="_blank" rel="noopener noreferrer" className="btn-primary text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'PresenterBuddy', version: 'Lite', platform: 'Windows' })}>
                 <FaWindows className="text-lg" /><span>Windows</span>
               </a>
             </div>
@@ -177,13 +180,13 @@ export default function PresenterBuddy() {
           <AnimatedSection className="text-center">
             <p className="text-sm text-gray-400 mb-4">Available for macOS and Windows</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/studio-latest/PresenterBuddy-Studio-arm64.dmg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-semibold text-white transition-all duration-150 hover:-translate-y-0.5" style={{ background: PB }}>
+              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/studio-latest/PresenterBuddy-Studio-arm64.dmg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-semibold text-white transition-all duration-150 hover:-translate-y-0.5" style={{ background: PB }} onClick={() => window.gtag?.('event', 'download_click', { app_name: 'PresenterBuddy', version: 'Studio', platform: 'macOS_AppleSilicon' })}>
                 <FaApple className="text-lg" />Apple Silicon Mac
               </a>
-              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/studio-latest/PresenterBuddy-Studio-x64.dmg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-semibold text-white transition-all duration-150 hover:-translate-y-0.5" style={{ background: PB }}>
+              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/studio-latest/PresenterBuddy-Studio-x64.dmg" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-semibold text-white transition-all duration-150 hover:-translate-y-0.5" style={{ background: PB }} onClick={() => window.gtag?.('event', 'download_click', { app_name: 'PresenterBuddy', version: 'Studio', platform: 'macOS_Intel' })}>
                 <FaApple className="text-lg" />Intel Mac
               </a>
-              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/studio-latest/PresenterBuddy-Studio-x64.exe" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-semibold text-white transition-all duration-150 hover:-translate-y-0.5" style={{ background: PB }}>
+              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/studio-latest/PresenterBuddy-Studio-x64.exe" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-semibold text-white transition-all duration-150 hover:-translate-y-0.5" style={{ background: PB }} onClick={() => window.gtag?.('event', 'download_click', { app_name: 'PresenterBuddy', version: 'Studio', platform: 'Windows' })}>
                 <FaWindows className="text-lg" />Windows
               </a>
             </div>

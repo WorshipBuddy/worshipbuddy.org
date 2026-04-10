@@ -5,17 +5,18 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaHeart } from "react-icons/fa";
 
 const products = [
-  { name: "worshipbuddy",   label: "WorshipBuddy",   href: "/worship-buddy",   colorClass: "text-wb" },
   { name: "churchbuddy",    label: "ChurchBuddy",    href: "/church-buddy",    colorClass: "text-cb" },
+  { name: "worshipbuddy",   label: "WorshipBuddy",   href: "/worship-buddy",   colorClass: "text-wb" },
   { name: "presenterbuddy", label: "PresenterBuddy", href: "/presenter-buddy", colorClass: "text-pb" },
 ];
 
 const resources = [
   { name: "About",     href: "/about" },
   { name: "Changelog", href: "/changelog" },
-  { name: "Guide",     href: "https://guide.worshipbuddy.org", external: true },
+  { name: "Guide ↗",  href: "https://guide.worshipbuddy.org", external: true },
   { name: "Feedback",  href: "/feedback" },
 ];
 
@@ -72,7 +73,7 @@ export default function Nav() {
                   : "text-muted hover:text-ink hover:bg-surface-card"
               }`}
             >
-              {p.name}
+              {p.label}
             </Link>
           ))}
 
@@ -99,12 +100,10 @@ export default function Nav() {
         <div className="flex items-center gap-3">
           <Link
             href="/donate"
-            className="hidden sm:inline-flex font-sans text-[13px] text-muted hover:text-ink transition-colors duration-150"
+            className="hidden sm:inline-flex items-center gap-1.5 font-sans text-[13px] font-medium px-4 py-2 rounded-lg border border-border text-muted hover:text-ink hover:border-red-400 transition-colors duration-150"
           >
+            <FaHeart className="text-[11px] text-red-400" />
             Donate
-          </Link>
-          <Link href="/worship-buddy" className="btn btn-primary px-4 py-2 text-[13px]">
-            Get started — free
           </Link>
 
           {/* Hamburger */}
@@ -168,8 +167,9 @@ export default function Nav() {
               ))}
 
               <div className="pt-3 mt-2 border-t border-border">
-                <Link href="/worship-buddy" className="btn btn-primary btn-lg w-full justify-center">
-                  Get started — free
+                <Link href="/donate" className="flex items-center justify-center gap-2 font-sans text-[14px] font-medium px-4 py-3 rounded-lg border border-border text-muted hover:text-ink hover:border-ink transition-colors duration-150 w-full">
+                  <FaHeart className="text-[12px] text-red-400" />
+                  Donate
                 </Link>
               </div>
             </div>

@@ -18,30 +18,35 @@ export default function ChurchBuddy() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden pt-20 section-cb">
+      <section className="relative min-h-[80vh] flex items-center overflow-hidden pt-20 section-cb">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(11,114,97,0.25)_0%,_transparent_60%)]" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
           <AnimatedSection>
-            <p className="text-[#CCE9E4] font-semibold text-sm uppercase tracking-wider mb-4">Church Scheduling</p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-heading text-white mb-6 leading-tight">
-              Scheduling that{" "}
-              <span className="text-[#CCE9E4]">actually works</span>
+              Church management,{" "}
+              <span className="text-[#CCE9E4]">simplified.</span>
             </h1>
-            <p className="text-lg sm:text-xl text-[#CCE9E4]/70 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-[#CCE9E4]/70 mb-10 max-w-2xl mx-auto">
               Coordinate schedules, manage ministries and teams, and ensure smooth
               service transitions. Keep everyone organized and informed.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://church.worshipbuddy.org" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2">
-                <FaDesktop className="text-lg" /><span>Try ChurchBuddy</span>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+              <a href="https://church.worshipbuddy.org/login" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'ChurchBuddy', platform: 'Web' })}>
+                <FaDesktop className="text-lg" /><span>Open Web App</span>
               </a>
-              <a href="https://apps.apple.com/us/app/churchbuddy-app/id6747605543" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold text-white border-2 border-white/30 hover:bg-white/10 transition-all duration-300 text-center">
-                <FaApple className="text-lg" />iOS App
+              <a href="https://apps.apple.com/us/app/churchbuddy-app/id6747605543" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'ChurchBuddy', platform: 'iOS' })}>
+                <FaApple className="text-lg" /><span>Download iOS App</span>
               </a>
-              <a href="https://play.google.com/store/apps/details?id=org.worshipbuddycompany.ScheduleBuddyApp&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold text-white border-2 border-white/30 hover:bg-white/10 transition-all duration-300 text-center">
-                <FaGooglePlay className="text-lg" />Android App
+              <a href="https://play.google.com/store/apps/details?id=org.worshipbuddycompany.ScheduleBuddyApp&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'ChurchBuddy', platform: 'Android' })}>
+                <FaGooglePlay className="text-lg" /><span>Download Android App</span>
               </a>
+            </div>
+
+            <div className="flex flex-wrap gap-4 justify-center text-sm text-[#CCE9E4]/60">
+              <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-green-400" />No Ads</span>
+              <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-green-400" />No In-App Purchases</span>
+              <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-green-400" />Free Forever</span>
             </div>
           </AnimatedSection>
         </div>
@@ -98,7 +103,7 @@ export default function ChurchBuddy() {
               Get started with ChurchBuddy <span className="text-[#CCE9E4]">today</span>
             </h2>
             <p className="text-[#CCE9E4]/70 text-lg mb-8 max-w-2xl mx-auto">Free for every church. Available on the web, iOS, and Android.</p>
-            <a href="https://church.worshipbuddy.org" target="_blank" rel="noopener noreferrer" className="btn-white inline-flex items-center gap-2">
+            <a href="https://church.worshipbuddy.org/login" target="_blank" rel="noopener noreferrer" className="btn-white inline-flex items-center gap-2">
               <span>Launch ChurchBuddy</span>
             </a>
           </AnimatedSection>

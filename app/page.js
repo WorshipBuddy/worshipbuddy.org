@@ -1,20 +1,20 @@
-import BentoHero from "@/components/home/BentoHero";
-import WhoWeAre from "@/components/home/WhoWeAre";
-import ProductShowcase from "@/components/home/ProductShowcase";
-import StatsCounter from "@/components/home/StatsCounter";
+import SuiteHero from "@/components/home/SuiteHero";
+import ProductSpotlight from "@/components/home/ProductSpotlight";
+import ConnectedSuite from "@/components/home/ConnectedSuite";
+import MissionStatement from "@/components/home/MissionStatement";
 import SupportUs from "@/components/home/SupportUs";
-import CTABanner from "@/components/home/CTABanner";
+import FinalCTA from "@/components/home/FinalCTA";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
-      <BentoHero />
-      <WhoWeAre />
-      <ProductShowcase />
-      <StatsCounter />
+      <SuiteHero />
+      <ProductSpotlight />
+      <ConnectedSuite />
+      <MissionStatement />
       <SupportUs />
-      <CTABanner />
+      <FinalCTA />
       <Footer />
     </>
   );

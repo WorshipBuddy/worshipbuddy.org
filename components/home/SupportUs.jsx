@@ -17,7 +17,7 @@ export default function SupportUs() {
               <p className="font-sans text-[17px] text-muted leading-relaxed mb-8 max-w-xl">
                 WorshipBuddy is a 501(c)(3) nonprofit. Every donation is tax-deductible
                 and goes directly toward building and maintaining free tools for
-                churches worldwide.
+                churches worldwide — WorshipBuddy, ChurchBuddy, and PresenterBuddy.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link href="/donate" className="btn btn-primary btn-lg">

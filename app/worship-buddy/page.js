@@ -24,30 +24,29 @@ export default function WorshipBuddyPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden pt-20 section-navy">
+      <section className="relative min-h-[80vh] flex items-center overflow-hidden pt-20 section-navy">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(59,130,246,0.15)_0%,_transparent_60%)]" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
           <AnimatedSection>
-            <p className="text-blue-300 font-semibold text-sm uppercase tracking-wider mb-4">Mobile App</p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-heading text-white mb-6 leading-tight">
               Your church&apos;s music,{" "}
-              <span className="text-blue-300">all in one place</span>
+              <span className="text-blue-300">all in one place.</span>
             </h1>
-            <p className="text-lg sm:text-xl text-blue-100/70 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-blue-100/70 mb-10 max-w-2xl mx-auto">
               WorshipBuddy gives your church a home for all its music — original songs,
               purchased music, and every arrangement your team needs. Manage it all through
               a simple admin portal and put it in every musician&apos;s hands.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <a href="https://apps.apple.com/us/app/worshipbuddy/id1631006446" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+              <a href="https://apps.apple.com/us/app/worshipbuddy/id1631006446" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'WorshipBuddy', platform: 'iOS' })}>
                 <FaApple className="text-xl" />
-                <span>Download on iOS</span>
+                <span>Download iOS App</span>
               </a>
-              <a href="https://play.google.com/store/apps/details?id=com.worshipbuddy.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold text-white border-2 border-white/30 hover:bg-white/10 transition-all duration-300 text-center">
+              <a href="https://play.google.com/store/apps/details?id=com.worshipbuddy.app" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'WorshipBuddy', platform: 'Android' })}>
                 <FaGooglePlay className="text-lg" />
-                Download on Android
+                <span>Download Android App</span>
               </a>
             </div>
 
@@ -138,10 +137,10 @@ export default function WorshipBuddyPage() {
             </h2>
             <p className="text-blue-100/70 text-lg mb-8 max-w-2xl mx-auto">Available on iOS and Android. Free forever, no ads, no in-app purchases.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://apps.apple.com/us/app/worshipbuddy/id1631006446" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2">
+              <a href="https://apps.apple.com/us/app/worshipbuddy/id1631006446" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'WorshipBuddy', platform: 'iOS' })}>
                 <FaApple className="text-xl" /><span>App Store</span>
               </a>
-              <a href="https://play.google.com/store/apps/details?id=com.worshipbuddy.app" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2">
+              <a href="https://play.google.com/store/apps/details?id=com.worshipbuddy.app" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'WorshipBuddy', platform: 'Android' })}>
                 <FaGooglePlay className="text-lg" /><span>Google Play</span>
               </a>
             </div>
