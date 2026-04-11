@@ -8,6 +8,7 @@ import {
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import Footer from "@/components/Footer";
 import WorshipBuddyDemo from "@/components/demos/WorshipBuddyDemo";
+import TiltCard from "@/components/ui/tilt-card";
 
 const features = [
   { icon: FaPlusCircle, title: "Build Your Library", description: "Add your church's own original songs, purchased music, or arrangements your team uses. Your library is uniquely yours." },
@@ -70,9 +71,12 @@ export default function WorshipBuddyPage() {
               Browse songs, tap into lyrics with chords, and transpose to any key — just like the real app.
             </p>
           </AnimatedSection>
-          <AnimatedSection delay={0.2}>
+          <TiltCard fitContent borderRadius="2.5rem">
             <WorshipBuddyDemo />
-          </AnimatedSection>
+          </TiltCard>
+          <p className="text-center text-xs text-[#94a3b8] mt-4">
+            Tap a song to view — transpose with the controls at the bottom
+          </p>
         </div>
       </section>
 

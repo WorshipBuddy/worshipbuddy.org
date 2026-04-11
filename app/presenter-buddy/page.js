@@ -7,6 +7,7 @@ import Image from "next/image";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import Footer from "@/components/Footer";
 import { PresenterLiteDemo, PresenterStudioDemo } from "@/components/demos/PresenterBuddyDemo";
+import TiltCard from "@/components/ui/tilt-card";
 
 const liteFeatures = [
   { icon: FaMusic, title: "Song Lyrics", desc: "Browse and present songs from the WorshipBuddy songbook library" },
@@ -111,9 +112,9 @@ export default function PresenterBuddy() {
             <p className="text-center text-sm font-medium text-gray-500 mb-4 hidden lg:block">
               Interactive demo — click songs, browse lyrics, and see real-time projection
             </p>
-            <div className="hidden lg:block">
+            <TiltCard className="hidden lg:block">
               <PresenterLiteDemo />
-            </div>
+            </TiltCard>
             <div className="lg:hidden">
               <Image
                 src="/images/pb.png"
@@ -173,9 +174,9 @@ export default function PresenterBuddy() {
             <p className="text-center text-sm font-medium text-gray-500 mb-4 hidden lg:block">
               Interactive demo — slide grid, song library, and presentation groups
             </p>
-            <div className="hidden lg:block">
+            <TiltCard className="hidden lg:block">
               <PresenterStudioDemo />
-            </div>
+            </TiltCard>
             <div className="lg:hidden">
               <Image
                 src="/images/pb-studio.png"

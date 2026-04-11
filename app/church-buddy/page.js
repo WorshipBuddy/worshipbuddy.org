@@ -4,6 +4,7 @@ import { FaApple, FaGooglePlay, FaDesktop, FaUsers, FaCalendarAlt, FaClipboardCh
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import Footer from "@/components/Footer";
 import ChurchBuddyDemo from "@/components/demos/ChurchBuddyDemo";
+import TiltCard from "@/components/ui/tilt-card";
 
 const features = [
   { icon: FaUsers, title: "Ministry Management", desc: "Organize multiple ministries — Musicians, Ushers, PA, and more — all in one place." },
@@ -63,9 +64,12 @@ export default function ChurchBuddy() {
               This is what your team sees — a real calendar with services, assignments, and confirmations.
             </p>
           </AnimatedSection>
-          <AnimatedSection delay={0.2}>
+          <TiltCard fitContent borderRadius="2.5rem">
             <ChurchBuddyDemo />
-          </AnimatedSection>
+          </TiltCard>
+          <p className="text-center text-xs text-[#94a3b8] mt-4">
+            Tap the tabs to explore — accept assignments, view services, manage people & more
+          </p>
         </div>
       </section>
 
