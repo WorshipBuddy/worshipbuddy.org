@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaMusic,
@@ -79,6 +79,26 @@ function Toggle({ enabled, onChange, activeColor }) {
 export default function DonationCalculator() {
   const [attendees, setAttendees] = useState(100);
   const [songs, setSongs] = useState(50);
+  const prevAtt = useRef(100);
+  const prevSongs = useRef(50);
+  const widenThrottle = useRef(0);
+  const dispatchWiden = useCallback(() => {
+    const now = Date.now();
+    if (now - widenThrottle.current > 800) {
+      widenThrottle.current = now;
+      window.dispatchEvent(new CustomEvent("buddy-eye-widen"));
+    }
+  }, []);
+  const handleAttendees = useCallback((v) => {
+    if (v > prevAtt.current) dispatchWiden();
+    prevAtt.current = v;
+    setAttendees(v);
+  }, [dispatchWiden]);
+  const handleSongs = useCallback((v) => {
+    if (v > prevSongs.current) dispatchWiden();
+    prevSongs.current = v;
+    setSongs(v);
+  }, [dispatchWiden]);
   const [enabled, setEnabled] = useState({
     worshipbuddy: true,
     churchbuddy: true,
@@ -126,7 +146,7 @@ export default function DonationCalculator() {
               min="1"
               max="10000"
               value={attendees}
-              onChange={(e) => setAttendees(Number(e.target.value))}
+              onChange={(e) => handleAttendees(Number(e.target.value))}
               className="flex-1 h-2 bg-gray-200 rounded-full appearance-none cursor-pointer accent-brand"
             />
             <input
@@ -134,7 +154,7 @@ export default function DonationCalculator() {
               min="1"
               max="99999"
               value={attendees}
-              onChange={(e) => setAttendees(Math.max(1, parseInt(e.target.value) || 1))}
+              onChange={(e) => handleAttendees(Math.max(1, parseInt(e.target.value) || 1))}
               className="w-24 px-3 py-2 text-center font-semibold text-gray-900 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand/30 focus:border-brand"
             />
           </div>
@@ -157,7 +177,7 @@ export default function DonationCalculator() {
               min="1"
               max="5000"
               value={songs}
-              onChange={(e) => setSongs(Number(e.target.value))}
+              onChange={(e) => handleSongs(Number(e.target.value))}
               className="flex-1 h-2 bg-gray-200 rounded-full appearance-none cursor-pointer accent-blue-600"
             />
             <input
@@ -165,7 +185,7 @@ export default function DonationCalculator() {
               min="1"
               max="99999"
               value={songs}
-              onChange={(e) => setSongs(Math.max(1, parseInt(e.target.value) || 1))}
+              onChange={(e) => handleSongs(Math.max(1, parseInt(e.target.value) || 1))}
               className="w-24 px-3 py-2 text-center font-semibold text-gray-900 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500"
             />
           </div>

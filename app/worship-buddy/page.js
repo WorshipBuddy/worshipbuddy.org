@@ -40,20 +40,20 @@ export default function WorshipBuddyPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-              <a href="https://apps.apple.com/us/app/worshipbuddy/id6754536842" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'WorshipBuddy', platform: 'iOS' })}>
+              <a href="https://apps.apple.com/us/app/worshipbuddy/id6754536842" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" data-buddy-mood="happy" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'WorshipBuddy', platform: 'iOS' })}>
                 <FaApple className="text-xl" />
                 <span>Download iOS App</span>
               </a>
-              <a href="https://play.google.com/store/apps/details?id=com.Worshipbuddy.Songbook" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'WorshipBuddy', platform: 'Android' })}>
+              <a href="https://play.google.com/store/apps/details?id=com.Worshipbuddy.Songbook" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" data-buddy-mood="happy" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'WorshipBuddy', platform: 'Android' })}>
                 <FaGooglePlay className="text-lg" />
                 <span>Download Android App</span>
               </a>
             </div>
 
             <div className="flex flex-wrap gap-4 justify-center text-sm text-blue-100/60">
-              <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-green-400" />No Ads</span>
-              <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-green-400" />No In-App Purchases</span>
-              <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-green-400" />Free Forever</span>
+              <span className="flex items-center gap-2" data-buddy-mood="startled"><span className="w-2 h-2 rounded-full bg-green-400" />No Ads</span>
+              <span className="flex items-center gap-2" data-buddy-mood="startled"><span className="w-2 h-2 rounded-full bg-green-400" />No In-App Purchases</span>
+              <span className="flex items-center gap-2" data-buddy-mood="startled"><span className="w-2 h-2 rounded-full bg-green-400" />Free Forever</span>
             </div>
           </AnimatedSection>
         </div>
@@ -63,7 +63,7 @@ export default function WorshipBuddyPage() {
       <section className="section-light py-24 sm:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold font-heading text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold font-heading text-gray-900 mb-4" data-buddy-mood="curious">
               See it in <span className="gradient-text">action</span>
             </h2>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto">
@@ -71,7 +71,9 @@ export default function WorshipBuddyPage() {
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
-            <WorshipBuddyDemo />
+            <div data-buddy-target>
+              <WorshipBuddyDemo />
+            </div>
           </AnimatedSection>
         </div>
       </section>
@@ -137,10 +139,10 @@ export default function WorshipBuddyPage() {
             </h2>
             <p className="text-blue-100/70 text-lg mb-8 max-w-2xl mx-auto">Available on iOS and Android. Free forever, no ads, no in-app purchases.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://apps.apple.com/us/app/worshipbuddy/id6754536842" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'WorshipBuddy', platform: 'iOS' })}>
+              <a href="https://apps.apple.com/us/app/worshipbuddy/id6754536842" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" data-buddy-mood="happy" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'WorshipBuddy', platform: 'iOS' })}>
                 <FaApple className="text-xl" /><span>App Store</span>
               </a>
-              <a href="https://play.google.com/store/apps/details?id=com.Worshipbuddy.Songbook" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'WorshipBuddy', platform: 'Android' })}>
+              <a href="https://play.google.com/store/apps/details?id=com.Worshipbuddy.Songbook" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" data-buddy-mood="happy" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'WorshipBuddy', platform: 'Android' })}>
                 <FaGooglePlay className="text-lg" /><span>Google Play</span>
               </a>
             </div>

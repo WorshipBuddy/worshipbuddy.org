@@ -17,23 +17,26 @@ export default function FinalCTA() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/church-buddy"
-              className="btn btn-lg font-sans font-semibold text-white"
-              style={{ backgroundColor: "#0B7261" }}
-            >
-              Get ChurchBuddy
-            </Link>
-            <Link
               href="/worship-buddy"
               className="btn btn-lg font-sans font-semibold text-white"
               style={{ backgroundColor: "#0C245E" }}
+              data-buddy-mood="happy"
             >
               Get WorshipBuddy
+            </Link>
+            <Link
+              href="/church-buddy"
+              className="btn btn-lg font-sans font-semibold text-white"
+              style={{ backgroundColor: "#0B7261" }}
+              data-buddy-mood="happy"
+            >
+              Get ChurchBuddy
             </Link>
             <Link
               href="/presenter-buddy"
               className="btn btn-lg font-sans font-semibold text-white"
               style={{ backgroundColor: "#1E6B8A" }}
+              data-buddy-mood="happy"
             >
               Get PresenterBuddy
             </Link>
