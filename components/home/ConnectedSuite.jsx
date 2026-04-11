@@ -49,11 +49,11 @@ export default function ConnectedSuite() {
 
         {/* Connection flow */}
         <AnimatedSection delay={0.15}>
-          <div className="flex flex-col lg:flex-row items-center gap-0 max-w-4xl mx-auto">
+          <div className="flex flex-col lg:flex-row items-center max-w-4xl mx-auto">
             {nodes.map((node, i) => (
               <div key={node.id} className="contents">
-                {/* Product node */}
-                <div className="flex-1 w-full lg:w-auto">
+                {/* Product node — shrink-0 so connectors can flex-1 between them */}
+                <div className="w-full lg:w-auto shrink-0">
                   <div className="card p-6 text-center">
                     <div
                       className="w-3 h-3 rounded-sm mx-auto mb-3"
@@ -73,19 +73,26 @@ export default function ConnectedSuite() {
 
                 {/* Connector */}
                 {i < nodes.length - 1 && (
-                  <div className="flex flex-col lg:flex-row items-center py-3 lg:py-0 lg:px-3 shrink-0">
-                    {/* Vertical line (mobile) */}
-                    <div className="w-px h-6 bg-border lg:hidden" />
-                    {/* Horizontal line (desktop) */}
-                    <div className="hidden lg:block w-8 h-px bg-border" />
-                    <span className="font-mono text-[10px] text-muted px-2 whitespace-nowrap">
-                      {connections[i]}
-                    </span>
-                    <div className="w-px h-6 bg-border lg:hidden" />
-                    <div className="hidden lg:block w-8 h-px bg-border" />
-                    {/* Arrow */}
-                    <span className="text-border text-[12px] rotate-90 lg:rotate-0">→</span>
-                  </div>
+                  <>
+                    {/* Mobile: fixed-height container with continuous vertical line */}
+                    <div className="relative w-full lg:hidden" style={{ height: "64px" }}>
+                      <div className="absolute top-0 bottom-0 left-1/2 w-px bg-border -translate-x-px" />
+                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-1">
+                        <span className="font-mono text-[10px] text-muted bg-surface px-2 whitespace-nowrap z-10">
+                          {connections[i]}
+                        </span>
+                        </div>
+                    </div>
+
+                    {/* Desktop: flex-1 so lines fill all space between cards */}
+                    <div className="hidden lg:flex flex-1 items-center">
+                      <div className="flex-1 h-px bg-border" />
+                      <span className="font-mono text-[10px] text-muted px-2 whitespace-nowrap shrink-0">
+                        {connections[i]}
+                      </span>
+                      <div className="flex-1 h-px bg-border" />
+                    </div>
+                  </>
                 )}
               </div>
             ))}
