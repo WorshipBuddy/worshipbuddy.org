@@ -19,7 +19,7 @@ const teamSections = [
     members: [
       { name: "Michael George", role: "Director of Product", image: "/images/mikey.jpeg" },
       { name: "Jibin Modayil", role: "Product Owner", image: "/images/jibin.png" },
-      { name: "Joyce Thomas", role: "Product Ambassador", image: "/images/joyce.png" },
+      { name: "Joyce Thomas", role: "Product Ambassador", image: "/images/joyce.jpeg" },
     ],
   },
   {
