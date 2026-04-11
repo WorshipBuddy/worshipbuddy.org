@@ -80,10 +80,10 @@ export default function SuiteHero() {
           {...fadeUp(0.22)}
           className="flex flex-col sm:flex-row gap-3 justify-center mb-10"
         >
-          <Link href="#products" className="btn btn-primary btn-lg">
+          <Link href="#products" className="btn btn-primary btn-lg" data-buddy-mood="excited">
             Explore the suite
           </Link>
-          <Link href="/about" className="btn btn-ghost btn-lg">
+          <Link href="/about" className="btn btn-ghost btn-lg" data-buddy-mood="curious">
             Read our story
           </Link>
         </motion.div>
@@ -94,7 +94,7 @@ export default function SuiteHero() {
           className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-16"
         >
           {trustBadges.map((badge) => (
-            <span key={badge} className="flex items-center gap-1.5 font-mono text-[11px] text-muted">
+            <span key={badge} className="flex items-center gap-1.5 font-mono text-[11px] text-muted" data-buddy-mood="startled">
               <span className="w-3.5 h-3.5 rounded-full bg-green-500 flex items-center justify-center text-white text-[8px] font-bold">✓</span>
               {badge}
             </span>

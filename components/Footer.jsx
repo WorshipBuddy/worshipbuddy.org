@@ -16,7 +16,7 @@ const resourceLinks = [
   { name: "Feedback",        href: "/feedback" },
   { name: "Changelog",       href: "/changelog" },
   { name: "Guide",           href: "https://guide.worshipbuddy.org", external: true },
-  { name: "Donate",          href: "/donate" },
+  { name: "Donate",          href: "/donate", mood: "love" },
 ];
 
 const legalLinks = [
@@ -116,6 +116,7 @@ export default function Footer() {
                     rel={l.external ? "noopener noreferrer" : undefined}
                     className="font-sans text-[13px] transition-colors duration-150 hover:text-white"
                     style={{ color: "rgba(255,255,255,0.45)" }}
+                    {...(l.mood ? { "data-buddy-mood": l.mood } : {})}
                   >
                     {l.name}
                   </Link>

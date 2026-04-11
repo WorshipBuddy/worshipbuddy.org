@@ -38,7 +38,7 @@ export default function MissionStatement() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 mb-20">
           <AnimatedSection>
             <span className="section-label mb-3 block">Our Mission</span>
-            <h2 className="font-heading text-[clamp(30px,5vw,52px)] leading-[1.1] text-ink text-balance max-w-xl mb-5">
+            <h2 className="font-heading text-[clamp(30px,5vw,52px)] leading-[1.1] text-ink text-balance max-w-xl mb-5" data-buddy-mood="startled">
               No ads. No purchases. Just worship.
             </h2>
             <p className="font-sans text-[17px] text-muted max-w-lg leading-relaxed">

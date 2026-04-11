@@ -32,21 +32,21 @@ export default function ChurchBuddy() {
               service transitions. Keep everyone organized and informed.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-              <a href="https://church.worshipbuddy.org/login" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'ChurchBuddy', platform: 'Web' })}>
+              <a href="https://church.worshipbuddy.org/login" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" data-buddy-mood="happy" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'ChurchBuddy', platform: 'Web' })}>
                 <FaDesktop className="text-lg" /><span>Open Web App</span>
               </a>
-              <a href="https://apps.apple.com/us/app/churchbuddy-app/id6747605543" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'ChurchBuddy', platform: 'iOS' })}>
+              <a href="https://apps.apple.com/us/app/churchbuddy-app/id6747605543" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" data-buddy-mood="happy" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'ChurchBuddy', platform: 'iOS' })}>
                 <FaApple className="text-lg" /><span>Download iOS App</span>
               </a>
-              <a href="https://play.google.com/store/apps/details?id=org.worshipbuddycompany.ScheduleBuddyApp&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'ChurchBuddy', platform: 'Android' })}>
+              <a href="https://play.google.com/store/apps/details?id=org.worshipbuddycompany.ScheduleBuddyApp&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" className="btn-white text-center gap-2" data-buddy-mood="happy" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'ChurchBuddy', platform: 'Android' })}>
                 <FaGooglePlay className="text-lg" /><span>Download Android App</span>
               </a>
             </div>
 
             <div className="flex flex-wrap gap-4 justify-center text-sm text-[#CCE9E4]/60">
-              <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-green-400" />No Ads</span>
-              <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-green-400" />No In-App Purchases</span>
-              <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-green-400" />Free Forever</span>
+              <span className="flex items-center gap-2" data-buddy-mood="startled"><span className="w-2 h-2 rounded-full bg-green-400" />No Ads</span>
+              <span className="flex items-center gap-2" data-buddy-mood="startled"><span className="w-2 h-2 rounded-full bg-green-400" />No In-App Purchases</span>
+              <span className="flex items-center gap-2" data-buddy-mood="startled"><span className="w-2 h-2 rounded-full bg-green-400" />Free Forever</span>
             </div>
           </AnimatedSection>
         </div>
@@ -64,7 +64,9 @@ export default function ChurchBuddy() {
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
-            <ChurchBuddyDemo />
+            <div data-buddy-target>
+              <ChurchBuddyDemo />
+            </div>
           </AnimatedSection>
         </div>
       </section>
