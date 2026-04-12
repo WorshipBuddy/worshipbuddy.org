@@ -21,21 +21,21 @@ export default function FinalCTA() {
               className="btn btn-lg font-sans font-semibold text-white"
               style={{ backgroundColor: "#0B7261" }}
             >
-              Get ChurchBuddy
+              ChurchBuddy
             </Link>
             <Link
               href="/worship-buddy"
               className="btn btn-lg font-sans font-semibold text-white"
               style={{ backgroundColor: "#0C245E" }}
             >
-              Get WorshipBuddy
+              WorshipBuddy
             </Link>
             <Link
               href="/presenter-buddy"
               className="btn btn-lg font-sans font-semibold text-white"
               style={{ backgroundColor: "#1E6B8A" }}
             >
-              Get PresenterBuddy
+              PresenterBuddy
             </Link>
           </div>
 

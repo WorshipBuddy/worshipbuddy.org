@@ -11,38 +11,6 @@ const fadeUp = (delay = 0) => ({
 
 const trustBadges = ["No Ads", "No In-App Purchases", "501(c)(3) Nonprofit", "Free Forever"];
 
-const products = [
-  {
-    id: "cb",
-    name: "ChurchBuddy",
-    tagline: "Church management, simplified",
-    description: "Coordinate ministry teams, manage services, and assign roles — no spreadsheets.",
-    href: "/church-buddy",
-    color: "#0B7261",
-    lightBg: "bg-cb-light",
-    imageLabel: "Team schedule view",
-  },
-  {
-    id: "wb",
-    name: "WorshipBuddy",
-    tagline: "Your church's music library",
-    description: "Full lyrics, chords, transposition, and worship sets for your whole team.",
-    href: "/worship-buddy",
-    color: "#0C245E",
-    lightBg: "bg-wb-light",
-    imageLabel: "Song library browser",
-  },
-  {
-    id: "pb",
-    name: "PresenterBuddy",
-    tagline: "Present with confidence",
-    description: "Professional worship presentation — from simple lyrics to full NDI production.",
-    href: "/presenter-buddy",
-    color: "#1E6B8A",
-    lightBg: "bg-pb-light",
-    imageLabel: "Live lyrics display",
-  },
-];
 
 export default function SuiteHero() {
   return (
@@ -80,11 +48,11 @@ export default function SuiteHero() {
           {...fadeUp(0.22)}
           className="flex flex-col sm:flex-row gap-3 justify-center mb-10"
         >
-          <Link href="#products" className="btn btn-primary btn-lg">
-            Explore the suite
-          </Link>
-          <Link href="/about" className="btn btn-ghost btn-lg">
+          <Link href="/about" className="btn btn-primary btn-lg">
             Read our story
+          </Link>
+          <Link href="/donate" className="btn btn-ghost btn-lg">
+            Support our mission
           </Link>
         </motion.div>
 
@@ -101,50 +69,7 @@ export default function SuiteHero() {
           ))}
         </motion.div>
 
-        {/* Product cards — 3-column grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 36 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.35, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="grid md:grid-cols-3 gap-5 pb-24 text-left"
-        >
-          {products.map((product) => (
-            <Link
-              key={product.id}
-              href={product.href}
-              className="card border-l-4 p-0 overflow-hidden hover:shadow-card-hover transition-shadow duration-200 group"
-              style={{ borderLeftColor: product.color }}
-            >
-              {/* Placeholder image */}
-              <div className={`${product.lightBg} aspect-[16/10] flex items-center justify-center border-b border-border`}>
-                <div className="text-center">
-                  <p className="font-mono text-[11px] font-medium uppercase tracking-wider" style={{ color: product.color }}>
-                    {product.name}
-                  </p>
-                  <p className="font-sans text-[13px] text-muted mt-1">
-                    {product.imageLabel}
-                  </p>
-                </div>
-              </div>
-
-              {/* Card body */}
-              <div className="p-5">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="w-2 h-2 rounded-full shrink-0" style={{ background: product.color }} />
-                  <span className="font-mono text-[12px] font-semibold tracking-tight" style={{ color: product.color }}>
-                    {product.name}
-                  </span>
-                </div>
-                <h3 className="font-sans font-semibold text-[17px] text-ink mb-2">
-                  {product.tagline}
-                </h3>
-                <p className="font-sans text-[14px] text-muted leading-relaxed">
-                  {product.description}
-                </p>
-              </div>
-            </Link>
-          ))}
-        </motion.div>
+        <div className="pb-24" />
       </div>
     </section>
   );
