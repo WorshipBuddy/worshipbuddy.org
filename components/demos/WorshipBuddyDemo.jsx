@@ -545,6 +545,9 @@ export default function WorshipBuddyDemo() {
       setScreen("list");
       setSelectedSong(null);
     }
+    if (id === "music") {
+      window.dispatchEvent(new CustomEvent("buddy-headphones"));
+    }
   };
 
   const renderContent = () => {

@@ -20,6 +20,7 @@ export default function FinalCTA() {
               href="/church-buddy"
               className="btn btn-lg font-sans font-semibold text-white"
               style={{ backgroundColor: "#0B7261" }}
+              data-buddy-mood="happy"
             >
               ChurchBuddy
             </Link>
@@ -27,6 +28,7 @@ export default function FinalCTA() {
               href="/worship-buddy"
               className="btn btn-lg font-sans font-semibold text-white"
               style={{ backgroundColor: "#0C245E" }}
+              data-buddy-mood="happy"
             >
               WorshipBuddy
             </Link>
@@ -34,6 +36,7 @@ export default function FinalCTA() {
               href="/presenter-buddy"
               className="btn btn-lg font-sans font-semibold text-white"
               style={{ backgroundColor: "#1E6B8A" }}
+              data-buddy-mood="happy"
             >
               PresenterBuddy
             </Link>

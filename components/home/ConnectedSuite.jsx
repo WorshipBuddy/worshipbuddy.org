@@ -130,7 +130,7 @@ export default function ConnectedSuite() {
   const activeProduct = PRODUCTS.find((p) => p.id === activeId);
 
   return (
-    <section className="bg-surface border-t border-border py-24 sm:py-32">
+    <section id="products" className="bg-surface border-t border-border py-24 sm:py-32">
       <div className="max-w-content mx-auto px-6 lg:px-8">
 
         {/* Heading */}

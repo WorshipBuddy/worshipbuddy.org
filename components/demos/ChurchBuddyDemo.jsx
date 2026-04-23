@@ -223,10 +223,10 @@ function HomeTab() {
               </div>
               <p className="text-[10px] text-[#64748b] mb-2.5">{a.team}</p>
               <div className="flex gap-2">
-                <button onClick={() => handleRespond(a.id)} className="flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded-lg bg-[#10b981] text-white text-[10px] font-semibold hover:bg-[#059669] transition-colors">
+                <button data-buddy-mood="excited" onClick={() => handleRespond(a.id)} className="flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded-lg bg-[#10b981] text-white text-[10px] font-semibold hover:bg-[#059669] transition-colors">
                   <FaCheck className="text-[8px]" /> Accept
                 </button>
-                <button onClick={() => handleRespond(a.id)} className="flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded-lg bg-white border border-[#ef4444]/30 text-[#ef4444] text-[10px] font-semibold hover:bg-[#fee2e2] transition-colors">
+                <button data-buddy-mood="sad" onClick={() => handleRespond(a.id)} className="flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded-lg bg-white border border-[#ef4444]/30 text-[#ef4444] text-[10px] font-semibold hover:bg-[#fee2e2] transition-colors">
                   <FaTimes className="text-[8px]" /> Decline
                 </button>
               </div>
