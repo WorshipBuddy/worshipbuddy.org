@@ -1,5 +1,4 @@
 import Nav from "@/components/Nav";
-import CursorBuddy from "@/components/shared/CursorBuddy";
 import "./globals.css";
 import Script from "next/script";
 
@@ -38,7 +37,6 @@ export default function RootLayout({ children }) {
       </head>
       <body className="font-sans bg-surface text-gray-700 min-h-screen antialiased">
         <Nav />
-        <CursorBuddy />
         <main>
           {children}
         </main>
