@@ -1,3 +1,4 @@
+import HeroSplash from "@/components/home/HeroSplash";
 import SuiteHero from "@/components/home/SuiteHero";
 import ConnectedSuite from "@/components/home/ConnectedSuite";
 import MissionStatement from "@/components/home/MissionStatement";
@@ -8,6 +9,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
+      <HeroSplash />
       <SuiteHero />
       <ConnectedSuite />
       <MissionStatement />

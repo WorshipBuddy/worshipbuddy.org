@@ -20,43 +20,94 @@ const resources = [
   { name: "Feedback",  href: "/feedback" },
 ];
 
+// Linear interpolate between two RGB triplets
+function lerp(a, b, t) { return a + (b - a) * t; }
+function lerpRGB(c1, c2, t) {
+  return [
+    Math.round(lerp(c1[0], c2[0], t)),
+    Math.round(lerp(c1[1], c2[1], t)),
+    Math.round(lerp(c1[2], c2[2], t)),
+  ];
+}
+function rgb([r, g, b]) { return `rgb(${r},${g},${b})`; }
+function rgba([r, g, b], a) { return `rgba(${r},${g},${b},${a})`; }
+
+const WHITE  = [255, 255, 255];
+const INK    = [24,  24,  27 ];  // --text / zinc-900
+const MUTED  = [113, 113, 122];  // --muted / zinc-500
+const BORDER = [228, 228, 231];  // zinc-200
+
 export default function Nav() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [menuOpen, setMenuOpen]  = useState(false);
   const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    if (!isHome) {
+      setProgress(1);
+      return;
+    }
+    const ZONE = 200; // px window over which transition occurs
+    const onScroll = () => {
+      const heroHeight = window.innerHeight;
+      const start = heroHeight - ZONE; // transition ends right at hero boundary
+      setProgress(Math.max(0, Math.min(1, (window.scrollY - start) / ZONE)));
+    };
+    onScroll(); // set correct value on mount
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isHome]);
 
   useEffect(() => { setMenuOpen(false); }, [pathname]);
 
   const isActive = (href) => pathname === href;
 
+  // All visual values derived from progress (0 → 1)
+  const fgInk   = rgb(lerpRGB(WHITE, INK,    progress));
+  const fgMuted  = rgb(lerpRGB(WHITE, MUTED,  progress));
+  const sepColor = rgb(lerpRGB([255, 255, 255], BORDER, progress));
+
+  const headerStyle = {
+    background:         rgba(WHITE, progress * 0.97),
+    borderBottomColor:  rgba(BORDER, progress),
+    backdropFilter:     `blur(${(progress * 12).toFixed(1)}px)`,
+    WebkitBackdropFilter: `blur(${(progress * 12).toFixed(1)}px)`,
+    boxShadow: progress > 0.85
+      ? `0 1px 3px rgba(0,0,0,${((progress - 0.85) / 0.15 * 0.08).toFixed(3)})`
+      : "none",
+  };
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-md border-b border-border shadow-nav"
-          : "bg-white border-b border-transparent"
-      }`}
+      style={headerStyle}
+      className="fixed top-0 left-0 right-0 z-50 border-b"
     >
       <div className="max-w-content mx-auto px-6 lg:px-8 h-[60px] flex items-center justify-between">
 
         {/* ── Logo + wordmark ── */}
         <Link href="/" className="flex items-center gap-2.5 shrink-0">
           <div className="w-7 h-7 relative">
+            {/* Hero logo — cross/waveform mark, fades out as nav transitions */}
             <Image
-              src="/worship-buddy-white-logo.png"
+              src="/wb-hero-logo.png"
               alt="WorshipBuddy"
               width={28}
               height={28}
-              className="object-contain"
+              className="absolute inset-0 object-contain"
+              style={{ opacity: 1 - progress, mixBlendMode: "screen" }}
+            />
+            {/* Normal logo — fades in and goes dark for white nav */}
+            <Image
+              src="/worship-buddy-white-logo.png"
+              alt=""
+              width={28}
+              height={28}
+              className="absolute inset-0 object-contain"
+              style={{ opacity: progress, filter: "brightness(0)" }}
             />
           </div>
-          <span className="font-sans font-bold text-[17px] text-ink tracking-tight">
+          <span style={{ color: fgInk }} className="font-sans font-bold text-[17px] tracking-tight">
             WorshipBuddy
           </span>
         </Link>
@@ -67,17 +118,18 @@ export default function Nav() {
             <Link
               key={p.name}
               href={p.href}
+              style={isActive(p.href) ? undefined : { color: fgMuted }}
               className={`font-mono text-[12px] font-medium px-3 py-1.5 rounded-md transition-colors duration-150 ${
                 isActive(p.href)
                   ? `${p.colorClass} bg-surface-card`
-                  : "text-muted hover:text-ink hover:bg-surface-card"
+                  : "hover:bg-white/10"
               }`}
             >
               {p.label}
             </Link>
           ))}
 
-          <span className="w-px h-4 bg-border mx-1.5" />
+          <span style={{ backgroundColor: sepColor }} className="w-px h-4 mx-1.5" />
 
           {resources.map((r) => (
             <Link
@@ -85,10 +137,9 @@ export default function Nav() {
               href={r.href}
               target={r.external ? "_blank" : undefined}
               rel={r.external ? "noopener noreferrer" : undefined}
+              style={{ color: isActive(r.href) ? fgInk : fgMuted }}
               className={`font-sans text-[13px] px-3 py-1.5 rounded-md transition-colors duration-150 ${
-                isActive(r.href)
-                  ? "text-ink font-semibold bg-surface-card"
-                  : "text-muted hover:text-ink hover:bg-surface-card"
+                isActive(r.href) ? "font-semibold bg-surface-card" : "hover:bg-white/10"
               }`}
             >
               {r.name}
@@ -100,16 +151,20 @@ export default function Nav() {
         <div className="flex items-center gap-3">
           <Link
             href="/donate"
-            className="hidden sm:inline-flex items-center gap-1.5 font-sans text-[13px] font-medium px-4 py-2 rounded-lg border border-border text-muted hover:text-ink hover:border-red-400 transition-colors duration-150"
+            style={{
+              color:       fgMuted,
+              borderColor: rgba(lerpRGB([255, 255, 255], BORDER, progress), Math.max(0.3, progress)),
+            }}
+            className="hidden sm:inline-flex items-center gap-1.5 font-sans text-[13px] font-medium px-4 py-2 rounded-lg border transition-colors duration-150 hover:border-red-400"
           >
             <FaHeart className="text-[11px] text-red-400" />
             Donate
           </Link>
 
-          {/* Hamburger */}
           <button
             onClick={() => setMenuOpen((v) => !v)}
-            className="lg:hidden p-2 -mr-1 text-muted hover:text-ink transition-colors"
+            style={{ color: fgMuted }}
+            className="lg:hidden p-2 -mr-1 transition-colors"
             aria-label="Toggle menu"
           >
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -167,7 +222,10 @@ export default function Nav() {
               ))}
 
               <div className="pt-3 mt-2 border-t border-border">
-                <Link href="/donate" className="flex items-center justify-center gap-2 font-sans text-[14px] font-medium px-4 py-3 rounded-lg border border-border text-muted hover:text-ink hover:border-ink transition-colors duration-150 w-full">
+                <Link
+                  href="/donate"
+                  className="flex items-center justify-center gap-2 font-sans text-[14px] font-medium px-4 py-3 rounded-lg border border-border text-muted hover:text-ink hover:border-ink transition-colors duration-150 w-full"
+                >
                   <FaHeart className="text-[12px] text-red-400" />
                   Donate
                 </Link>

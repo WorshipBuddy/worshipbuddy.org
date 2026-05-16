@@ -30,8 +30,8 @@ export default function SuiteHero() {
           {...fadeUp(0.08)}
           className="font-heading text-[clamp(46px,8vw,88px)] leading-[1.04] tracking-[-0.02em] text-ink text-balance mx-auto max-w-4xl mb-6"
         >
-          Everything your worship{" "}
-          <em className="not-italic text-wb">team needs</em>
+          Introducing the{" "}
+          <em className="not-italic text-wb">WorshipBuddy Suite</em>
         </motion.h1>
 
         {/* Sub */}
