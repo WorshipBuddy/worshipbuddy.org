@@ -18,6 +18,7 @@ const wordVariant = {
     y: 0,
     transition: { duration: REVEAL_DUR, delay: i * STAGGER, ease: [0.21, 0.47, 0.32, 0.98] },
   }),
+  exit: { opacity: 0, y: -18, transition: { duration: 0.38, ease: [0.21, 0.47, 0.32, 0.98] } },
 };
 
 // Used only during cycling transitions (not the initial reveal)
