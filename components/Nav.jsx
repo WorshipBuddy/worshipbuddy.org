@@ -38,10 +38,10 @@ const MUTED  = [113, 113, 122];  // --muted / zinc-500
 const BORDER = [228, 228, 231];  // zinc-200
 
 export default function Nav() {
-  const [progress, setProgress] = useState(0);
-  const [menuOpen, setMenuOpen]  = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const [progress, setProgress] = useState(isHome ? 0 : 1);
+  const [menuOpen, setMenuOpen]  = useState(false);
 
   useEffect(() => {
     if (!isHome) {
@@ -122,7 +122,7 @@ export default function Nav() {
               className={`font-mono text-[12px] font-medium px-3 py-1.5 rounded-md transition-colors duration-150 ${
                 isActive(p.href)
                   ? `${p.colorClass} bg-surface-card`
-                  : "hover:bg-white/10"
+                  : progress > 0.5 ? "hover:bg-zinc-100" : "hover:bg-white/10"
               }`}
             >
               {p.label}
@@ -139,7 +139,7 @@ export default function Nav() {
               rel={r.external ? "noopener noreferrer" : undefined}
               style={{ color: isActive(r.href) ? fgInk : fgMuted }}
               className={`font-sans text-[13px] px-3 py-1.5 rounded-md transition-colors duration-150 ${
-                isActive(r.href) ? "font-semibold bg-surface-card" : "hover:bg-white/10"
+                isActive(r.href) ? "font-semibold bg-surface-card" : progress > 0.5 ? "hover:bg-zinc-100" : "hover:bg-white/10"
               }`}
             >
               {r.name}

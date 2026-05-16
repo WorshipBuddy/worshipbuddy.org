@@ -39,6 +39,7 @@ export default function HeroSplash() {
   useEffect(() => {
     let intervalId;
     const startTimer = setTimeout(() => {
+      setPhraseIndex(1); // skip re-animating PHRASES[0]; cycle starts at "church"
       setCycling(true);
       intervalId = setInterval(() => {
         setPhraseIndex((prev) => (prev + 1) % PHRASES.length);
