@@ -119,8 +119,8 @@ export default function HeroSplash() {
           className="font-heading text-white tracking-[-0.02em]"
           style={{ fontSize: "clamp(28px,4vw,52px)", lineHeight: 1.15 }}
         >
-          needs.
-        </motion.span>
+          needs
+</motion.span>
       </div>
 
       {/* Scroll indicator */}
