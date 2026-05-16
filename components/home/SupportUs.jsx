@@ -20,10 +20,10 @@ export default function SupportUs() {
                 churches worldwide — WorshipBuddy, ChurchBuddy, and PresenterBuddy.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link href="/donate" className="btn btn-primary btn-lg">
+                <Link href="/donate" className="btn btn-primary btn-lg" data-buddy-mood="love">
                   Support our mission
                 </Link>
-                <Link href="/about" className="btn btn-ghost btn-lg">
+                <Link href="/about" className="btn btn-ghost btn-lg" data-buddy-mood="curious">
                   Learn about us
                 </Link>
               </div>

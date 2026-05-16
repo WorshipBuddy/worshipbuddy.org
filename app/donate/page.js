@@ -34,7 +34,7 @@ export default function Donate() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="card p-8 sm:p-10 mb-12">
-              <h2 className="font-heading text-2xl font-bold text-gray-900 mb-4">Why Donate?</h2>
+              <h2 className="font-heading text-2xl font-bold text-gray-900 mb-4" data-buddy-mood="love">Why Donate?</h2>
               <p className="text-gray-500 leading-relaxed">
                 WorshipBuddy is completely free to use. But hosting costs, development,
                 support, and growth require resources. Your support helps us cover server

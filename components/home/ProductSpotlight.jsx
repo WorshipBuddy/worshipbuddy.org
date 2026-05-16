@@ -187,7 +187,7 @@ function ProductSection({ product }) {
                 ))}
               </ul>
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                <Link href={product.href} className={`btn ${product.btnClass} btn-lg`}>
+                <Link href={product.href} className={`btn ${product.btnClass} btn-lg`} data-buddy-mood="curious">
                   Learn more about {product.name}
                 </Link>
                 <span className="font-mono text-[11px] text-muted">

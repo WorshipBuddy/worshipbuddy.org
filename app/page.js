@@ -1,5 +1,4 @@
 import SuiteHero from "@/components/home/SuiteHero";
-import ProductSpotlight from "@/components/home/ProductSpotlight";
 import ConnectedSuite from "@/components/home/ConnectedSuite";
 import MissionStatement from "@/components/home/MissionStatement";
 import SupportUs from "@/components/home/SupportUs";
@@ -10,7 +9,6 @@ export default function Home() {
   return (
     <>
       <SuiteHero />
-      <ProductSpotlight />
       <ConnectedSuite />
       <MissionStatement />
       <SupportUs />

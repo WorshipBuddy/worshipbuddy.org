@@ -129,10 +129,10 @@ export default function PresenterBuddy() {
           <AnimatedSection className="text-center">
             <p className="text-sm text-gray-400 mb-4">Available for macOS and Windows</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/lite-latest/PresenterBuddy-Mac-Installer.dmg" target="_blank" rel="noopener noreferrer" className="btn-primary text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'PresenterBuddy', version: 'Lite', platform: 'macOS' })}>
+              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/lite-latest/PresenterBuddy-Mac-Installer.dmg" target="_blank" rel="noopener noreferrer" className="btn-primary text-center gap-2" data-buddy-mood="happy" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'PresenterBuddy', version: 'Lite', platform: 'macOS' })}>
                 <FaApple className="text-lg" /><span>Mac</span>
               </a>
-              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/lite-latest/PresenterBuddy-Windows-Setup.exe" target="_blank" rel="noopener noreferrer" className="btn-primary text-center gap-2" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'PresenterBuddy', version: 'Lite', platform: 'Windows' })}>
+              <a href="https://github.com/WorshipBuddy/PresenterBuddy-Downloads/releases/download/lite-latest/PresenterBuddy-Windows-Setup.exe" target="_blank" rel="noopener noreferrer" className="btn-primary text-center gap-2" data-buddy-mood="happy" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'PresenterBuddy', version: 'Lite', platform: 'Windows' })}>
                 <FaWindows className="text-lg" /><span>Windows</span>
               </a>
             </div>
