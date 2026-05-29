@@ -954,8 +954,7 @@ export default function ChurchBuddyDemo() {
   };
 
   return (
-    <div className="flex justify-center">
-      <div className="w-[300px] sm:w-[320px]">
+    <div className="w-[300px] sm:w-[320px] mx-auto">
         <div className="rounded-[2.5rem] bg-gradient-to-b from-gray-200 to-gray-300 p-[3px] shadow-xl">
           <div className="rounded-[2.3rem] bg-white overflow-hidden relative">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-gray-200 rounded-b-2xl z-10" />
@@ -1003,10 +1002,6 @@ export default function ChurchBuddyDemo() {
             </div>
           </div>
         </div>
-        <p className="text-center text-xs text-[#94a3b8] mt-4">
-          Tap the tabs to explore — accept assignments, view services, manage people & more
-        </p>
-      </div>
     </div>
   );
 }
