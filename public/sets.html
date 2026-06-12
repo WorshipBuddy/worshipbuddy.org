@@ -13,13 +13,17 @@
       const urlParams = new URLSearchParams(window.location.search);
       const songbookId = urlParams.get('songbookId');
       const setNumber = urlParams.get('setNumber');
-      
+      const shareToken = urlParams.get('t'); // editor share token (edit links)
+
       let appUrl = "worshipbuddy://";
       let storeUrl = "";
 
       // If we have the new format with both parameters
       if (songbookId && setNumber) {
         appUrl += `sets?songbookId=${songbookId}&setNumber=${setNumber}`;
+        if (shareToken) {
+          appUrl += `&t=${encodeURIComponent(shareToken)}`;
+        }
       } 
       // Fallback - no valid parameters
       else {
