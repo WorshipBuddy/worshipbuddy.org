@@ -25,6 +25,13 @@
   to = "/music.html?songbookId=:songbookId&versionId=:versionId&songNumber=:songNumber"
   status = 301
 
+## Edit links carry an editor share token as a third path segment
+## (must come before the token-less rule so it matches first)
+[[redirects]]
+  from = "/set/:songbookId/:setNumber/:token"
+  to = "/sets.html?songbookId=:songbookId&setNumber=:setNumber&t=:token"
+  status = 301
+
 [[redirects]]
   from = "/set/:songbookId/:setNumber"
   to = "/sets.html?songbookId=:songbookId&setNumber=:setNumber"
