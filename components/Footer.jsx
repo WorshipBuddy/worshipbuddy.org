@@ -9,6 +9,7 @@ const productLinks = [
   { name: "ChurchBuddy",    href: "/church-buddy",    dot: "#0B7261" },
   { name: "WorshipBuddy",   href: "/worship-buddy",   dot: "#0C245E" },
   { name: "PresenterBuddy", href: "/presenter-buddy", dot: "#1E6B8A" },
+  { name: "BibleBuddy",     href: "/bible-buddy",     dot: "#A6492E" },
 ];
 
 const resourceLinks = [

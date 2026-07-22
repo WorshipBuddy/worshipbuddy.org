@@ -58,6 +58,11 @@
     color: #fff;
   }
 
+  .section-bb {
+    background: #7A3320;
+    color: #fff;
+  }
+
   /* ── Cards ── */
   .card {
     @apply bg-white rounded-xl border border-border shadow-card;
@@ -117,6 +122,16 @@
     box-shadow: 0 4px 16px rgba(124,58,237,0.32);
   }
 
+  .btn-bb {
+    @apply btn text-white;
+    background: #A6492E;
+  }
+  .btn-bb:hover {
+    background: #7A3320;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(166,73,46,0.32);
+  }
+
   .btn-white {
     @apply btn bg-white text-ink font-semibold;
   }
@@ -145,6 +160,7 @@
   .badge-wb { @apply bg-wb-light text-wb; }
   .badge-cb { @apply bg-cb-light text-cb-dark; }
   .badge-pb { @apply bg-pb-light text-pb; }
+  .badge-bb { @apply bg-bb-light text-bb-dark; }
   .badge-neutral { @apply bg-surface-card text-muted border border-border; }
 
   /* ── Section label (eyebrow) ── */

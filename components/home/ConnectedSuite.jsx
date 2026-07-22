@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedSection from "@/components/shared/AnimatedSection";
-import { FaUsers, FaMusic, FaDesktop, FaArrowRight } from "react-icons/fa";
+import { FaUsers, FaMusic, FaDesktop, FaBookOpen, FaArrowRight } from "react-icons/fa";
 
 const PRODUCTS = [
   {
@@ -55,8 +55,25 @@ const PRODUCTS = [
     color: "#1E6B8A",
     lightColor: "#D0E9F2",
     href: "/presenter-buddy",
-    relatedIds: [1, 2],
+    relatedIds: [1, 2, 4],
     Icon: FaDesktop,
+  },
+  {
+    id: 4,
+    name: "BibleBuddy",
+    role: "Scripture & reading",
+    description:
+      "A beautiful, offline-first Bible reader with reading plans, lifelike audio narration, and live 'Read in Church' sync — so the congregation follows along in their own version.",
+    features: [
+      "Offline Bible + reading plans",
+      "Human-quality audio narration",
+      "Live 'Read in Church' sync",
+    ],
+    color: "#A6492E",
+    lightColor: "#F4E4DC",
+    href: "/bible-buddy",
+    relatedIds: [1, 3],
+    Icon: FaBookOpen,
   },
 ];
 
@@ -141,8 +158,8 @@ export default function ConnectedSuite() {
           </h2>
           <p className="font-sans text-[17px] text-muted max-w-2xl mx-auto leading-relaxed">
             Sign in with ChurchBuddy to set up your org. Build your sets in
-            WorshipBuddy. Present them live with PresenterBuddy. One login,
-            three tools.
+            WorshipBuddy. Present them live with PresenterBuddy. Read the Word
+            with BibleBuddy. One login, four tools.
           </p>
         </AnimatedSection>
 

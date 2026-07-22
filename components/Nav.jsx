@@ -11,6 +11,7 @@ const products = [
   { name: "churchbuddy",    label: "ChurchBuddy",    href: "/church-buddy",    colorClass: "text-cb" },
   { name: "worshipbuddy",   label: "WorshipBuddy",   href: "/worship-buddy",   colorClass: "text-wb" },
   { name: "presenterbuddy", label: "PresenterBuddy", href: "/presenter-buddy", colorClass: "text-pb" },
+  { name: "biblebuddy",     label: "BibleBuddy",     href: "/bible-buddy",     colorClass: "text-bb" },
 ];
 
 const resources = [

@@ -1,4 +1,5 @@
 import Nav from "@/components/Nav";
+import BibleBuddyIntroModal from "@/components/BibleBuddyIntroModal";
 import "./globals.css";
 import Script from "next/script";
 
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
         <main>
           {children}
         </main>
+        <BibleBuddyIntroModal />
       </body>
     </html>
   );
