@@ -19,7 +19,7 @@ const PRODUCTS = [
     icon: FaMusic,
     iconBg: "bg-blue-50 text-blue-600",
     toggleActive: "bg-blue-600",
-    calc: ({ users, songs }) => 25 + songs * 0.1 + users * 0.08,
+    calc: ({ users, songs }) => 25 + songs * 0.12 + users * 0.10,
   },
   {
     id: "churchbuddy",
@@ -28,7 +28,7 @@ const PRODUCTS = [
     icon: FaCalendarAlt,
     iconBg: "bg-purple-50 text-purple-600",
     toggleActive: "bg-purple-600",
-    calc: ({ users }) => 25 + users * 0.3,
+    calc: ({ users }) => 25 + users * 0.34,
   },
   {
     id: "presenterbuddy",
@@ -37,8 +37,7 @@ const PRODUCTS = [
     icon: FaDesktop,
     iconBg: "bg-orange-50 text-orange-600",
     toggleActive: "bg-orange-600",
-    freeLabel: "Free — uses WorshipBuddy data",
-    calc: () => 0,
+    calc: ({ songs }) => 3 + songs * 0.05,
   },
   {
     id: "presenterbuddystudio",
@@ -47,7 +46,7 @@ const PRODUCTS = [
     icon: FaTv,
     iconBg: "bg-amber-50 text-amber-600",
     toggleActive: "bg-amber-600",
-    calc: ({ songs }) => 3 + songs * 0.05,
+    calc: ({ songs }) => 3 + songs * 0.06,
   },
 ];
 

@@ -13,7 +13,7 @@ const BB = "#A6492E";
 const BB_LIGHT = "#F4E4DC";
 
 const features = [
-  { icon: FaWifi, title: "Offline-First Reading", description: "The full Bible in NIV, KJV, ESV, and NLT lives right on your phone — read anywhere, no signal required. Extra versions download in seconds." },
+  { icon: FaWifi, title: "Offline-First Reading", description: "The full Bible in KJV, ASV, NIV, and AMP lives right on your phone — read anywhere, no signal required. Extra versions download in seconds." },
   { icon: FaHeadphones, title: "Lifelike Audio Bible", description: "Listen to Scripture read in a warm, human-quality voice — on-device narration with natural pauses and expression. No robotic ringing, just the Word." },
   { icon: FaListUl, title: "Reading Plans & Streaks", description: "Follow guided plans, track daily progress, and keep your streak alive. Continue, restart, or start over — your place is always saved." },
   { icon: FaSearch, title: "Instant Scripture Search", description: "Full-text search across your Bible plus jump-to-reference — find any verse or phrase in an instant, fully offline." },

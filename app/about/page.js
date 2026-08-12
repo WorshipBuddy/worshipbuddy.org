@@ -17,8 +17,11 @@ const teamSections = [
   {
     label: "Product",
     members: [
-      { name: "Michael George", role: "Director of Product", image: "/images/mikey.jpeg" },
-      { name: "Jibin Modayil", role: "Product Owner", image: "/images/jibin.png" },
+      { name: "Michael George", role: "Director of Product", product: "WorshipBuddy", image: "/images/mikey.jpeg" },
+      { name: "Joel Thomas", role: "Product Owner", product: "ChurchBuddy", image: "/images/jt.png" },
+      { name: "Jibin Modayil", role: "Product Owner", product: "PresenterBuddy & CaptionBuddy", image: "/images/jibin.png" },
+      { name: "Joel Prakash", role: "Product Owner", product: "PresenterBuddy Studio", image: "/images/jp.jpg" },
+      { name: "Joel Mathew", role: "Product Owner", product: "BibleBuddy", image: "/images/jm.jpg" },
       { name: "Joyce Thomas", role: "Product Ambassador", image: "/images/joyce.jpeg" },
     ],
   },
@@ -26,10 +29,8 @@ const teamSections = [
     label: "Engineering",
     members: [
       { name: "Jason John", role: "Director of Engineering", image: "/images/jason.JPEG" },
-      { name: "Joel Thomas", role: "Software Engineer", image: "/images/jt.png" },
       { name: "Ansun Sujoe", role: "Software Engineer", image: "/images/ansun.png" },
-      { name: "Joel Prakash", role: "Frontend Developer", image: "/images/jp.jpg" },
-      { name: "Joel Roy", role: "Software Engineer Intern", image: "/images/jr.jpg" },
+      { name: "Joel Roy", role: "Software Engineer", image: "/images/jr.jpg" },
     ],
   },
 ];
@@ -163,6 +164,8 @@ export default function About() {
                     ? "grid-cols-2 sm:grid-cols-3 max-w-2xl"
                     : section.members.length === 4
                     ? "grid-cols-2 sm:grid-cols-4 max-w-3xl"
+                    : section.members.length === 6
+                    ? "grid-cols-2 sm:grid-cols-3 max-w-3xl"
                     : "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 max-w-4xl"
                 }`}>
                   {section.members.map((member, i) => (
@@ -182,6 +185,11 @@ export default function About() {
                         </div>
                         <h3 className="font-heading text-sm font-semibold text-gray-900 mb-0.5">{member.name}</h3>
                         <p className="text-xs text-brand/70 font-medium">{member.role}</p>
+                        {member.product && (
+                          <p className="mt-1.5 font-mono text-[10px] font-medium uppercase tracking-wide text-gray-500 leading-tight">
+                            {member.product}
+                          </p>
+                        )}
                       </motion.div>
                     </AnimatedSection>
                   ))}
