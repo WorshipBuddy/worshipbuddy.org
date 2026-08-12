@@ -29,6 +29,11 @@ module.exports = {
           light:   '#D0E9F2',
           dark:    '#134F67',
         },
+        bb: {
+          DEFAULT: '#A6492E',
+          light:   '#F4E4DC',
+          dark:    '#7A3320',
+        },
         // Global palette
         surface: {
           DEFAULT: '#FAFAF9',

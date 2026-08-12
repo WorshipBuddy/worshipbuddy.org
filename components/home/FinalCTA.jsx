@@ -40,6 +40,14 @@ export default function FinalCTA() {
             >
               PresenterBuddy
             </Link>
+            <Link
+              href="/bible-buddy"
+              className="btn btn-lg font-sans font-semibold text-white"
+              style={{ backgroundColor: "#A6492E" }}
+              data-buddy-mood="happy"
+            >
+              BibleBuddy
+            </Link>
           </div>
 
           <p className="font-mono text-[11px] mt-8" style={{ color: "rgba(255,255,255,0.25)" }}>
