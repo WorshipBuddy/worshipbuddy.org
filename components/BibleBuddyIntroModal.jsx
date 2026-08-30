@@ -140,7 +140,7 @@ export default function BibleBuddyIntroModal() {
               </div>
 
               <p className="text-center font-mono text-[10px] uppercase tracking-widest text-gray-400 mt-5">
-                Coming soon to iOS &amp; Android
+                Available now on iOS &amp; Android
               </p>
             </div>
           </motion.div>
