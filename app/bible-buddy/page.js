@@ -61,15 +61,15 @@ const integrations = [
 const StoreButtons = () => (
   <div className="flex flex-col items-center gap-3">
     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-      <span className="btn btn-lg gap-2 bg-white/10 text-white border border-white/20 cursor-default select-none">
+      <a href="https://apps.apple.com/us/app/biblebuddy-by-worshipbuddy/id6793217168" target="_blank" rel="noopener noreferrer" className="btn btn-lg gap-2 bg-white/10 text-white border border-white/20 hover:bg-white/20 transition-colors" data-buddy-mood="happy" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'BibleBuddy', platform: 'iOS' })}>
         <FaApple className="text-xl" /><span>App Store</span>
-      </span>
-      <span className="btn btn-lg gap-2 bg-white/10 text-white border border-white/20 cursor-default select-none">
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=org.worshipbuddy.biblebuddy" target="_blank" rel="noopener noreferrer" className="btn btn-lg gap-2 bg-white/10 text-white border border-white/20 hover:bg-white/20 transition-colors" data-buddy-mood="happy" onClick={() => window.gtag?.('event', 'download_click', { app_name: 'BibleBuddy', platform: 'Android' })}>
         <FaGooglePlay className="text-lg" /><span>Google Play</span>
-      </span>
+      </a>
     </div>
     <span className="font-mono text-[11px] uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.65)" }}>
-      Launching soon on iOS &amp; Android
+      Available now on iOS &amp; Android
     </span>
   </div>
 );
@@ -234,7 +234,7 @@ export default function BibleBuddyPage() {
               Bring your church <span style={{ color: BB_LIGHT }}>into the Word together</span>
             </h2>
             <p className="text-lg mb-10 max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.75)" }}>
-              BibleBuddy is coming soon to iOS and Android. Free forever — no ads, no in-app purchases.
+              BibleBuddy is available now on iOS and Android. Free forever — no ads, no in-app purchases.
             </p>
             <StoreButtons />
           </AnimatedSection>
